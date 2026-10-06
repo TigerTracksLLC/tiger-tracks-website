@@ -38,16 +38,18 @@ html {
    h2: 2rem (32px) at 320px -> 4rem (64px) at 1440px
    ---------------------------------------------------------------- */
 
-h1 {
-  font-size: clamp(2.5rem, 1.07rem + 7.14vw, 7rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-}
+@layer base {
+  h1 {
+    font-size: clamp(2.5rem, 1.07rem + 7.14vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
 
-h2 {
-  font-size: clamp(2rem, 1.14rem + 4.29vw, 4rem);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  h2 {
+    font-size: clamp(2rem, 1.14rem + 4.29vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
 }
 
 body {
