@@ -239,19 +239,19 @@ export function DiagnosticForm() {
               onClick={() => (i < step ? goBack(i) : undefined)}
               className={`flex items-center gap-2 text-xs font-medium uppercase tracking-wider transition-all duration-300 ${
                 i < step
-                  ? 'text-[#229FA1] cursor-pointer'
+                  ? 'text-[#7FCAD3] cursor-pointer'
                   : i === step
                   ? 'text-white'
-                  : 'text-[#4A4A5A] cursor-default'
+                  : 'text-[#91A2A9] cursor-default'
               }`}
             >
               <span
                 className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
                   i < step
-                    ? 'bg-[#229FA1]/20 text-[#229FA1] border border-[#229FA1]/40'
+                    ? 'bg-[#7FCAD3]/20 text-[#7FCAD3] border border-[#7FCAD3]/40'
                     : i === step
-                    ? 'bg-[#E8793A] text-white shadow-[0_0_16px_rgba(232,121,58,0.4)]'
-                    : 'bg-white/5 text-[#4A4A5A] border border-white/5'
+                    ? 'bg-[#FE5E16] text-white'
+                    : 'bg-black/[0.14] text-[#91A2A9] border border-white/5'
                 }`}
               >
                 {i < step ? (
@@ -266,7 +266,7 @@ export function DiagnosticForm() {
               {i < stepLabels.length - 1 && (
                 <div
                   className={`w-8 h-px ml-1 transition-colors duration-300 ${
-                    i < step ? 'bg-[#229FA1]/40' : 'bg-white/10'
+                    i < step ? 'bg-[#7FCAD3]/40' : 'bg-white/10'
                   }`}
                 />
               )}
@@ -293,7 +293,7 @@ export function DiagnosticForm() {
               <h3 className="text-2xl font-bold text-center mb-2">
                 What&rsquo;s your primary growth objective?
               </h3>
-              <p className="text-sm text-center mb-8" style={{ color: '#7B7B8E' }}>
+              <p className="text-sm text-center mb-8" style={{ color: '#91A2A9' }}>
                 Select one to get started
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -303,7 +303,7 @@ export function DiagnosticForm() {
                     onClick={() => handleGoalSelect(goal.id)}
                     className={`group relative rounded-xl px-4 py-5 text-left transition-all duration-300 ${
                       selectedGoal === goal.id
-                        ? 'bg-[#229FA1]/15 border-[#229FA1]/50 scale-[0.97]'
+                        ? 'bg-[#7FCAD3]/15 border-[#7FCAD3]/50 scale-[0.97]'
                         : 'hover:bg-white/[0.04] hover:border-white/20 border-white/[0.08]'
                     }`}
                     style={{
@@ -311,11 +311,11 @@ export function DiagnosticForm() {
                       WebkitBackdropFilter: 'blur(12px)',
                       background:
                         selectedGoal === goal.id
-                          ? 'rgba(34, 159, 161, 0.1)'
-                          : 'rgba(27, 33, 38, 0.5)',
+                          ? 'rgba(127, 202, 211, 0.1)'
+                          : 'rgba(5, 46, 63, 0.5)',
                       border: `1px solid ${
                         selectedGoal === goal.id
-                          ? 'rgba(34, 159, 161, 0.4)'
+                          ? 'rgba(127, 202, 211, 0.4)'
                           : 'rgba(255, 255, 255, 0.08)'
                       }`,
                     }}
@@ -323,8 +323,8 @@ export function DiagnosticForm() {
                     <div
                       className={`mb-3 transition-colors duration-300 ${
                         selectedGoal === goal.id
-                          ? 'text-[#229FA1]'
-                          : 'text-[#7B7B8E] group-hover:text-white'
+                          ? 'text-[#7FCAD3]'
+                          : 'text-[#91A2A9] group-hover:text-white'
                       }`}
                     >
                       {goal.icon}
@@ -353,7 +353,7 @@ export function DiagnosticForm() {
               <h3 className="text-2xl font-bold text-center mb-2">
                 What&rsquo;s your monthly media spend?
               </h3>
-              <p className="text-sm text-center mb-8" style={{ color: '#7B7B8E' }}>
+              <p className="text-sm text-center mb-8" style={{ color: '#91A2A9' }}>
                 This helps us scope the diagnostic
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -371,11 +371,11 @@ export function DiagnosticForm() {
                       WebkitBackdropFilter: 'blur(12px)',
                       background:
                         selectedBudget === option.id
-                          ? 'rgba(34, 159, 161, 0.1)'
-                          : 'rgba(27, 33, 38, 0.5)',
+                          ? 'rgba(127, 202, 211, 0.1)'
+                          : 'rgba(5, 46, 63, 0.5)',
                       border: `1px solid ${
                         selectedBudget === option.id
-                          ? 'rgba(34, 159, 161, 0.4)'
+                          ? 'rgba(127, 202, 211, 0.4)'
                           : 'rgba(255, 255, 255, 0.08)'
                       }`,
                     }}
@@ -383,7 +383,7 @@ export function DiagnosticForm() {
                     <span className="block text-lg font-bold text-white mb-1">
                       {option.label}
                     </span>
-                    <span className="block text-xs" style={{ color: '#7B7B8E' }}>
+                    <span className="block text-xs" style={{ color: '#91A2A9' }}>
                       {option.range}
                     </span>
                   </button>
@@ -391,7 +391,7 @@ export function DiagnosticForm() {
               </div>
               <button
                 onClick={() => goBack(0)}
-                className="mx-auto mt-6 flex items-center gap-1.5 text-xs text-[#7B7B8E] hover:text-white transition-colors"
+                className="mx-auto mt-6 flex items-center gap-1.5 text-xs text-[#91A2A9] hover:text-white transition-colors"
               >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -416,7 +416,7 @@ export function DiagnosticForm() {
               <h3 className="text-2xl font-bold text-center mb-2">
                 What channels are you running today?
               </h3>
-              <p className="text-sm text-center mb-8" style={{ color: '#7B7B8E' }}>
+              <p className="text-sm text-center mb-8" style={{ color: '#91A2A9' }}>
                 Select all that apply
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-lg mx-auto">
@@ -431,14 +431,14 @@ export function DiagnosticForm() {
                         backdropFilter: 'blur(12px)',
                         WebkitBackdropFilter: 'blur(12px)',
                         background: isSelected
-                          ? 'rgba(34, 159, 161, 0.1)'
-                          : 'rgba(27, 33, 38, 0.5)',
+                          ? 'rgba(127, 202, 211, 0.1)'
+                          : 'rgba(5, 46, 63, 0.5)',
                         border: `1px solid ${
                           isSelected
-                            ? 'rgba(34, 159, 161, 0.4)'
+                            ? 'rgba(127, 202, 211, 0.4)'
                             : 'rgba(255, 255, 255, 0.08)'
                         }`,
-                        color: isSelected ? '#229FA1' : '#d1d1d8',
+                        color: isSelected ? '#7FCAD3' : '#C5CDCF',
                       }}
                     >
                       {channel.label}
@@ -449,7 +449,7 @@ export function DiagnosticForm() {
               <div className="flex items-center justify-center gap-4 mt-8">
                 <button
                   onClick={() => goBack(1)}
-                  className="flex items-center gap-1.5 text-xs text-[#7B7B8E] hover:text-white transition-colors"
+                  className="flex items-center gap-1.5 text-xs text-[#91A2A9] hover:text-white transition-colors"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -458,10 +458,10 @@ export function DiagnosticForm() {
                 </button>
                 <button
                   onClick={() => goForward(3)}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:brightness-110"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold text-tt-ink transition-all duration-300 hover:brightness-110"
                   style={{
-                    background: 'linear-gradient(135deg, #E8793A, #D4683A)',
-                    boxShadow: '0 0 16px rgba(232, 121, 58, 0.3)',
+                    background: '#FE5E16',
+                    boxShadow: 'none',
                   }}
                 >
                   Continue
@@ -488,7 +488,7 @@ export function DiagnosticForm() {
               <h3 className="text-2xl font-bold text-center mb-2">
                 Almost there. Tell us about you.
               </h3>
-              <p className="text-sm text-center mb-8" style={{ color: '#7B7B8E' }}>
+              <p className="text-sm text-center mb-8" style={{ color: '#91A2A9' }}>
                 We&rsquo;ll reach out within 1 business day
               </p>
 
@@ -498,9 +498,9 @@ export function DiagnosticForm() {
                   animate={{ opacity: 1, y: 0 }}
                   className="rounded-lg p-4 text-sm mb-6"
                   style={{
-                    backgroundColor: 'rgba(239,68,68,0.1)',
-                    border: '1px solid rgba(239,68,68,0.3)',
-                    color: '#fca5a5',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    border: '1px solid rgba(239, 68, 68, 0.3)',
+                    color: '#FE5E16',
                   }}
                 >
                   {errorMsg}
@@ -511,7 +511,7 @@ export function DiagnosticForm() {
                 {/* Honeypot: hidden from users, bots fill it. Keep off-screen
                     and out of the tab order; never required. */}
                 <div aria-hidden="true" className="absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden">
-                  <label htmlFor="company_website">Company website (leave blank)</label>
+                  <label htmlFor="company_website">Fax</label>
                   <input
                     id="company_website"
                     type="text"
@@ -525,9 +525,9 @@ export function DiagnosticForm() {
                 <div className="space-y-1">
                   <label
                     className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: '#9E9E9E' }}
+                    style={{ color: '#A9B6BA' }}
                   >
-                    Full Name <span style={{ color: '#E8793A' }}>*</span>
+                    Full Name <span style={{ color: '#FE5E16' }}>*</span>
                   </label>
                   <input
                     type="text"
@@ -538,14 +538,14 @@ export function DiagnosticForm() {
                     disabled={isPending}
                     className="w-full rounded-lg p-3.5 text-white focus:outline-none transition-all duration-200 disabled:opacity-50"
                     style={{
-                      backgroundColor: 'rgba(10,17,25,0.5)',
-                      border: '1px solid rgba(255,255,255,0.08)',
+                      backgroundColor: 'rgba(5, 46, 63, 0.5)',
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
                     }}
                     onFocus={(e) =>
-                      (e.target.style.borderColor = 'rgba(34,159,161,0.5)')
+                      (e.target.style.borderColor = 'rgba(127, 202, 211, 0.5)')
                     }
                     onBlur={(e) =>
-                      (e.target.style.borderColor = 'rgba(255,255,255,0.08)')
+                      (e.target.style.borderColor = 'rgba(255, 255, 255, 0.08)')
                     }
                     placeholder="Jane Doe"
                     required
@@ -555,9 +555,9 @@ export function DiagnosticForm() {
                 <div className="space-y-1">
                   <label
                     className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: '#9E9E9E' }}
+                    style={{ color: '#A9B6BA' }}
                   >
-                    Work Email <span style={{ color: '#E8793A' }}>*</span>
+                    Work Email <span style={{ color: '#FE5E16' }}>*</span>
                   </label>
                   <input
                     type="email"
@@ -568,14 +568,14 @@ export function DiagnosticForm() {
                     disabled={isPending}
                     className="w-full rounded-lg p-3.5 text-white focus:outline-none transition-all duration-200 disabled:opacity-50"
                     style={{
-                      backgroundColor: 'rgba(10,17,25,0.5)',
-                      border: '1px solid rgba(255,255,255,0.08)',
+                      backgroundColor: 'rgba(5, 46, 63, 0.5)',
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
                     }}
                     onFocus={(e) =>
-                      (e.target.style.borderColor = 'rgba(34,159,161,0.5)')
+                      (e.target.style.borderColor = 'rgba(127, 202, 211, 0.5)')
                     }
                     onBlur={(e) =>
-                      (e.target.style.borderColor = 'rgba(255,255,255,0.08)')
+                      (e.target.style.borderColor = 'rgba(255, 255, 255, 0.08)')
                     }
                     placeholder="jane@company.com"
                     required
@@ -585,7 +585,7 @@ export function DiagnosticForm() {
                 <div className="space-y-1">
                   <label
                     className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: '#9E9E9E' }}
+                    style={{ color: '#A9B6BA' }}
                   >
                     Company URL
                   </label>
@@ -598,14 +598,14 @@ export function DiagnosticForm() {
                     disabled={isPending}
                     className="w-full rounded-lg p-3.5 text-white focus:outline-none transition-all duration-200 disabled:opacity-50"
                     style={{
-                      backgroundColor: 'rgba(10,17,25,0.5)',
-                      border: '1px solid rgba(255,255,255,0.08)',
+                      backgroundColor: 'rgba(5, 46, 63, 0.5)',
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
                     }}
                     onFocus={(e) =>
-                      (e.target.style.borderColor = 'rgba(34,159,161,0.5)')
+                      (e.target.style.borderColor = 'rgba(127, 202, 211, 0.5)')
                     }
                     onBlur={(e) =>
-                      (e.target.style.borderColor = 'rgba(255,255,255,0.08)')
+                      (e.target.style.borderColor = 'rgba(255, 255, 255, 0.08)')
                     }
                     placeholder="https://company.com"
                   />
@@ -617,11 +617,9 @@ export function DiagnosticForm() {
                   disabled={isPending}
                   className="w-full font-bold py-4 rounded-lg transition-all duration-300 mt-2 disabled:cursor-not-allowed relative overflow-hidden group"
                   style={{
-                    backgroundColor: isPending ? '#b85e2a' : '#E8793A',
-                    color: '#fff',
-                    boxShadow: isPending
-                      ? '0 0 10px rgba(232, 121, 58, 0.2)'
-                      : '0 0 20px rgba(232, 121, 58, 0.4), 0 0 60px rgba(232, 121, 58, 0.15)',
+                    backgroundColor: isPending ? '#FE5E16' : '#FE5E16',
+                    color: '#052E3F',
+                    boxShadow: 'none',
                   }}
                 >
                   {/* Animated glow pulse */}
@@ -629,8 +627,7 @@ export function DiagnosticForm() {
                     <span
                       className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       style={{
-                        boxShadow:
-                          '0 0 30px rgba(232, 121, 58, 0.6), 0 0 80px rgba(232, 121, 58, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.1)',
+                        boxShadow: 'none',
                       }}
                     />
                   )}
@@ -644,7 +641,7 @@ export function DiagnosticForm() {
                   type="button"
                   onClick={() => goBack(2)}
                   disabled={isPending}
-                  className="mx-auto flex items-center gap-1.5 text-xs text-[#7B7B8E] hover:text-white transition-colors disabled:opacity-40"
+                  className="mx-auto flex items-center gap-1.5 text-xs text-[#91A2A9] hover:text-white transition-colors disabled:opacity-40"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -672,9 +669,8 @@ export function DiagnosticForm() {
                   transition={{ delay: 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="absolute inset-0 rounded-full"
                   style={{
-                    backgroundColor: 'rgba(34,159,161,0.1)',
-                    boxShadow:
-                      '0 0 40px rgba(34,159,161,0.25), 0 0 80px rgba(34,159,161,0.1)',
+                    backgroundColor: 'rgba(127, 202, 211, 0.1)',
+                    boxShadow: 'none',
                   }}
                 />
                 <motion.svg
@@ -682,7 +678,7 @@ export function DiagnosticForm() {
                   animate={{ pathLength: 1, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
                   className="absolute inset-0 w-full h-full p-6"
-                  style={{ color: '#229FA1' }}
+                  style={{ color: '#7FCAD3' }}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -704,7 +700,7 @@ export function DiagnosticForm() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.4 }}
                 className="text-3xl font-bold mb-3"
-                style={{ color: '#229FA1' }}
+                style={{ color: '#7FCAD3' }}
               >
                 Diagnostic Request Received
               </motion.p>
@@ -713,7 +709,7 @@ export function DiagnosticForm() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.75, duration: 0.4 }}
                 className="text-base max-w-sm mx-auto"
-                style={{ color: '#9E9E9E' }}
+                style={{ color: '#A9B6BA' }}
               >
                 A team member will be in touch within 1 business day to scope
                 your audit and get read-only access set up.
@@ -730,9 +726,9 @@ export function DiagnosticForm() {
                   <span
                     className="text-xs font-medium px-3 py-1.5 rounded-full"
                     style={{
-                      backgroundColor: 'rgba(34,159,161,0.1)',
-                      border: '1px solid rgba(34,159,161,0.25)',
-                      color: '#229FA1',
+                      backgroundColor: 'rgba(127, 202, 211, 0.1)',
+                      border: '1px solid rgba(127, 202, 211, 0.25)',
+                      color: '#7FCAD3',
                     }}
                   >
                     {goals.find((g) => g.id === selectedGoal)?.label}
@@ -742,9 +738,9 @@ export function DiagnosticForm() {
                   <span
                     className="text-xs font-medium px-3 py-1.5 rounded-full"
                     style={{
-                      backgroundColor: 'rgba(232,121,58,0.1)',
-                      border: '1px solid rgba(232,121,58,0.25)',
-                      color: '#E8793A',
+                      backgroundColor: 'transparent',
+                      border: '1px solid rgba(254, 94, 22, 0.25)',
+                      color: '#FE5E16',
                     }}
                   >
                     {budgetOptions.find((b) => b.id === selectedBudget)?.label}

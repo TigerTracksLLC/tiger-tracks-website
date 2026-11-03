@@ -66,7 +66,7 @@ function LiveClock({ city, tz }: { city: string; tz: string }) {
         className="text-lg sm:text-xl font-mono font-light text-tt-gray-300 tabular-nums tracking-wider"
         style={{ fontVariantNumeric: 'tabular-nums' }}
       >
-        {time || ' '}
+        {time || ' '}
       </span>
     </div>
   );
