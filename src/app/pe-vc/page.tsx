@@ -40,14 +40,14 @@ const fadeUp = {
 /* ================================================================== */
 
 const glassCard = {
-  background: 'rgba(255, 255, 255, 0.03)',
+  background: 'rgba(0, 0, 0, 0.14)',
   backdropFilter: 'blur(16px)',
   WebkitBackdropFilter: 'blur(16px)',
   border: '1px solid rgba(255, 255, 255, 0.07)',
 } as const;
 
-const glassCardHoverOrange = 'hover:border-tt-orange/30 hover:shadow-[0_0_24px_rgba(232,121,58,0.06)]';
-const glassCardHoverTeal = 'hover:border-tt-teal/30 hover:shadow-[0_0_24px_rgba(91,164,164,0.06)]';
+const glassCardHoverOrange = 'hover:border-tt-orange/30';
+const glassCardHoverTeal = 'hover:border-tt-teal/30';
 
 /* ================================================================== */
 /*  1. HERO — Cinematic Authority                                      */
@@ -59,10 +59,7 @@ function HeroSection() {
       {/* Deep layered background */}
       <div className="absolute inset-0" style={{
         background: `
-          radial-gradient(ellipse 80% 60% at 50% 40%, rgba(232, 121, 58, 0.04) 0%, transparent 60%),
-          radial-gradient(ellipse 60% 80% at 80% 20%, rgba(91, 164, 164, 0.03) 0%, transparent 50%),
-          radial-gradient(ellipse 100% 100% at 50% 100%, rgba(6, 12, 17, 1) 0%, transparent 60%),
-          #060c11
+          #052E3F
         `,
       }} />
 
@@ -70,8 +67,8 @@ function HeroSection() {
       <div className="pointer-events-none absolute inset-0 z-[1] opacity-[0.035]" aria-hidden="true">
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            linear-gradient(rgba(91, 164, 164, 0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(91, 164, 164, 0.4) 1px, transparent 1px)
+            linear-gradient(rgba(127, 202, 211, 0.4) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(127, 202, 211, 0.4) 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
           animation: 'gridDrift 25s linear infinite',
@@ -80,12 +77,12 @@ function HeroSection() {
 
       {/* Radial glow behind text */}
       <div className="pointer-events-none absolute inset-0 z-[2]" aria-hidden="true" style={{
-        background: 'radial-gradient(ellipse 45% 50% at 35% 50%, rgba(232, 121, 58, 0.06) 0%, transparent 70%)',
+        background: 'transparent',
       }} />
 
       {/* MJ hero image, very faint */}
       <div className="pointer-events-none absolute inset-0 z-[3]" aria-hidden="true" style={{
-        backgroundImage: 'url(/images/pevc-hero.webp)',
+        backgroundImage: 'none' /* brand: no busy photo backgrounds; was url(/images/pevc-hero.webp) */,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         opacity: 0.18,
@@ -101,29 +98,27 @@ function HeroSection() {
       >
         <motion.p
           variants={stagger.item}
-          className="text-xs font-semibold uppercase tracking-[5px] text-tt-teal/80"
+          className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange"
         >
-          For Operating Partners &amp; Managing Directors
+          For PE &amp; VC funds
         </motion.p>
 
         <motion.h1
           variants={stagger.item}
           className="mt-7 text-5xl font-extrabold leading-[1.06] tracking-tight text-white md:text-7xl lg:text-[5.25rem]"
         >
-          Your Portfolio Companies
+          Your portfolio companies
           <br />
-          Are Leaking Revenue.
+          are leaking revenue.
           <br />
-          <span className="bg-gradient-to-r from-tt-orange to-orange-400 bg-clip-text text-transparent">
-            We Find Where, and Fix&nbsp;It.
-          </span>
+          <span className="text-tt-orange">We find where.</span>
         </motion.h1>
 
         <motion.p
           variants={stagger.item}
-          className="mt-7 max-w-2xl text-lg leading-relaxed text-slate-400 md:text-xl"
+          className="mt-7 max-w-2xl text-lg leading-relaxed text-tt-gray-400 md:text-xl"
         >
-          Tiger Tracks is the scalable marketing partner PE and VC funds trust to
+          Tiger Tracks is a scalable marketing partner for PE and VC funds, built to
           drive EBITDA growth across entire portfolios. Strategic Diagnostics, proprietary
           AI, and a team built at Google.
         </motion.p>
@@ -131,13 +126,13 @@ function HeroSection() {
         <motion.div variants={stagger.item} className="mt-10 flex flex-wrap gap-4">
           <Link
             href="/get-started"
-            className="inline-block rounded-full bg-tt-orange px-8 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-tt-orange-dark hover:shadow-[0_0_30px_rgba(232,121,58,0.3)] hover:-translate-y-0.5 active:translate-y-0"
+            className="inline-block rounded-full bg-tt-orange px-8 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-tt-orange-dark hover:-translate-y-0.5 active:translate-y-0"
           >
             Request a Portfolio Audit
           </Link>
           <a
             href="#partner-program"
-            className="inline-block rounded-full border border-white/10 bg-white/[0.03] px-8 py-4 text-base font-semibold text-slate-300 backdrop-blur-sm transition-all duration-200 hover:border-tt-teal/40 hover:text-tt-teal hover:-translate-y-0.5"
+            className="inline-block rounded-full border border-white/10 bg-black/[0.14] px-8 py-4 text-base font-semibold text-tt-gray-300 backdrop-blur-sm transition-all duration-200 hover:border-tt-teal/40 hover:text-tt-teal hover:-translate-y-0.5"
           >
             See the Partner Program
           </a>
@@ -156,14 +151,14 @@ function HeroSection() {
 }
 
 /* ================================================================== */
-/*  TRUST BAR — SOC 2, NDA, View-Only                                  */
+/*  TRUST BAR — Data ownership, NDA, scoped access                     */
 /* ================================================================== */
 
 const trustItems = [
   {
-    label: 'SOC 2 Type II Compliant',
+    label: 'Your Accounts, Your Data',
     icon: (
-      <svg className="h-5 w-5 text-[#D4835A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-5 w-5 text-[#FE5E16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
@@ -171,16 +166,16 @@ const trustItems = [
   {
     label: 'NDA Available on Request',
     icon: (
-      <svg className="h-5 w-5 text-[#D4835A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-5 w-5 text-[#FE5E16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
       </svg>
     ),
   },
   {
-    label: 'View-Only Access Model',
-    sublabel: 'No write access to ad accounts',
+    label: 'Least-Privilege Access',
+    sublabel: 'Access scoped to the engagement',
     icon: (
-      <svg className="h-5 w-5 text-[#D4835A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="h-5 w-5 text-[#FE5E16]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
       </svg>
     ),
@@ -192,7 +187,7 @@ function TrustBar() {
   const isInView = useMotionInViewSafe(ref, { once: true, margin: '-40px' });
 
   return (
-    <section className="relative py-6 px-6" style={{ background: '#070d14' }}>
+    <section className="relative py-6 px-6" style={{ background: '#052E3F' }}>
       <motion.div
         ref={ref}
         initial="hidden"
@@ -203,7 +198,7 @@ function TrustBar() {
         <div
           className="flex flex-col items-center justify-center gap-4 rounded-2xl px-6 py-5 sm:flex-row sm:gap-8"
           style={{
-            background: 'rgba(255, 255, 255, 0.02)',
+            background: 'rgba(0, 0, 0, 0.14)',
             border: '1px solid rgba(255, 255, 255, 0.06)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
@@ -217,9 +212,9 @@ function TrustBar() {
               <div className="flex items-center gap-2.5">
                 {item.icon}
                 <div className="flex flex-col">
-                  <span className="text-sm font-medium text-slate-300">{item.label}</span>
+                  <span className="text-sm font-medium text-tt-gray-300">{item.label}</span>
                   {'sublabel' in item && item.sublabel && (
-                    <span className="text-[11px] text-slate-500">{item.sublabel}</span>
+                    <span className="text-[11px] text-tt-gray-500">{item.sublabel}</span>
                   )}
                 </div>
               </div>
@@ -276,8 +271,7 @@ function HiddenDragSection() {
   return (
     <section className="relative py-28 px-6" style={{
       background: `
-        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(232, 121, 58, 0.03) 0%, transparent 50%),
-        #080e16
+        #052E3F
       `,
     }}>
       <div className="mx-auto max-w-6xl">
@@ -288,11 +282,11 @@ function HiddenDragSection() {
           variants={stagger.container}
           className="text-center"
         >
-          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange/70 mb-4">
+          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange mb-4">
             The Problem
           </motion.p>
           <motion.h2 variants={stagger.item} className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            The Hidden Drag on Portfolio Performance
+            The hidden drag on portfolio performance
           </motion.h2>
         </motion.div>
 
@@ -306,10 +300,16 @@ function HiddenDragSection() {
           >
             20%
           </p>
-          <p className={`mt-3 text-base text-slate-500 transition-all duration-700 delay-200 ${
+          <p className={`mt-3 text-base text-tt-gray-500 transition-all duration-700 delay-200 ${
             statInView ? 'opacity-100' : 'opacity-0'
           }`}>
-            of every PortCo&apos;s digital ad budget is effectively wasted
+            Our thesis: about a fifth of a typical PortCo&apos;s digital ad budget does no work.{' '}
+            <a
+              href="/intelligence/the-20-percent-problem-why-every-pe-portfolio-company-is-wasting-a-fifth-of-its-ad-budget-and-how-to-find-it-in-14-days"
+              className="underline underline-offset-2 text-white"
+            >
+              Read the analysis
+            </a>
           </p>
         </div>
 
@@ -327,11 +327,11 @@ function HiddenDragSection() {
               className={`group rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 ${glassCardHoverOrange}`}
               style={glassCard}
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-tt-orange/10 mb-5 transition-colors duration-300 group-hover:bg-tt-orange/15">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-transparent border border-tt-orange/40 mb-5 transition-colors duration-300 group-hover:bg-tt-orange/15">
                 {point.icon}
               </div>
               <h3 className="text-base font-semibold text-white">{point.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-400">{point.description}</p>
+              <p className="mt-3 text-sm leading-relaxed text-tt-gray-400">{point.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -365,8 +365,8 @@ const offerings = [
       'A structured execution plan deployed immediately post-acquisition to drive measurable EBITDA improvement within the first 100 days. We embed with the PortCo marketing team, restructure campaigns, fix tracking, and build fund-level reporting.',
     deliverables: [
       'Days 1-14: Strategic Diagnostic and quick-win identification',
-      'Days 15-30: Campaign architecture rebuild',
-      'Days 31-100: Optimization, scaling, EBITDA impact quantified',
+      'Days 15-45: Campaign architecture rebuild and quick wins',
+      'Days 46-100: Optimization, scaling, EBITDA impact quantified',
     ],
   },
   {
@@ -390,8 +390,7 @@ function AccelerateSection() {
   return (
     <section className="py-28 px-6" style={{
       background: `
-        radial-gradient(ellipse 50% 50% at 30% 50%, rgba(91, 164, 164, 0.03) 0%, transparent 50%),
-        #060c11
+        #052E3F
       `,
     }}>
       <div ref={containerRef} className="mx-auto max-w-6xl">
@@ -401,11 +400,11 @@ function AccelerateSection() {
           variants={stagger.container}
           className="text-center mb-16"
         >
-          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-teal/70 mb-4">
+          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange mb-4">
             Specialized for M&amp;A
           </motion.p>
           <motion.h2 variants={stagger.item} className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Three Ways We Accelerate Portfolio Growth
+            Three ways we accelerate portfolio growth
           </motion.h2>
         </motion.div>
 
@@ -422,15 +421,15 @@ function AccelerateSection() {
               className={`group rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${glassCardHoverTeal}`}
               style={glassCard}
             >
-              <span className="text-5xl font-extrabold tracking-tighter text-tt-teal/10">{item.number}</span>
+              <span className="text-5xl font-extrabold tracking-tighter text-tt-teal">{item.number}</span>
               <h3 className="mt-3 text-xl font-bold text-white">{item.title}</h3>
-              <p className="mt-1 text-sm font-medium text-tt-teal">{item.tagline}</p>
-              <p className="mt-4 text-sm leading-relaxed text-slate-400">{item.description}</p>
+              <p className="mt-1 text-sm font-medium text-tt-gray-200">{item.tagline}</p>
+              <p className="mt-4 text-sm leading-relaxed text-tt-gray-400">{item.description}</p>
 
               <ul className="mt-5 space-y-2">
                 {item.deliverables.map((d) => (
-                  <li key={d} className="flex items-start gap-2 text-xs text-slate-500">
-                    <svg className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-tt-teal/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <li key={d} className="flex items-start gap-2 text-xs text-tt-gray-500">
+                    <svg className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-tt-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                     {d}
@@ -461,12 +460,12 @@ function CountUpStat({ end, suffix = '', prefix = '', label, sublabel }: {
       className={`group flex flex-col justify-between rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${glassCardHoverTeal}`}
       style={glassCard}
     >
-      <p className="text-5xl font-extrabold tracking-tight text-tt-teal" style={{ fontVariantNumeric: 'tabular-nums' }}>
+      <p className="text-5xl font-extrabold tracking-tight text-tt-gray-200" style={{ fontVariantNumeric: 'tabular-nums' }}>
         {prefix}{Math.round(count)}{suffix}
       </p>
       <div className="mt-4">
         <p className="text-sm font-semibold text-white">{label}</p>
-        <p className="mt-1 text-xs text-slate-500">{sublabel}</p>
+        <p className="mt-1 text-xs text-tt-gray-500">{sublabel}</p>
       </div>
     </div>
   );
@@ -493,7 +492,7 @@ function DonutStat({ percent = 90, label, sublabel }: { percent?: number; label:
         <div
           className="absolute inset-0 rounded-full transition-opacity duration-700"
           style={{
-            boxShadow: '0 0 28px rgba(232, 121, 58, 0.2), 0 0 56px rgba(232, 121, 58, 0.08)',
+            boxShadow: 'none',
             opacity: inView ? 1 : 0,
           }}
         />
@@ -507,13 +506,13 @@ function DonutStat({ percent = 90, label, sublabel }: { percent?: number; label:
           <circle
             cx={size / 2} cy={size / 2} r={radius}
             fill="none"
-            stroke="#E8793A"
+            stroke="#FE5E16"
             strokeWidth={strokeWidth}
             strokeLinecap="round"
             strokeDasharray={circumference}
             strokeDashoffset={inView ? offset : circumference}
             className="transition-all duration-[2000ms] ease-out"
-            style={{ filter: 'drop-shadow(0 0 6px rgba(232, 121, 58, 0.5))' }}
+            style={{ filter: 'none' }}
           />
         </svg>
         <span
@@ -524,48 +523,12 @@ function DonutStat({ percent = 90, label, sublabel }: { percent?: number; label:
         </span>
       </div>
       <p className="mt-5 text-sm font-semibold text-white">{label}</p>
-      <p className="mt-1 text-xs text-center text-slate-500">{sublabel}</p>
+      <p className="mt-1 text-xs text-center text-tt-gray-500">{sublabel}</p>
     </div>
   );
 }
 
-function ByTheNumbersSection() {
-  const containerRef = useRef(null);
-  const isInView = useMotionInViewSafe(containerRef, { once: true, margin: '-60px' });
-
-  return (
-    <section className="py-28 px-6" style={{
-      background: `
-        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(91, 164, 164, 0.03) 0%, transparent 50%),
-        #080e16
-      `,
-    }}>
-      <div ref={containerRef} className="mx-auto max-w-5xl">
-        <motion.div initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={stagger.container} className="text-center mb-14">
-          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-teal/70 mb-4">By The Numbers</motion.p>
-          <motion.h2 variants={stagger.item} className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Fund-Level Impact</motion.h2>
-        </motion.div>
-
-        {/* Strict 3x2 grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <CountUpStat end={12} label="Fund Partners" sublabel="Active PE/VC partnerships" />
-          <CountUpStat end={40} suffix="+" label="Portfolio Companies" sublabel="Across growth stages" />
-          <CountUpStat end={34} suffix="%" label="Avg CAC Reduction" sublabel="In the first 90 days" />
-          <DonutStat percent={90} label="Expansion Rate" sublabel="Clients expand scope within 6 months" />
-          <CountUpStat end={2} suffix="x" label="Avg ROAS Improvement" sublabel="From new client audits" />
-          <CountUpStat end={3} suffix=":1" label="Avg LTV:CAC Ratio" sublabel="Across portfolio companies" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ================================================================== */
-/*  5. PORTFOLIO COMPANY RESULTS — Sparkline stat rows                 */
-/* ================================================================== */
-
-/* Mini SVG sparkline component */
-function Sparkline({ color = '#E8793A', seed = 0 }: { color?: string; seed?: number }) {
+function Sparkline({ color = '#FE5E16', seed = 0 }: { color?: string; seed?: number }) {
   // Deterministic upward-trending line points
   const points = [
     [0, 28 - seed * 2],
@@ -586,21 +549,21 @@ function Sparkline({ color = '#E8793A', seed = 0 }: { color?: string; seed?: num
       {/* Gradient fill under line */}
       <defs>
         <linearGradient id={`spark-fill-${seed}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor={color} stopOpacity="0.15" />
-          <stop offset="100%" stopColor={color} stopOpacity="0" />
+          <stop offset="0%" stopColor={color} stopOpacity="0.1" />
+          <stop offset="100%" stopColor={color} stopOpacity="0.1" />
         </linearGradient>
       </defs>
-      <path d={areaD} fill={`url(#spark-fill-${seed})`} />
+      <path d={areaD} fill={color} fillOpacity={0.1} />
       <path d={pathD} stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
 const portfolioResults = [
-  { client: 'AG1', stat: '+51% customers', secondary: '-5% CAC, -31% Brand Search CAC', color: '#E8793A', seed: 0 },
-  { client: 'Monarch Money', stat: '+368% users', secondary: 'VC-backed fintech', color: '#5BA4A4', seed: 3 },
-  { client: 'Online Labels', stat: '+151% profit', secondary: '+42% revenue in 90 days', color: '#E8793A', seed: 1 },
-  { client: 'Rho Nutrition', stat: '+78% revenue', secondary: 'During partnership', color: '#5BA4A4', seed: 2 },
+  { client: 'AG1', stat: '+51% customers', secondary: '-5% CAC, -31% Brand Search CAC', color: '#FE5E16', seed: 0 },
+  { client: 'Monarch Money', stat: '+368% users', secondary: 'VC-backed fintech', color: '#7FCAD3', seed: 3 },
+  { client: 'Online Labels', stat: '+151% profit', secondary: '+42% revenue in 90 days', color: '#FE5E16', seed: 1 },
+  { client: 'Rho Nutrition', stat: '+78% revenue', secondary: 'During partnership', color: '#7FCAD3', seed: 2 },
 ] as const;
 
 function PortfolioResultsSection() {
@@ -610,14 +573,13 @@ function PortfolioResultsSection() {
   return (
     <section className="py-28 px-6" style={{
       background: `
-        radial-gradient(ellipse 60% 50% at 50% 100%, rgba(232, 121, 58, 0.03) 0%, transparent 50%),
-        #060c11
+        #052E3F
       `,
     }}>
       <div ref={containerRef} className="mx-auto max-w-4xl">
         <motion.div initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={stagger.container} className="text-center mb-14">
-          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange/70 mb-4">Proven Results</motion.p>
-          <motion.h2 variants={stagger.item} className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Portfolio Company Results</motion.h2>
+          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange mb-4">Proven Results</motion.p>
+          <motion.h2 variants={stagger.item} className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Results from growth-stage brands</motion.h2>
         </motion.div>
 
         <motion.div
@@ -634,26 +596,28 @@ function PortfolioResultsSection() {
               style={glassCard}
             >
               {/* Brand name */}
-              <div className="w-36 flex-shrink-0">
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">{r.client}</p>
+              <div className="w-24 sm:w-36 flex-shrink-0">
+                <p className="text-xs font-bold uppercase tracking-wider text-tt-gray-500">{r.client}</p>
               </div>
 
               {/* Primary stat */}
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <p className="text-2xl font-extrabold tracking-tight text-white" style={{ fontVariantNumeric: 'tabular-nums' }}>
                   {r.stat}
                 </p>
-                <p className="mt-0.5 text-xs text-slate-500">{r.secondary}</p>
+                <p className="mt-0.5 text-xs text-tt-gray-500">{r.secondary}</p>
               </div>
 
               {/* Sparkline */}
-              <Sparkline color={r.color} seed={r.seed} />
+              <div className="hidden sm:block">
+                <Sparkline color={r.color} seed={r.seed} />
+              </div>
             </motion.div>
           ))}
         </motion.div>
 
         <div className="mt-8 text-center">
-          <Link href="/results" className="text-sm font-semibold text-tt-teal/70 transition-colors hover:text-tt-teal">
+          <Link href="/results" className="text-sm font-semibold text-tt-orange transition-colors hover:text-tt-orange">
             View all case studies &rarr;
           </Link>
         </div>
@@ -696,8 +660,7 @@ function TimelineSection() {
   return (
     <section className="py-28 px-6" style={{
       background: `
-        radial-gradient(ellipse 50% 40% at 30% 50%, rgba(91, 164, 164, 0.03) 0%, transparent 50%),
-        #080e16
+        #052E3F
       `,
     }}>
       <div className="mx-auto max-w-3xl">
@@ -707,14 +670,14 @@ function TimelineSection() {
           variants={stagger.container}
           className="text-center mb-16"
         >
-          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-teal/70 mb-4">
+          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange mb-4">
             Post-Acquisition Execution
           </motion.p>
           <motion.h2 variants={stagger.item} className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            What Success Looks Like
+            What success looks like
           </motion.h2>
-          <motion.p variants={stagger.item} className="mt-4 text-base text-slate-400">
-            From audit to compounding growth in 90 days
+          <motion.p variants={stagger.item} className="mt-4 text-base text-tt-gray-400">
+            From audit to compounding growth
           </motion.p>
         </motion.div>
 
@@ -728,7 +691,7 @@ function TimelineSection() {
           {/* 1px vertical line */}
           <div
             className="absolute left-[7px] top-4 bottom-4 w-px"
-            style={{ background: 'rgba(148, 163, 184, 0.12)' }}
+            style={{ background: 'rgba(159, 176, 183, 0.12)' }}
           />
 
           <div className="space-y-10">
@@ -737,7 +700,7 @@ function TimelineSection() {
                 {/* Glowing neon orange dot */}
                 <div className="relative z-10 flex-shrink-0 mt-2">
                   <div className="h-[14px] w-[14px] rounded-full bg-tt-orange" style={{
-                    boxShadow: '0 0 8px rgba(232, 121, 58, 0.6), 0 0 20px rgba(232, 121, 58, 0.2)',
+                    boxShadow: 'none',
                   }} />
                 </div>
 
@@ -753,13 +716,13 @@ function TimelineSection() {
                     >
                       {step.period}
                     </span>
-                    <span className="h-px flex-1 bg-gradient-to-r from-white/5 to-transparent" />
+                    <span className="h-px flex-1 bg-black/[0.14]" />
                   </div>
                   <h3 className="text-lg font-bold tracking-tight text-white mb-4">{step.title}</h3>
                   <ul className="space-y-2">
                     {step.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-slate-400">
-                        <svg className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-tt-teal/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <li key={item} className="flex items-start gap-2 text-sm text-tt-gray-400">
+                        <svg className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-tt-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                         {item}
@@ -828,7 +791,7 @@ const partnerBenefits = [
   },
   {
     title: 'Proprietary Technology Access',
-    description: 'Wayfinder AI and Feed Optimization Platform provide fund-level visibility no other agency can offer.',
+    description: 'Wayfinder AI and Feed Optimization Platform provide fund-level visibility across every portfolio company we support.',
     icon: (
       <svg className="h-6 w-6 text-tt-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 14.5M14.25 3.104c.251.023.501.05.75.082M19.8 14.5l-2.116 2.116a4.502 4.502 0 01-6.368 0L9.2 14.5m10.6 0l.4.4a2.25 2.25 0 010 3.182l-3.068 3.068a2.25 2.25 0 01-3.182 0l-.4-.4m0 0l-3.068-3.068a2.25 2.25 0 010-3.182l.4-.4" />
@@ -844,19 +807,18 @@ function PartnerProgramSection() {
   return (
     <section id="partner-program" className="py-28 px-6" style={{
       background: `
-        radial-gradient(ellipse 70% 50% at 70% 30%, rgba(91, 164, 164, 0.03) 0%, transparent 50%),
-        #060c11
+        #052E3F
       `,
     }}>
       <div ref={containerRef} className="mx-auto max-w-6xl">
         <motion.div initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={stagger.container} className="mx-auto max-w-3xl text-center mb-16">
-          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange/70 mb-4">
+          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange mb-4">
             Fund Partner Program
           </motion.p>
           <motion.h2 variants={stagger.item} className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            One Partner for Your Entire Portfolio
+            One partner for your entire portfolio
           </motion.h2>
-          <motion.p variants={stagger.item} className="mt-4 text-base text-slate-400">
+          <motion.p variants={stagger.item} className="mt-4 text-base text-tt-gray-400">
             When a PE firm brings us 5 or more portfolio companies, they get a dedicated infrastructure designed for fund-level oversight and speed to value.
           </motion.p>
         </motion.div>
@@ -878,7 +840,7 @@ function PartnerProgramSection() {
                 {b.icon}
               </div>
               <h3 className="text-base font-bold text-white">{b.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-400">{b.description}</p>
+              <p className="mt-3 text-sm leading-relaxed text-tt-gray-400">{b.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -891,7 +853,7 @@ function PartnerProgramSection() {
         >
           <Link
             href="/get-started"
-            className="inline-block rounded-full bg-tt-orange px-8 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-tt-orange-dark hover:shadow-[0_0_30px_rgba(232,121,58,0.3)] hover:-translate-y-0.5"
+            className="inline-block rounded-full bg-tt-orange px-8 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-tt-orange-dark hover:-translate-y-0.5"
           >
             Explore the Partner Program
           </Link>
@@ -912,17 +874,16 @@ function FoundersSection() {
   return (
     <section className="py-28 px-6" style={{
       background: `
-        radial-gradient(ellipse 60% 40% at 50% 80%, rgba(232, 121, 58, 0.02) 0%, transparent 50%),
-        #080e16
+        #052E3F
       `,
     }}>
       <div ref={containerRef} className="mx-auto max-w-2xl">
         <motion.div initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={stagger.container}>
           <motion.div variants={stagger.item} className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[5px] text-tt-teal/70 mb-4">Leadership</p>
-            <h2 className="text-3xl font-bold text-white sm:text-4xl">Built at Google. Proven Across 500+ Campaigns.</h2>
-            <p className="mt-6 text-base text-slate-400 leading-relaxed max-w-xl mx-auto">
-              Our leadership team brings deep platform expertise from Google, Meta, and the world&apos;s fastest-growing performance marketing organizations.
+            <p className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange mb-4">Leadership</p>
+            <h2 className="text-3xl font-bold text-white sm:text-4xl">Built at Google. Proven in the P&amp;L.</h2>
+            <p className="mt-6 text-base text-tt-gray-400 leading-relaxed max-w-xl mx-auto">
+              Led by an ex-Google founder and a President who has run growth and operations at global agencies, with senior operators in every pod.
             </p>
           </motion.div>
         </motion.div>
@@ -942,8 +903,7 @@ function SocialProofSection() {
   return (
     <section className="py-24 px-6" style={{
       background: `
-        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(91, 164, 164, 0.02) 0%, transparent 50%),
-        #060c11
+        #052E3F
       `,
     }}>
       <motion.div
@@ -955,27 +915,24 @@ function SocialProofSection() {
       >
         {/* Badge row */}
         <motion.div variants={stagger.item} className="flex flex-wrap items-center justify-center gap-3 text-sm">
-          <span className="rounded-full border border-tt-orange/30 bg-tt-orange/5 px-4 py-2 font-semibold text-tt-orange text-xs tracking-wide">
+          <span className="rounded-full border border-tt-orange/30 bg-transparent px-4 py-2 font-semibold text-tt-orange text-xs tracking-wide">
             Inc. 5000 #123
           </span>
-          <span className="rounded-full border border-white/8 bg-white/[0.03] px-4 py-2 text-xs text-slate-400">
+          <span className="rounded-full border border-white/8 bg-black/[0.14] px-4 py-2 text-xs text-tt-gray-400">
             Meta Business Partner
           </span>
-          <span className="rounded-full border border-white/8 bg-white/[0.03] px-4 py-2 text-xs text-slate-400">
+          <span className="rounded-full border border-white/8 bg-black/[0.14] px-4 py-2 text-xs text-tt-gray-400">
             Founded by ex-Google
-          </span>
-          <span className="rounded-full border border-white/8 bg-white/[0.03] px-4 py-2 text-xs text-slate-400">
-            12 Active Fund Partners
           </span>
         </motion.div>
 
-        <motion.p variants={stagger.item} className="mx-auto mt-5 max-w-md text-center text-xs text-slate-600">
-          2,954% three-year revenue growth &bull; 40+ portfolio companies served
+        <motion.p variants={stagger.item} className="mx-auto mt-5 max-w-md text-center text-xs text-tt-gray-600">
+          2,954% three-year revenue growth &bull; Inc. 5000 #123 (2025)
         </motion.p>
 
         {/* CEO Quote */}
         <motion.blockquote variants={stagger.item} className="mt-14 border-l-2 border-tt-teal/40 pl-7">
-          <p className="text-lg leading-relaxed text-slate-300 sm:text-xl">
+          <p className="text-lg leading-relaxed text-tt-gray-300 sm:text-xl">
             &ldquo;As an organization, we credit our accelerated growth to the
             innovative approach we take to optimizing customer acquisition
             programs. This applies to both the brands we work directly with, and
@@ -984,7 +941,7 @@ function SocialProofSection() {
           </p>
           <footer className="mt-5">
             <p className="text-sm font-semibold text-white">Cliff Simmons</p>
-            <p className="text-xs text-slate-500">CEO &amp; Co-Founder, Tiger Tracks</p>
+            <p className="text-xs text-tt-gray-500">CEO &amp; Co-Founder, Tiger Tracks</p>
           </footer>
         </motion.blockquote>
       </motion.div>
@@ -1024,9 +981,7 @@ function TurnaroundPlanSection() {
   return (
     <section className="py-28 px-6" style={{
       background: `
-        radial-gradient(ellipse 50% 50% at 40% 50%, rgba(91, 164, 164, 0.03) 0%, transparent 50%),
-        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(232, 121, 58, 0.02) 0%, transparent 50%),
-        #060c11
+        #052E3F
       `,
     }}>
       <div ref={containerRef} className="mx-auto max-w-3xl">
@@ -1036,13 +991,13 @@ function TurnaroundPlanSection() {
           variants={stagger.container}
           className="text-center mb-16"
         >
-          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange/70 mb-4">
+          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange mb-4">
             Execution Playbook
           </motion.p>
           <motion.h2 variants={stagger.item} className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            The 100-Day PortCo Turnaround Plan
+            The 100-day PortCo turnaround plan
           </motion.h2>
-          <motion.p variants={stagger.item} className="mt-4 text-base text-slate-400">
+          <motion.p variants={stagger.item} className="mt-4 text-base text-tt-gray-400">
             A structured path from close to compounding growth
           </motion.p>
         </motion.div>
@@ -1059,7 +1014,7 @@ function TurnaroundPlanSection() {
             <div
               className="h-full w-full"
               style={{
-                background: 'linear-gradient(180deg, #229FA1 0%, #5BA4A4 40%, #E8793A 100%)',
+                background: '#7FCAD3',
                 animation: isInView ? 'lineGrow 1.5s ease-out forwards' : 'none',
                 transformOrigin: 'top',
               }}
@@ -1075,13 +1030,13 @@ function TurnaroundPlanSection() {
                     className="h-[14px] w-[14px] rounded-full"
                     style={{
                       background: index === 2
-                        ? 'linear-gradient(135deg, #229FA1, #FF6B35)'
+                        ? '#7FCAD3'
                         : index === 1
-                        ? '#5BA4A4'
-                        : '#229FA1',
+                        ? '#7FCAD3'
+                        : '#7FCAD3',
                       boxShadow: index === 2
-                        ? '0 0 10px rgba(255, 107, 53, 0.5), 0 0 24px rgba(255, 107, 53, 0.2)'
-                        : '0 0 10px rgba(34, 159, 161, 0.5), 0 0 24px rgba(34, 159, 161, 0.2)',
+                        ? 'none'
+                        : 'none',
                     }}
                   />
                 </div>
@@ -1095,10 +1050,10 @@ function TurnaroundPlanSection() {
                     <span className="text-xs font-bold tracking-tight text-tt-teal">
                       {phase.phase}
                     </span>
-                    <span className="h-px flex-1 bg-gradient-to-r from-tt-teal/20 to-transparent" />
+                    <span className="h-px flex-1 bg-tt-teal/20" />
                   </div>
                   <h3 className="text-lg font-bold tracking-tight text-white mb-3">{phase.title}</h3>
-                  <p className="text-sm leading-relaxed text-slate-400">{phase.description}</p>
+                  <p className="text-sm leading-relaxed text-tt-gray-400">{phase.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -1127,8 +1082,7 @@ function EBITDACalculatorSection() {
   return (
     <section className="py-28 px-6" style={{
       background: `
-        radial-gradient(ellipse 60% 50% at 60% 30%, rgba(91, 164, 164, 0.03) 0%, transparent 50%),
-        #080e16
+        #052E3F
       `,
     }}>
       <div ref={containerRef} className="mx-auto max-w-2xl">
@@ -1138,11 +1092,11 @@ function EBITDACalculatorSection() {
           variants={stagger.container}
           className="text-center mb-12"
         >
-          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-teal/70 mb-4">
+          <motion.p variants={stagger.item} className="text-xs font-semibold uppercase tracking-[5px] text-tt-orange mb-4">
             Model Your Upside
           </motion.p>
           <motion.h2 variants={stagger.item} className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            EBITDA Impact Calculator
+            EBITDA impact calculator
           </motion.h2>
         </motion.div>
 
@@ -1157,12 +1111,12 @@ function EBITDACalculatorSection() {
             className="relative rounded-2xl p-8 md:p-10 overflow-hidden"
             style={{
               ...glassCard,
-              border: '1px solid rgba(34, 159, 161, 0.15)',
+              border: '1px solid rgba(127, 202, 211, 0.15)',
             }}
           >
             {/* Subtle corner glow */}
             <div className="pointer-events-none absolute -top-20 -right-20 h-40 w-40 rounded-full opacity-30" style={{
-              background: 'radial-gradient(circle, rgba(34, 159, 161, 0.2) 0%, transparent 70%)',
+              background: 'transparent',
             }} />
 
             {/* Input: Current Ad Spend */}
@@ -1171,25 +1125,25 @@ function EBITDACalculatorSection() {
                 <label className="text-sm font-semibold text-white">Current Monthly Ad Spend</label>
                 <span className="text-sm font-bold text-tt-teal tabular-nums">$125,000</span>
               </div>
-              <div className="relative h-2 rounded-full bg-white/[0.06] overflow-hidden">
+              <div className="relative h-2 rounded-full bg-black/[0.14] overflow-hidden">
                 <div
                   className="absolute inset-y-0 left-0 rounded-full"
                   style={{
                     width: '50%',
-                    background: 'linear-gradient(90deg, #229FA1, #5BA4A4)',
-                    boxShadow: '0 0 8px rgba(34, 159, 161, 0.4)',
+                    background: '#7FCAD3',
+                    boxShadow: 'none',
                   }}
                 />
                 {/* Thumb indicator */}
                 <div
-                  className="absolute top-1/2 -translate-y-1/2 h-4 w-4 rounded-full border-2 border-tt-teal bg-[#0A1119]"
+                  className="absolute top-1/2 -translate-y-1/2 h-4 w-4 rounded-full border-2 border-tt-teal bg-[#052E3F]"
                   style={{
                     left: 'calc(50% - 8px)',
-                    boxShadow: '0 0 10px rgba(34, 159, 161, 0.5)',
+                    boxShadow: 'none',
                   }}
                 />
               </div>
-              <div className="flex justify-between mt-2 text-xs text-slate-600">
+              <div className="flex justify-between mt-2 text-xs text-tt-gray-600">
                 <span>$10K</span>
                 <span>$500K+</span>
               </div>
@@ -1201,57 +1155,57 @@ function EBITDACalculatorSection() {
                 <label className="text-sm font-semibold text-white">Target CAC Reduction</label>
                 <span className="text-sm font-bold text-tt-teal tabular-nums">34%</span>
               </div>
-              <div className="relative h-2 rounded-full bg-white/[0.06] overflow-hidden">
+              <div className="relative h-2 rounded-full bg-black/[0.14] overflow-hidden">
                 <div
                   className="absolute inset-y-0 left-0 rounded-full"
                   style={{
                     width: '68%',
-                    background: 'linear-gradient(90deg, #229FA1, #5BA4A4)',
-                    boxShadow: '0 0 8px rgba(34, 159, 161, 0.4)',
+                    background: '#7FCAD3',
+                    boxShadow: 'none',
                   }}
                 />
                 <div
-                  className="absolute top-1/2 -translate-y-1/2 h-4 w-4 rounded-full border-2 border-tt-teal bg-[#0A1119]"
+                  className="absolute top-1/2 -translate-y-1/2 h-4 w-4 rounded-full border-2 border-tt-teal bg-[#052E3F]"
                   style={{
                     left: 'calc(68% - 8px)',
-                    boxShadow: '0 0 10px rgba(34, 159, 161, 0.5)',
+                    boxShadow: 'none',
                   }}
                 />
               </div>
-              <div className="flex justify-between mt-2 text-xs text-slate-600">
+              <div className="flex justify-between mt-2 text-xs text-tt-gray-600">
                 <span>10%</span>
                 <span>50%</span>
               </div>
             </div>
 
             {/* Divider */}
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
+            <div className="h-px w-full bg-white/10 mb-8" />
 
             {/* Output: Projected EBITDA Lift */}
             <div className="text-center">
-              <p className="text-xs font-semibold uppercase tracking-[4px] text-slate-500 mb-3">
+              <p className="text-xs font-semibold uppercase tracking-[4px] text-tt-gray-500 mb-3">
                 Projected Annual EBITDA Lift
               </p>
               <p
                 className="text-5xl font-extrabold tracking-tight sm:text-6xl"
                 style={{
-                  background: 'linear-gradient(135deg, #FF6B35 0%, #E8793A 50%, #FF6B35 100%)',
+                  background: '#FE5E16',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  filter: 'drop-shadow(0 0 20px rgba(255, 107, 53, 0.3))',
+                  filter: 'none',
                   fontVariantNumeric: 'tabular-nums',
                 }}
               >
                 $510,000
               </p>
-              <p className="mt-2 text-xs text-slate-500">Based on portfolio averages across 40+ engagements</p>
+              <p className="mt-2 text-xs text-tt-gray-500">Illustrative estimate. Adjust the inputs to your portfolio.</p>
             </div>
 
             {/* Request Access button */}
             <div className="mt-8 flex justify-center">
               <Link
                 href="/get-started"
-                className="inline-flex items-center gap-2 rounded-full border border-tt-orange/30 bg-tt-orange/5 px-6 py-3 text-sm font-semibold text-tt-orange transition-all duration-200 hover:bg-tt-orange/10 hover:border-tt-orange/50 hover:shadow-[0_0_20px_rgba(255,107,53,0.15)]"
+                className="inline-flex items-center gap-2 rounded-full border border-tt-orange/30 bg-transparent px-6 py-3 text-sm font-semibold text-tt-orange transition-all duration-200 hover:bg-transparent hover:border-tt-orange/50"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
@@ -1277,16 +1231,14 @@ export default function PEVCPage() {
       <TrustBar />
       <HiddenDragSection />
       <AccelerateSection />
-      <ByTheNumbersSection />
       <PortfolioResultsSection />
       <TimelineSection />
       <PartnerProgramSection />
-      <FoundersSection />
       <SocialProofSection />
       <TurnaroundPlanSection />
       <EBITDACalculatorSection />
       <CTASection
-        headline="Schedule a Portfolio Review"
+        headline="Schedule a portfolio review"
         subheadline="See exactly where your portfolio companies are overspending, and how to fix it in 100 days."
         primaryCTA={{ text: 'Request a Portfolio Audit', href: '/get-started' }}
         secondaryCTA={{ text: 'View Case Studies', href: '/results' }}
@@ -1294,7 +1246,7 @@ export default function PEVCPage() {
         badges={[
           'Inc. 5000 #123',
           'Founded by Ex-Google',
-          '90%+ Client Expansion Rate',
+          'NDA Available on Request',
         ]}
       />
     </div>
