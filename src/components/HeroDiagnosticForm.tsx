@@ -58,18 +58,18 @@ function getHutk(): string | undefined {
 }
 
 const inputClass =
-  'w-full rounded-lg px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none transition-all duration-200 disabled:opacity-50';
+  'w-full rounded-lg px-3.5 py-2.5 text-sm text-white placeholder:text-tt-gray-500 focus:outline-none transition-all duration-200 disabled:opacity-50';
 
 const inputStyle: React.CSSProperties = {
-  backgroundColor: 'rgba(10,17,25,0.55)',
-  border: '1px solid rgba(255,255,255,0.1)',
+  backgroundColor: 'rgba(5, 46, 63, 0.55)',
+  border: '1px solid rgba(255, 255, 255, 0.1)',
 };
 
 function focusBorder(e: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) {
-  e.target.style.borderColor = 'rgba(34,159,161,0.55)';
+  e.target.style.borderColor = 'rgba(127, 202, 211, 0.55)';
 }
 function blurBorder(e: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) {
-  e.target.style.borderColor = 'rgba(255,255,255,0.1)';
+  e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
 }
 
 /* ------------------------------------------------------------------ */
@@ -156,9 +156,8 @@ export function HeroDiagnosticForm() {
       id="diagnostic-form"
       className="w-full rounded-2xl backdrop-blur-xl border border-white/10 p-6 sm:p-7 text-left scroll-mt-28"
       style={{
-        background: 'rgba(255, 255, 255, 0.045)',
-        boxShadow:
-          'inset 0 1px 0 rgba(255,255,255,0.06), 0 12px 48px rgba(0,0,0,0.45)',
+        background: 'rgba(0, 0, 0, 0.14)',
+        boxShadow: 'none',
       }}
     >
       <AnimatePresence mode="wait">
@@ -173,8 +172,8 @@ export function HeroDiagnosticForm() {
             <div
               className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full"
               style={{
-                backgroundColor: 'rgba(34,159,161,0.12)',
-                border: '1px solid rgba(34,159,161,0.4)',
+                backgroundColor: 'rgba(127, 202, 211, 0.12)',
+                border: '1px solid rgba(127, 202, 211, 0.4)',
               }}
             >
               <svg
@@ -194,7 +193,7 @@ export function HeroDiagnosticForm() {
             <h3 className="text-xl font-bold text-white mb-2">
               Request received.
             </h3>
-            <p className="text-sm text-slate-300 mb-6">
+            <p className="text-sm text-tt-gray-300 mb-6">
               We&rsquo;ll reach out within 1 business day. Want to skip the
               line?
             </p>
@@ -202,7 +201,7 @@ export function HeroDiagnosticForm() {
               href={MEETING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-tt-orange to-tt-orange-dark px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,107,0,0.4)]"
+              className="inline-flex items-center gap-2 rounded-full bg-tt-orange px-7 py-3 text-sm font-semibold text-white transition-all duration-300"
             >
               Book your diagnostic call now
               <svg
@@ -232,7 +231,7 @@ export function HeroDiagnosticForm() {
             <h2 className="text-xl sm:text-2xl font-bold text-white mb-1">
               Request a Strategic Diagnostic
             </h2>
-            <p className="text-sm text-slate-400 mb-5">
+            <p className="text-sm text-tt-gray-400 mb-5">
               A 90-day roadmap built around your actual numbers. Free, no
               strings.
             </p>
@@ -240,7 +239,7 @@ export function HeroDiagnosticForm() {
             <form onSubmit={handleStage1} className="space-y-3.5">
               {/* Honeypot: off-screen, not tabbable; bots fill it, humans don't. */}
               <div aria-hidden="true" className="absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden">
-                <label htmlFor="hero_company_website">Company website (leave blank)</label>
+                <label htmlFor="hero_company_website">Fax</label>
                 <input
                   id="hero_company_website"
                   type="text"
@@ -315,7 +314,7 @@ export function HeroDiagnosticForm() {
                 <select
                   value={data.annualRevenue}
                   onChange={(e) => set('annualRevenue', e.target.value)}
-                  className={`${inputClass} ${data.annualRevenue ? 'text-white' : 'text-slate-500'}`}
+                  className={`${inputClass} ${data.annualRevenue ? 'text-white' : 'text-tt-gray-500'}`}
                   style={inputStyle}
                   onFocus={focusBorder}
                   onBlur={blurBorder}
@@ -326,7 +325,7 @@ export function HeroDiagnosticForm() {
                     Annual revenue *
                   </option>
                   {revenueOptions.map((o) => (
-                    <option key={o} value={o} className="bg-[#0A1119]">
+                    <option key={o} value={o} className="bg-[#052E3F]">
                       {o}
                     </option>
                   ))}
@@ -334,14 +333,14 @@ export function HeroDiagnosticForm() {
               </div>
 
               {errorMsg && (
-                <p className="text-xs" style={{ color: '#fca5a5' }}>
+                <p className="text-xs" style={{ color: '#FE5E16' }}>
                   {errorMsg}
                 </p>
               )}
 
               <button
                 type="submit"
-                className="group relative w-full rounded-full bg-tt-orange py-3.5 text-sm font-normal tracking-[-0.16px] text-white transition-shadow duration-200 hover:shadow-[0_0_20px_rgba(232,121,58,0.45)]"
+                className="group relative w-full rounded-full bg-tt-orange py-3.5 text-sm font-normal tracking-[-0.16px] text-white transition-shadow duration-200"
               >
                 <span className="relative mx-auto block h-5 overflow-hidden leading-5">
                   <span className="block transition-transform duration-[340ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-full motion-reduce:transform-none motion-reduce:transition-none">
@@ -356,7 +355,7 @@ export function HeroDiagnosticForm() {
                 </span>
               </button>
 
-              <p className="text-center text-[11px] text-slate-500">
+              <p className="text-center text-[11px] text-tt-gray-500">
                 Response within 1 business day. No spam, ever.
               </p>
             </form>
@@ -371,16 +370,16 @@ export function HeroDiagnosticForm() {
             transition={{ duration: 0.25 }}
           >
             <h2 className="text-xl sm:text-2xl font-bold text-white mb-1">
-              One last step <span className="text-slate-400 text-base font-normal">(optional)</span>
+              One last step <span className="text-tt-gray-400 text-base font-normal">(optional)</span>
             </h2>
-            <p className="text-sm text-slate-400 mb-5">
+            <p className="text-sm text-tt-gray-400 mb-5">
               Help us prepare a sharper diagnostic, or skip straight to
               submit.
             </p>
 
             <div className="space-y-4">
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-tt-gray-400">
                   Primary goal
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -393,13 +392,13 @@ export function HeroDiagnosticForm() {
                       style={{
                         backgroundColor:
                           data.goal === g
-                            ? 'rgba(34,159,161,0.2)'
-                            : 'rgba(255,255,255,0.04)',
+                            ? 'rgba(127, 202, 211, 0.2)'
+                            : 'rgba(255, 255, 255, 0.04)',
                         border:
                           data.goal === g
-                            ? '1px solid rgba(34,159,161,0.6)'
-                            : '1px solid rgba(255,255,255,0.1)',
-                        color: data.goal === g ? '#7BC4C4' : '#cbd5e1',
+                            ? '1px solid rgba(127, 202, 211, 0.6)'
+                            : '1px solid rgba(255, 255, 255, 0.1)',
+                        color: data.goal === g ? '#7FCAD3' : '#7FCAD3',
                       }}
                     >
                       {g}
@@ -409,7 +408,7 @@ export function HeroDiagnosticForm() {
               </div>
 
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-tt-gray-400">
                   Monthly ad budget
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -422,13 +421,13 @@ export function HeroDiagnosticForm() {
                       style={{
                         backgroundColor:
                           data.budget === b
-                            ? 'rgba(34,159,161,0.2)'
-                            : 'rgba(255,255,255,0.04)',
+                            ? 'rgba(127, 202, 211, 0.2)'
+                            : 'rgba(255, 255, 255, 0.04)',
                         border:
                           data.budget === b
-                            ? '1px solid rgba(34,159,161,0.6)'
-                            : '1px solid rgba(255,255,255,0.1)',
-                        color: data.budget === b ? '#7BC4C4' : '#cbd5e1',
+                            ? '1px solid rgba(127, 202, 211, 0.6)'
+                            : '1px solid rgba(255, 255, 255, 0.1)',
+                        color: data.budget === b ? '#7FCAD3' : '#7FCAD3',
                       }}
                     >
                       {b}
@@ -438,7 +437,7 @@ export function HeroDiagnosticForm() {
               </div>
 
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-tt-gray-400">
                   Current channels
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -450,14 +449,14 @@ export function HeroDiagnosticForm() {
                       className="rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200"
                       style={{
                         backgroundColor: data.channels.includes(c)
-                          ? 'rgba(34,159,161,0.2)'
-                          : 'rgba(255,255,255,0.04)',
+                          ? 'rgba(127, 202, 211, 0.2)'
+                          : 'rgba(255, 255, 255, 0.04)',
                         border: data.channels.includes(c)
-                          ? '1px solid rgba(34,159,161,0.6)'
-                          : '1px solid rgba(255,255,255,0.1)',
+                          ? '1px solid rgba(127, 202, 211, 0.6)'
+                          : '1px solid rgba(255, 255, 255, 0.1)',
                         color: data.channels.includes(c)
-                          ? '#7BC4C4'
-                          : '#cbd5e1',
+                          ? '#7FCAD3'
+                          : '#7FCAD3',
                       }}
                     >
                       {c}
@@ -467,7 +466,7 @@ export function HeroDiagnosticForm() {
               </div>
 
               {errorMsg && (
-                <p className="text-xs" style={{ color: '#fca5a5' }}>
+                <p className="text-xs" style={{ color: '#FE5E16' }}>
                   {errorMsg}
                 </p>
               )}
@@ -476,7 +475,7 @@ export function HeroDiagnosticForm() {
                 type="button"
                 onClick={submit}
                 disabled={isPending}
-                className="w-full rounded-lg bg-gradient-to-r from-tt-orange to-tt-orange-dark py-3.5 text-base font-semibold text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,107,0,0.4)] disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-lg bg-tt-orange py-3.5 text-base font-semibold text-white transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isPending ? 'Submitting…' : 'Submit request'}
               </button>
@@ -486,7 +485,7 @@ export function HeroDiagnosticForm() {
                   type="button"
                   onClick={() => setStage(1)}
                   disabled={isPending}
-                  className="text-xs text-slate-400 transition-colors hover:text-white"
+                  className="text-xs text-tt-gray-400 transition-colors hover:text-white"
                 >
                   &larr; Back
                 </button>
@@ -494,7 +493,7 @@ export function HeroDiagnosticForm() {
                   type="button"
                   onClick={submit}
                   disabled={isPending}
-                  className="text-xs text-slate-400 underline underline-offset-4 transition-colors hover:text-white"
+                  className="text-xs text-tt-gray-400 underline underline-offset-4 transition-colors hover:text-white"
                 >
                   Skip and submit
                 </button>
