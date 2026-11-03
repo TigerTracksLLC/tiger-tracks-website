@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { caseStudies } from '@/data/caseStudies';
-import { blogPosts } from '@/data/blogPosts';
+import { publishedPosts as blogPosts } from '@/data/publishedPosts';
 
 const SITE_URL = 'https://tigertracks.ai';
 
@@ -23,6 +23,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/get-started', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/careers', priority: 0.6, changeFrequency: 'weekly' },
     { path: '/press', priority: 0.5, changeFrequency: 'monthly' },
+    { path: '/growth-audit', priority: 0.7, changeFrequency: 'monthly' },
+    { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
+    { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((r) => ({

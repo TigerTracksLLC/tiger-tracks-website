@@ -46,12 +46,13 @@ function Avatar({ headshot, name }: { headshot?: string; name: string }) {
 
   // Fallback: TT logo avatar
   return (
-    <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-tt-teal/20 to-tt-teal/5 border border-tt-teal/20">
+    <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full bg-tt-ink border border-white/10">
       <Image
-        src="/TT.LOGO-02.png"
+        src="/brand/tt-avatar.svg"
         alt="Tiger Tracks"
+        unoptimized
         fill
-        className="aspect-square rounded-full object-contain p-1.5"
+        className="aspect-square rounded-full object-cover"
         sizes="48px"
       />
     </div>
@@ -70,7 +71,7 @@ export function TestimonialCard({
     return (
       <div className="rounded-2xl bg-tt-black p-10 md:p-14">
         <QuoteMark className="mb-6 text-tt-teal" />
-        <blockquote className="font-serif italic text-2xl font-medium leading-relaxed text-white">
+        <blockquote className="text-2xl font-medium leading-relaxed text-white">
           &ldquo;{quote}&rdquo;
         </blockquote>
         <div className="mt-8 flex items-center gap-4">
@@ -90,14 +91,14 @@ export function TestimonialCard({
     <div
       className="rounded-2xl p-8"
       style={{
-        background: 'rgba(255, 255, 255, 0.05)',
+        background: 'rgba(0, 0, 0, 0.14)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         border: '1px solid rgba(255, 255, 255, 0.06)',
       }}
     >
-      <QuoteMark className="mb-4 text-tt-teal/40" />
-      <blockquote className="font-serif italic text-lg leading-relaxed text-tt-gray-300">
+      <QuoteMark className="mb-4 text-tt-teal" />
+      <blockquote className="text-lg leading-relaxed text-tt-gray-300">
         &ldquo;{quote}&rdquo;
       </blockquote>
       <div className="mt-6 flex items-center gap-4">

@@ -14,15 +14,15 @@ export function HeroTestimonial() {
       <div
         className="flex flex-col md:flex-row items-center gap-6 rounded-2xl backdrop-blur-xl border border-white/10 p-6"
         style={{
-          background: 'rgba(255, 255, 255, 0.05)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 32px rgba(0,0,0,0.3)',
+          background: 'rgba(0, 0, 0, 0.14)',
+          boxShadow: 'none',
         }}
       >
         {/* AG1 Brand Badge */}
         <div
-          className="relative shrink-0 w-24 h-16 rounded-xl overflow-hidden border border-white/20 bg-[#0F4132] p-2"
+          className="relative shrink-0 w-24 h-16 rounded-xl overflow-hidden border border-white/20 bg-[#052E3F] p-2"
           style={{
-            boxShadow: '0 0 30px rgba(20, 40, 35, 0.5)',
+            boxShadow: 'none',
           }}
         >
           <Image
@@ -38,9 +38,7 @@ export function HeroTestimonial() {
           <p
             className="text-sm md:text-base leading-relaxed"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontStyle: 'italic',
-              color: '#9E9E9E',
+              color: '#A9B6BA',
             }}
           >
             &ldquo;Partnering with Tiger Tracks has been amazing. They work fast, execute
