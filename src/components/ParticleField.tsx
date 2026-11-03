@@ -27,7 +27,7 @@ function hexToRgb(hex: string): { r: number; g: number; b: number } {
 
 export function ParticleField({
   particleCount = 80,
-  color = '#5BA4A4',
+  color = '#7FCAD3',
 }: ParticleFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>(0);
