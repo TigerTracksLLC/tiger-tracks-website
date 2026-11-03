@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description:
       'Data handling, security practices, compliance posture, and platform partnerships at Tiger Tracks.',
     url: 'https://tigertracks.ai/trust',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 
@@ -31,7 +31,7 @@ function Section({
   return (
     <section className="mb-16">
       {eyebrow && (
-        <p className="text-xs font-semibold uppercase tracking-[3px] text-tt-teal mb-3">
+        <p className="text-xs font-semibold uppercase tracking-[3px] text-tt-orange mb-3">
           {eyebrow}
         </p>
       )}
@@ -55,7 +55,7 @@ function StatusBadge({
     <div
       className="flex items-center gap-3 rounded-xl px-5 py-4"
       style={{
-        background: 'rgba(20, 27, 35, 0.5)',
+        background: 'rgba(5, 46, 63, 0.5)',
         border: '1px solid rgba(255, 255, 255, 0.06)',
       }}
     >
@@ -81,7 +81,7 @@ function PartnerBadge({ label }: { label: string }) {
     <span
       className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-tt-gray-300"
       style={{
-        background: 'rgba(255, 255, 255, 0.04)',
+        background: 'rgba(0, 0, 0, 0.14)',
         border: '1px solid rgba(255, 255, 255, 0.1)',
       }}
     >
@@ -115,18 +115,16 @@ export default function TrustPage() {
         className="relative overflow-hidden px-6"
         style={{
           background: `
-            radial-gradient(ellipse 50% 50% at 60% 20%, rgba(91, 164, 164, 0.06) 0%, transparent 60%),
-            radial-gradient(ellipse 40% 40% at 20% 80%, rgba(232, 121, 58, 0.04) 0%, transparent 55%),
-            #0A1119
+            #052E3F
           `,
         }}
       >
         <div className="relative z-10 mx-auto max-w-3xl py-24">
-          <p className="text-tt-teal uppercase tracking-[4px] text-sm font-semibold mb-5">
+          <p className="text-tt-orange uppercase tracking-[4px] text-sm font-semibold mb-5">
             Enterprise Trust
           </p>
           <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight tracking-tight">
-            Trust &amp; Security
+            Trust &amp; security
           </h1>
           <p className="mt-6 text-lg text-tt-gray-400 leading-relaxed">
             When you give an agency access to your ad accounts, analytics, and
@@ -139,7 +137,7 @@ export default function TrustPage() {
       </section>
 
       {/* Body */}
-      <section className="px-6" style={{ background: '#0d1520' }}>
+      <section className="px-6" style={{ background: '#052E3F' }}>
         <div className="mx-auto max-w-3xl py-20">
           {/* Data handling & privacy */}
           <Section eyebrow="Privacy" title="Data Handling & Privacy">
@@ -209,16 +207,12 @@ export default function TrustPage() {
           {/* Certifications */}
           <Section eyebrow="Certifications" title="Certifications">
             <p>
-              We are transparent about where our formal certifications stand. The
-              items below reflect current status, not aspirational claims.
+              Tiger Tracks does not currently hold a SOC 2 or ISO 27001
+              certification, and we do not claim one. What we do today: client
+              accounts and data stay in the client&apos;s name, access is
+              least-privilege and removed when an engagement ends, and hardware
+              security keys are being rolled out across the team.
             </p>
-            <div className="grid gap-4 sm:grid-cols-2 mt-6">
-              {/* TODO: confirm specifics - update status to "active" with date and
-                  report availability once achieved. Do not mark active until the
-                  report is issued. */}
-              <StatusBadge label="SOC 2 Type II" status="in-progress" />
-              <StatusBadge label="ISO 27001" status="in-progress" />
-            </div>
             <p className="text-sm text-tt-gray-500 mt-4">
               If your procurement process requires a security questionnaire, a DPA,
               or current documentation, reach out and we will route it to the right
@@ -229,13 +223,11 @@ export default function TrustPage() {
           {/* Partner badges */}
           <Section eyebrow="Partnerships" title="Platform Partnerships">
             <p>
-              We operate as a recognized partner across the major advertising
-              platforms, which reflects sustained spend management, certification,
-              and platform standing.
+              Tiger Tracks is a Meta Business Partner, a status that reflects
+              sustained spend management, certification and platform standing.
             </p>
             <div className="flex flex-wrap gap-3 mt-6">
               <PartnerBadge label="Meta Business Partner" />
-              <PartnerBadge label="Google Partner" />
               {/* TODO: confirm specifics - exact partner tier (e.g. Premier) and
                   any additional platform partnerships to list. */}
             </div>
@@ -268,8 +260,9 @@ export default function TrustPage() {
                   <span className="font-semibold text-tt-gray-300">
                     Cookie consent:
                   </span>{' '}
-                  our own site uses Cookiebot for consent management, and we help
-                  clients align tracking with their consent configuration.
+                  our own site asks visitors for their analytics and advertising
+                  cookie choice and honors Global Privacy Control, and we help clients
+                  align tracking with their consent configuration.
                 </span>
               </li>
             </ul>
@@ -278,12 +271,12 @@ export default function TrustPage() {
       </section>
 
       <CTASection
-        headline="Have a Security or Procurement Question?"
+        headline="Have a security or procurement question?"
         subheadline="Get in touch and we will connect you with the right person to walk through specifics."
-        primaryCTA={{ text: 'Request a Strategic Diagnostic', href: '/get-started' }}
+        primaryCTA={{ text: 'Email Our Team', href: 'mailto:info@tigertracks.ai?subject=Security%20or%20procurement%20question' }}
         secondaryCTA={{ text: 'About Tiger Tracks', href: '/company' }}
         dark
-        badges={['Meta Business Partner', 'Google Partner', 'GDPR & CCPA Aware']}
+        badges={['Meta Business Partner', 'GDPR & CCPA Aware', 'Your Data Stays Yours']}
       />
     </div>
   );

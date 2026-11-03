@@ -15,21 +15,21 @@ const pillars = [
     id: 'attribution',
     headline: 'See What’s Actually Driving Revenue',
     body: 'Most attribution tools tell you what happened. Wayfinder tells you what caused it. Multi-touch, data-driven attribution that goes beyond last-click to reveal the true contribution of every channel, creative, and audience segment.',
-    stat: 'Avg 34% reallocation of budget in first 60 days',
+    stat: 'Budget moves to what actually drives revenue',
     icon: 'attribution',
   },
   {
     id: 'mmm',
     headline: 'Optimize Across Channels, Not Just Within Them',
     body: 'Wayfinder’s MMM engine ingests your full media spend, external signals, and seasonality to build a live model of your marketing system. The result: budget allocations that maximize revenue, not platform-reported ROAS.',
-    stat: '+147% avg ROAS lift across client portfolio',
+    stat: 'Allocations judged on revenue, not platform ROAS',
     icon: 'mmm',
   },
   {
     id: 'geo',
     headline: 'Own the Results AI Is Reading',
-    body: 'Generative Engine Optimization is the search channel most agencies don’t know exists yet. Wayfinder identifies where your brand appears (or doesn’t) in AI-generated answers across ChatGPT, Perplexity, and Google AI Overviews - and builds the content and signal strategy to dominate them.',
-    stat: 'GEO visibility audits across 50+ AI answer surfaces',
+    body: 'Generative Engine Optimization is the search channel most agencies don’t know exists yet. Wayfinder identifies where your brand appears (or doesn’t) in AI-generated answers across ChatGPT, Perplexity, and Google AI Overviews, and builds the content and signal strategy to dominate them.',
+    stat: 'Visibility audits across ChatGPT, Perplexity and AI Overviews',
     icon: 'geo',
   },
 ];
@@ -45,13 +45,13 @@ function PillarIcon({ type }: { type: string }) {
     // Branching node graph
     return (
       <svg className={shared} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="20" cy="8" r="3.5" stroke="#FF6B35" strokeWidth="1.5" />
-        <circle cx="10" cy="32" r="3.5" stroke="#FF6B35" strokeWidth="1.5" />
-        <circle cx="30" cy="32" r="3.5" stroke="#FF6B35" strokeWidth="1.5" />
-        <circle cx="30" cy="20" r="2.5" stroke="#FF6B35" strokeWidth="1.5" />
-        <line x1="20" y1="11.5" x2="10" y2="28.5" stroke="#229FA1" strokeWidth="1.5" strokeLinecap="round" />
-        <line x1="20" y1="11.5" x2="30" y2="17.5" stroke="#229FA1" strokeWidth="1.5" strokeLinecap="round" />
-        <line x1="30" y1="22.5" x2="30" y2="28.5" stroke="#229FA1" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="20" cy="8" r="3.5" stroke="#FE5E16" strokeWidth="1.5" />
+        <circle cx="10" cy="32" r="3.5" stroke="#FE5E16" strokeWidth="1.5" />
+        <circle cx="30" cy="32" r="3.5" stroke="#FE5E16" strokeWidth="1.5" />
+        <circle cx="30" cy="20" r="2.5" stroke="#FE5E16" strokeWidth="1.5" />
+        <line x1="20" y1="11.5" x2="10" y2="28.5" stroke="#7FCAD3" strokeWidth="1.5" strokeLinecap="round" />
+        <line x1="20" y1="11.5" x2="30" y2="17.5" stroke="#7FCAD3" strokeWidth="1.5" strokeLinecap="round" />
+        <line x1="30" y1="22.5" x2="30" y2="28.5" stroke="#7FCAD3" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     );
   }
@@ -60,9 +60,9 @@ function PillarIcon({ type }: { type: string }) {
     // Overlapping wave/signal chart
     return (
       <svg className={shared} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 28C8 28 10 14 14 14C18 14 18 24 22 24C26 24 26 10 30 10C34 10 36 20 36 20" stroke="#229FA1" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M4 32C8 32 10 20 14 20C18 20 20 28 24 28C28 28 30 16 34 16C36 16 36 22 36 22" stroke="#FF6B35" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
-        <path d="M4 34C10 34 12 26 16 26C20 26 22 32 26 32C30 32 32 22 36 22" stroke="#229FA1" strokeWidth="1" strokeLinecap="round" opacity="0.35" />
+        <path d="M4 28C8 28 10 14 14 14C18 14 18 24 22 24C26 24 26 10 30 10C34 10 36 20 36 20" stroke="#7FCAD3" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M4 32C8 32 10 20 14 20C18 20 20 28 24 28C28 28 30 16 34 16C36 16 36 22 36 22" stroke="#FE5E16" strokeWidth="1.5" strokeLinecap="round" opacity="0.7" />
+        <path d="M4 34C10 34 12 26 16 26C20 26 22 32 26 32C30 32 32 22 36 22" stroke="#7FCAD3" strokeWidth="1" strokeLinecap="round" opacity="0.35" />
       </svg>
     );
   }
@@ -70,13 +70,13 @@ function PillarIcon({ type }: { type: string }) {
   // GEO - Expanding radar/search ring
   return (
     <svg className={shared} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="5" stroke="#FF6B35" strokeWidth="1.5" />
-      <circle cx="20" cy="20" r="11" stroke="#229FA1" strokeWidth="1" opacity="0.6" />
-      <circle cx="20" cy="20" r="17" stroke="#229FA1" strokeWidth="0.75" opacity="0.3" />
-      <line x1="20" y1="2" x2="20" y2="8" stroke="#229FA1" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
-      <line x1="20" y1="32" x2="20" y2="38" stroke="#229FA1" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
-      <line x1="2" y1="20" x2="8" y2="20" stroke="#229FA1" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
-      <line x1="32" y1="20" x2="38" y2="20" stroke="#229FA1" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+      <circle cx="20" cy="20" r="5" stroke="#FE5E16" strokeWidth="1.5" />
+      <circle cx="20" cy="20" r="11" stroke="#7FCAD3" strokeWidth="1" opacity="0.6" />
+      <circle cx="20" cy="20" r="17" stroke="#7FCAD3" strokeWidth="0.75" opacity="0.3" />
+      <line x1="20" y1="2" x2="20" y2="8" stroke="#7FCAD3" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+      <line x1="20" y1="32" x2="20" y2="38" stroke="#7FCAD3" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+      <line x1="2" y1="20" x2="8" y2="20" stroke="#7FCAD3" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+      <line x1="32" y1="20" x2="38" y2="20" stroke="#7FCAD3" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
     </svg>
   );
 }
@@ -91,9 +91,7 @@ function HeroSection() {
       className="relative min-h-[70vh] flex items-center overflow-hidden"
       style={{
         background: `
-          radial-gradient(ellipse 50% 55% at 75% 20%, rgba(34,159,161,0.10) 0%, transparent 55%),
-          radial-gradient(ellipse 45% 50% at 20% 75%, rgba(255,107,53,0.06) 0%, transparent 60%),
-          #0A1119
+          #052E3F
         `,
       }}
     >
@@ -102,10 +100,7 @@ function HeroSection() {
         className="pointer-events-none absolute inset-0 z-0"
         aria-hidden="true"
         style={{
-          background: `
-            radial-gradient(circle 320px at 70% 25%, rgba(34,159,161,0.12) 0%, transparent 70%),
-            radial-gradient(circle 260px at 25% 65%, rgba(255,107,53,0.07) 0%, transparent 70%)
-          `,
+          background: `transparent`,
         }}
       />
 
@@ -113,22 +108,22 @@ function HeroSection() {
         <div className="mx-auto max-w-3xl text-center">
           <p
             className="text-sm font-semibold uppercase tracking-[4px] mb-6"
-            style={{ color: '#229FA1' }}
+            style={{ color: '#FE5E16' }}
           >
             Proprietary AI Platform
           </p>
 
           <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl">
-            <span style={{ color: '#F4F1EB' }}>
-              The Intelligence Layer Your Agency Should Have Built Years Ago.
+            <span style={{ color: '#EFF0EF' }}>
+              The intelligence layer your agency should have built years ago.
             </span>
           </h1>
 
           <p
-            className="mt-8 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto"
-            style={{ color: '#9CA3AF' }}
+            className="mt-8 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto long-copy"
+            style={{ color: '#A9B6BA' }}
           >
-            Wayfinder is Tiger Tracks&apos; proprietary AI platform - built by ex-Google engineers
+            Wayfinder is Tiger Tracks&apos; proprietary AI platform, built by an ex-Google-led team
             to do what no off-the-shelf tool can: optimize your entire media mix in real time,
             across every channel, against your actual business outcomes.
           </p>
@@ -136,15 +131,15 @@ function HeroSection() {
           <div className="mt-10 flex flex-col items-center gap-3">
             <Link
               href="/get-started"
-              className="inline-block rounded-full px-10 py-4 text-lg font-semibold text-white transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
-              style={{ backgroundColor: '#FF6B35' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#e55a28')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#FF6B35')}
+              className="inline-block rounded-full px-10 py-4 text-lg font-semibold text-tt-ink transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+              style={{ backgroundColor: '#FE5E16' }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#FE5E16')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#FE5E16')}
             >
               Run Wayfinder on Your Account
             </Link>
-            <p className="text-sm" style={{ color: '#6B7280' }}>
-              See where your budget is leaking - live, in 30 minutes.
+            <p className="text-sm" style={{ color: '#91A2A9' }}>
+              See where your budget is leaking, live, in 30 minutes.
             </p>
           </div>
         </div>
@@ -177,8 +172,8 @@ function PillarCard({
       <div
         className="relative rounded-2xl p-8 sm:p-10 h-full backdrop-blur-sm overflow-hidden"
         style={{
-          backgroundColor: 'rgba(27,33,38,0.7)',
-          border: '1px solid rgba(34,159,161,0.2)',
+          backgroundColor: 'rgba(5, 46, 63, 0.7)',
+          border: '1px solid rgba(127, 202, 211, 0.2)',
         }}
       >
         {/* Subtle top-edge glow */}
@@ -186,36 +181,36 @@ function PillarCard({
           className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-2/3"
           style={{
             background:
-              'linear-gradient(90deg, transparent, rgba(34,159,161,0.4), transparent)',
+              'rgba(127, 202, 211, 0.4)',
           }}
         />
 
         <div className="flex items-start gap-5">
           <div
             className="flex-shrink-0 rounded-xl p-3"
-            style={{ backgroundColor: 'rgba(34,159,161,0.08)' }}
+            style={{ backgroundColor: 'rgba(127, 202, 211, 0.08)' }}
           >
             <PillarIcon type={pillar.icon} />
           </div>
           <div className="flex-1 min-w-0">
             <h3
               className="text-xl font-bold mb-3"
-              style={{ color: '#F4F1EB' }}
+              style={{ color: '#EFF0EF' }}
             >
               {pillar.headline}
             </h3>
             <p
               className="text-sm leading-relaxed mb-6"
-              style={{ color: '#9CA3AF' }}
+              style={{ color: '#A9B6BA' }}
             >
               {pillar.body}
             </p>
             <div
               className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold"
               style={{
-                backgroundColor: 'rgba(34,159,161,0.08)',
-                border: '1px solid rgba(34,159,161,0.2)',
-                color: '#229FA1',
+                backgroundColor: 'rgba(127, 202, 211, 0.08)',
+                border: '1px solid rgba(127, 202, 211, 0.2)',
+                color: '#7FCAD3',
               }}
             >
               <svg
@@ -246,8 +241,7 @@ function PillarsSection() {
       className="relative py-24 sm:py-32 overflow-hidden"
       style={{
         background: `
-          radial-gradient(ellipse 80% 50% at 50% 30%, rgba(34,159,161,0.04) 0%, transparent 60%),
-          #0A1119
+          #052E3F
         `,
       }}
     >
@@ -255,15 +249,15 @@ function PillarsSection() {
         <div className="mx-auto max-w-3xl text-center mb-16">
           <p
             className="text-sm font-semibold uppercase tracking-[4px] mb-4"
-            style={{ color: '#229FA1' }}
+            style={{ color: '#FE5E16' }}
           >
             What Powers Wayfinder
           </p>
           <h2
             className="text-3xl font-bold tracking-tight sm:text-4xl"
-            style={{ color: '#F4F1EB' }}
+            style={{ color: '#EFF0EF' }}
           >
-            Three Pillars. One Unfair Advantage.
+            Three pillars. One unfair advantage.
           </h2>
         </div>
 
@@ -383,8 +377,7 @@ function WayfinderDemo() {
       className="relative py-24 sm:py-32 overflow-hidden"
       style={{
         background: `
-          radial-gradient(ellipse 70% 50% at 50% 50%, rgba(34,159,161,0.03) 0%, transparent 60%),
-          #0A1119
+          #052E3F
         `,
       }}
     >
@@ -392,11 +385,11 @@ function WayfinderDemo() {
         <div className="mx-auto max-w-3xl text-center mb-14">
           <h2
             className="text-3xl font-bold tracking-tight sm:text-4xl"
-            style={{ color: '#F4F1EB' }}
+            style={{ color: '#EFF0EF' }}
           >
-            This Is What Your Budget Looks Like Inside Wayfinder
+            This is what your budget looks like inside Wayfinder
           </h2>
-          <p className="mt-4 text-base" style={{ color: '#9CA3AF' }}>
+          <p className="mt-4 text-base" style={{ color: '#A9B6BA' }}>
             Move the slider or run the optimization to watch Wayfinder shift
             spend toward your highest-efficiency channels.
           </p>
@@ -411,40 +404,39 @@ function WayfinderDemo() {
           <div
             className="wayfinder-ui-mockup mx-auto rounded-2xl overflow-hidden"
             style={{
-              backgroundColor: '#1B2126',
-              border: '1px solid rgba(34,159,161,0.35)',
-              boxShadow:
-                '0 0 60px rgba(34,159,161,0.08), 0 0 120px rgba(34,159,161,0.04)',
+              backgroundColor: '#052E3F',
+              border: '1px solid rgba(127, 202, 211, 0.35)',
+              boxShadow: 'none',
               maxWidth: '1000px',
             }}
           >
             {/* Window chrome */}
             <div className="flex items-center gap-2 px-5 py-3 border-b border-white/5">
               <div className="flex gap-1.5" aria-hidden="true">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
+                <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
               </div>
               <div className="ml-3 flex items-center gap-2">
                 <span
                   className="text-[10px] font-semibold tracking-wider"
-                  style={{ color: '#229FA1' }}
+                  style={{ color: '#7FCAD3' }}
                 >
                   WAYFINDER
                 </span>
-                <span className="text-[10px]" style={{ color: '#4A4A5A' }}>
+                <span className="text-[10px]" style={{ color: '#91A2A9' }}>
                   |
                 </span>
-                <span className="text-[10px]" style={{ color: '#6B6B7B' }}>
+                <span className="text-[10px]" style={{ color: '#91A2A9' }}>
                   Budget Optimization Demo
                 </span>
               </div>
               <span
                 className="ml-auto text-[9px] font-semibold uppercase tracking-wider rounded px-2 py-0.5"
                 style={{
-                  color: '#E8793A',
-                  border: '1px solid rgba(232,121,58,0.35)',
-                  backgroundColor: 'rgba(232,121,58,0.08)',
+                  color: '#FE5E16',
+                  border: '1px solid rgba(254, 94, 22, 0.35)',
+                  backgroundColor: 'transparent',
                 }}
               >
                 Sample data
@@ -458,26 +450,26 @@ function WayfinderDemo() {
                 <div
                   className="rounded-lg p-3"
                   style={{
-                    background: 'rgba(255,255,255,0.02)',
-                    border: '1px solid rgba(255,255,255,0.04)',
+                    background: 'rgba(0, 0, 0, 0.14)',
+                    border: '1px solid rgba(255, 255, 255, 0.04)',
                   }}
                 >
                   <p
                     className="text-[9px] uppercase tracking-wider"
-                    style={{ color: '#6B6B7B' }}
+                    style={{ color: '#91A2A9' }}
                   >
                     Projected Blended ROAS
                   </p>
                   <p
                     className="mt-1 text-lg font-bold"
-                    style={{ color: '#5BA4A4' }}
+                    style={{ color: '#7FCAD3' }}
                     aria-live="polite"
                   >
                     {projectedRoas.toFixed(2)}x
                   </p>
                   <p
                     className="text-[11px] font-semibold"
-                    style={{ color: roasDelta >= 0 ? '#229FA1' : '#E8793A' }}
+                    style={{ color: roasDelta >= 0 ? '#7FCAD3' : '#FE5E16' }}
                   >
                     {roasDelta >= 0 ? '+' : ''}
                     {roasDelta.toFixed(2)}x vs baseline
@@ -487,13 +479,13 @@ function WayfinderDemo() {
                 <div
                   className="rounded-lg p-3"
                   style={{
-                    background: 'rgba(255,255,255,0.02)',
-                    border: '1px solid rgba(255,255,255,0.04)',
+                    background: 'rgba(0, 0, 0, 0.14)',
+                    border: '1px solid rgba(255, 255, 255, 0.04)',
                   }}
                 >
                   <p
                     className="text-[9px] uppercase tracking-wider"
-                    style={{ color: '#6B6B7B' }}
+                    style={{ color: '#91A2A9' }}
                   >
                     Projected CAC Change
                   </p>
@@ -506,7 +498,7 @@ function WayfinderDemo() {
                   </p>
                   <p
                     className="text-[11px] font-semibold"
-                    style={{ color: cacChangePct <= 0 ? '#229FA1' : '#E8793A' }}
+                    style={{ color: cacChangePct <= 0 ? '#7FCAD3' : '#FE5E16' }}
                   >
                     {cacChangePct <= 0
                       ? 'Lower acquisition cost'
@@ -517,13 +509,13 @@ function WayfinderDemo() {
                 <div
                   className="rounded-lg p-3"
                   style={{
-                    background: 'rgba(255,255,255,0.02)',
-                    border: '1px solid rgba(255,255,255,0.04)',
+                    background: 'rgba(0, 0, 0, 0.14)',
+                    border: '1px solid rgba(255, 255, 255, 0.04)',
                   }}
                 >
                   <p
                     className="text-[9px] uppercase tracking-wider"
-                    style={{ color: '#6B6B7B' }}
+                    style={{ color: '#91A2A9' }}
                   >
                     Optimization
                   </p>
@@ -535,7 +527,7 @@ function WayfinderDemo() {
                   </p>
                   <p
                     className="text-[11px] font-semibold"
-                    style={{ color: '#6B6B7B' }}
+                    style={{ color: '#91A2A9' }}
                   >
                     aggressiveness
                   </p>
@@ -546,30 +538,30 @@ function WayfinderDemo() {
               <div
                 className="rounded-lg p-4 mb-6"
                 style={{
-                  background: 'rgba(255,255,255,0.02)',
-                  border: '1px solid rgba(255,255,255,0.04)',
+                  background: 'rgba(0, 0, 0, 0.14)',
+                  border: '1px solid rgba(255, 255, 255, 0.04)',
                 }}
               >
                 <div className="flex items-center justify-between mb-4">
                   <p
                     className="text-[10px] uppercase tracking-wider"
-                    style={{ color: '#6B6B7B' }}
+                    style={{ color: '#91A2A9' }}
                   >
                     Budget Allocation by Channel
                   </p>
                   <div className="flex items-center gap-4 text-[10px]">
-                    <span className="flex items-center gap-1.5" style={{ color: '#6B7280' }}>
+                    <span className="flex items-center gap-1.5" style={{ color: '#91A2A9' }}>
                       <span
                         className="inline-block h-2 w-3 rounded-sm"
-                        style={{ backgroundColor: 'rgba(148,163,184,0.35)' }}
+                        style={{ backgroundColor: 'rgba(159, 176, 183, 0.35)' }}
                         aria-hidden="true"
                       />
                       Before
                     </span>
-                    <span className="flex items-center gap-1.5" style={{ color: '#5BA4A4' }}>
+                    <span className="flex items-center gap-1.5" style={{ color: '#7FCAD3' }}>
                       <span
                         className="inline-block h-2 w-3 rounded-sm"
-                        style={{ backgroundColor: '#229FA1' }}
+                        style={{ backgroundColor: '#7FCAD3' }}
                         aria-hidden="true"
                       />
                       After
@@ -585,26 +577,26 @@ function WayfinderDemo() {
                         <div className="flex items-center justify-between mb-1.5">
                           <span
                             className="text-xs font-medium"
-                            style={{ color: '#F4F1EB' }}
+                            style={{ color: '#EFF0EF' }}
                           >
                             {c.name}
                             <span
                               className="ml-2 text-[10px] font-normal"
-                              style={{ color: '#6B7280' }}
+                              style={{ color: '#91A2A9' }}
                             >
                               {c.efficiency.toFixed(1)}x efficiency
                             </span>
                           </span>
                           <span
                             className="text-xs font-semibold tabular-nums"
-                            style={{ color: '#5BA4A4' }}
+                            style={{ color: '#7FCAD3' }}
                           >
                             {c.allocation.toFixed(0)}%
                             {Math.abs(moved) >= 0.5 && (
                               <span
                                 className="ml-1.5 text-[10px]"
                                 style={{
-                                  color: moved > 0 ? '#229FA1' : '#E8793A',
+                                  color: moved > 0 ? '#7FCAD3' : '#FE5E16',
                                 }}
                               >
                                 ({moved > 0 ? '+' : ''}
@@ -616,7 +608,7 @@ function WayfinderDemo() {
                         {/* Track with a faint "before" reference and an animated "after" fill. */}
                         <div
                           className="relative h-3 w-full rounded-full overflow-hidden"
-                          style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
+                          style={{ backgroundColor: 'rgba(0, 0, 0, 0.14)' }}
                           role="img"
                           aria-label={`${c.name}: starting allocation ${c.start} percent, projected allocation ${c.allocation.toFixed(0)} percent`}
                         >
@@ -625,7 +617,7 @@ function WayfinderDemo() {
                             className="absolute inset-y-0 left-0 rounded-full"
                             style={{
                               width: `${c.start}%`,
-                              backgroundColor: 'rgba(148,163,184,0.22)',
+                              backgroundColor: 'rgba(159, 176, 183, 0.22)',
                             }}
                             aria-hidden="true"
                           />
@@ -634,7 +626,7 @@ function WayfinderDemo() {
                             className="absolute inset-y-0 left-0 rounded-full"
                             style={{
                               background:
-                                'linear-gradient(90deg, #229FA1, #5BA4A4)',
+                                '#7FCAD3',
                             }}
                             initial={false}
                             animate={{ width: `${c.allocation}%` }}
@@ -654,7 +646,7 @@ function WayfinderDemo() {
                   <label
                     htmlFor="wf-aggressiveness"
                     className="block text-[11px] uppercase tracking-wider mb-2"
-                    style={{ color: '#6B6B7B' }}
+                    style={{ color: '#91A2A9' }}
                   >
                     Optimization aggressiveness
                   </label>
@@ -668,7 +660,7 @@ function WayfinderDemo() {
                     onChange={(e) =>
                       setAggressiveness(Number(e.target.value) / 100)
                     }
-                    className="w-full accent-[#229FA1] cursor-pointer"
+                    className="w-full accent-[#7FCAD3] cursor-pointer"
                     aria-label="Optimization aggressiveness, percent"
                     aria-valuetext={`${Math.round(aggressiveness * 100)} percent`}
                   />
@@ -677,13 +669,13 @@ function WayfinderDemo() {
                 <button
                   type="button"
                   onClick={handleRun}
-                  className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                  style={{ backgroundColor: '#E8793A', outlineColor: '#E8793A' }}
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-tt-ink transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                  style={{ backgroundColor: '#FE5E16', outlineColor: '#FE5E16' }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = '#d96a2d')
+                    (e.currentTarget.style.backgroundColor = '#FE5E16')
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.backgroundColor = '#E8793A')
+                    (e.currentTarget.style.backgroundColor = '#FE5E16')
                   }
                 >
                   <svg
@@ -710,18 +702,18 @@ function WayfinderDemo() {
               <div
                 className="rounded-lg p-4 flex items-start gap-3"
                 style={{
-                  background: 'rgba(34,159,161,0.05)',
-                  border: '1px solid rgba(34,159,161,0.12)',
+                  background: 'rgba(127, 202, 211, 0.05)',
+                  border: '1px solid rgba(127, 202, 211, 0.12)',
                 }}
               >
                 <div
                   className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
-                  style={{ backgroundColor: 'rgba(34,159,161,0.15)' }}
+                  style={{ backgroundColor: 'rgba(127, 202, 211, 0.15)' }}
                   aria-hidden="true"
                 >
                   <svg
                     className="w-3 h-3"
-                    style={{ color: '#229FA1' }}
+                    style={{ color: '#7FCAD3' }}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -736,12 +728,12 @@ function WayfinderDemo() {
                 </div>
                 <p
                   className="text-xs leading-relaxed"
-                  style={{ color: '#9C9CAE' }}
+                  style={{ color: '#A9B6BA' }}
                   aria-live="polite"
                 >
                   <span
                     className="font-semibold"
-                    style={{ color: '#229FA1' }}
+                    style={{ color: '#7FCAD3' }}
                   >
                     Wayfinder:
                   </span>{' '}
@@ -754,7 +746,7 @@ function WayfinderDemo() {
           {/* Disclaimer */}
           <p
             className="mx-auto mt-4 max-w-[1000px] text-center text-[11px]"
-            style={{ color: '#6B7280' }}
+            style={{ color: '#91A2A9' }}
           >
             Illustrative model with sample data. Numbers shown are for
             demonstration only and do not represent a specific account or a
@@ -767,26 +759,25 @@ function WayfinderDemo() {
           <div
             className="rounded-2xl p-6 sm:p-8"
             style={{
-              backgroundColor: 'rgba(27,33,38,0.6)',
-              border: '1px solid rgba(34,159,161,0.18)',
+              backgroundColor: 'rgba(5, 46, 63, 0.6)',
+              border: '1px solid rgba(127, 202, 211, 0.18)',
             }}
           >
             <h3
               className="text-lg font-bold mb-3"
-              style={{ color: '#F4F1EB' }}
+              style={{ color: '#EFF0EF' }}
             >
               How your data is handled
             </h3>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: '#9CA3AF' }}
+              style={{ color: '#A9B6BA' }}
             >
               Wayfinder connects to your ad platforms with read-only access, so
               it can analyze performance without changing your campaigns unless
               you ask it to. We never sell or share your data, and your account
-              data stays yours. {/* TODO(founder): confirm SOC 2 Type II status and audit date before publishing this claim. */}
-              We maintain a security posture aligned with SOC 2 practices
-              (certification status to be confirmed by the team).
+              data stays yours.
+              Access is scoped to what the engagement needs and removed when it ends.
             </p>
           </div>
         </div>
@@ -806,14 +797,14 @@ export default function WayfinderPage() {
       <PillarsSection />
       <WayfinderDemo />
       <CTASection
-        headline="See What Wayfinder Can Do For Your Brand"
-        subheadline="Run Wayfinder on Your Account / 30-minute live diagnostic"
+        headline="See what Wayfinder can do for your brand"
+        subheadline="A 30-minute live diagnostic on your own account."
         primaryCTA={{ text: 'Run Wayfinder on Your Account', href: '/get-started' }}
-        secondaryCTA={{ text: 'Talk to an Engineer', href: '/get-started' }}
+        secondaryCTA={{ text: 'Talk to Our Team', href: '/get-started' }}
         dark
         badges={[
-          'Built by Ex-Google Engineers',
-          'SOC 2 Type II',
+          'Built by Ex-Google Operators',
+          'Read-Only by Default',
           'Your Data Stays Yours',
         ]}
       />

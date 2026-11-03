@@ -66,9 +66,9 @@ interface Capability {
 /* ------------------------------------------------------------------ */
 
 const objectiveLabels: Record<GrowthObjective, { label: string; color: string }> = {
-  acquisition: { label: 'Customer Acquisition', color: '#5BA4A4' },
-  profitability: { label: 'Scaling Profitability', color: '#E8793A' },
-  retention: { label: 'Retention & LTV', color: '#7CB4B4' },
+  acquisition: { label: 'Customer Acquisition', color: '#7FCAD3' },
+  profitability: { label: 'Scaling Profitability', color: '#D3E3A0' },
+  retention: { label: 'Retention & LTV', color: '#EFF0EF' },
 };
 
 const capabilities: Capability[] = [
@@ -80,13 +80,13 @@ const capabilities: Capability[] = [
     objective: 'acquisition',
     objectiveLabel: 'Customer Acquisition',
     description:
-      'Acquire customers at scale while maintaining unit economics. We manage $200M+ in annual ad spend using proprietary AI bidding models that adapt in real time to maximize your LTV/CAC ratio.',
+      'Acquire customers at scale while maintaining unit economics. We run paid media with proprietary AI bidding models that adapt in real time to maximize your LTV/CAC ratio.',
     extendedDescription:
-      'Most agencies treat media buying as a commodity: set budgets, pick audiences, let the algorithm run. We treat it as applied data science. Our team of ex-Google paid media experts built the auction systems your ads compete in. We combine that insider knowledge with proprietary bid optimization models that analyze thousands of signals per auction.',
+      'Most agencies treat media buying as a commodity: set budgets, pick audiences, let the algorithm run. We treat it as applied data science. Our founder spent years inside Google’s ads business working with its largest advertisers. We combine that insider knowledge with proprietary bid optimization models that analyze thousands of signals per auction.',
     insiderTactic: {
       title: 'Ex-Google Insider Advantage',
       detail:
-        'We deploy Alpha/Beta campaign architecture (exact-match "alpha" campaigns siphon proven converters from broad-match "beta" campaigns), Quality Score engineering that reduces CPCs 15-30% before a single bid change, and proprietary auction-time signal layering. On YouTube, we leverage TrueView for Action sequencing and custom intent audiences built from Search query data.',
+        'We deploy Alpha/Beta campaign architecture (exact-match "alpha" campaigns siphon proven converters from broad-match "beta" campaigns), Quality Score engineering that lowers CPCs before a single bid change, and proprietary auction-time signal layering. On YouTube, we leverage TrueView for Action sequencing and custom intent audiences built from Search query data.',
     },
     serviceGroups: [
       {
@@ -121,7 +121,7 @@ const capabilities: Capability[] = [
           'Amazon Ads: Sponsored Products, Sponsored Brands, Display, and DSP',
           'Walmart Connect, Target Roundel, Instacart, Criteo',
           'Digital shelf optimization: PDP content, ratings, availability',
-          'Product feed optimization (the technology behind our +34% average feed quality lift)',
+          'Product feed optimization',
           'Incrementality measurement and branded-term hygiene',
         ],
       },
@@ -129,13 +129,13 @@ const capabilities: Capability[] = [
     proof: {
       headline: 'AG1: +51% monthly acquired customers, -5% CAC YoY',
       detail:
-        'Scaled Meta spend 3x while maintaining efficiency through creative diversification and audience expansion strategy.',
+        'Grew monthly acquired customers while holding CAC through creative diversification and audience expansion.',
     },
     linkLabel: 'See the AG1 case study',
     linkHref: '/results/ag1-meta',
-    gradient: { from: '#5BA4A4', to: '#2d7a7a', orb: '#E8793A' },
+    gradient: { from: '#7FCAD3', to: '#052E3F', orb: '#FE5E16' },
     imagePlaceholder: { label: 'Campaign Performance Dashboard', icon: 'chart-bar' },
-    image: '/images/media-buying-dashboard.png',
+    image: '/images/media-buying-dashboard-brand.png',
   },
   {
     id: 'creative',
@@ -145,7 +145,7 @@ const capabilities: Capability[] = [
     objective: 'acquisition',
     objectiveLabel: 'Customer Acquisition',
     description:
-      'Turn creative from a cost center into your highest-leverage growth driver. We produce 500+ data-born assets per month, each designed to lower CAC and scale winning concepts.',
+      'Turn creative from a cost center into your highest-leverage growth driver. We produce channel-ready creative at volume, each asset designed to lower CAC and scale winning concepts.',
     extendedDescription:
       'Creative is the single biggest lever in paid media, yet most agencies separate creative from performance. We don\'t. From content strategy and educational video to creator and influencer programs, creative here is built to perform, not just to look the part.',
     serviceGroups: [
@@ -189,13 +189,13 @@ const capabilities: Capability[] = [
     proof: {
       headline: 'Anastasia Beverly Hills: +22% Meta ROAS',
       detail:
-        'UGC-first TikTok strategy drove 22% ROAS improvement while reducing creative production costs by 40%.',
+        'A UGC-first TikTok strategy lifted demand across channels, driving a 22% Meta ROAS improvement.',
     },
     linkLabel: 'See the ABH case study',
     linkHref: '/results/anastasia-beverly-hills',
-    gradient: { from: '#E8793A', to: '#c45a20', orb: '#5BA4A4' },
+    gradient: { from: '#FE5E16', to: '#FE5E16', orb: '#7FCAD3' },
     imagePlaceholder: { label: 'Creative Testing Matrix', icon: 'sparkles' },
-    image: '/images/creative-ugc-phone-mockup.png',
+    image: '/images/creative-ugc-phone-mockup-brand.png',
   },
   {
     id: 'website-cro',
@@ -236,9 +236,9 @@ const capabilities: Capability[] = [
     },
     linkLabel: 'See the Online Labels case study',
     linkHref: '/results/online-labels',
-    gradient: { from: '#5BA4A4', to: '#3d8888', orb: '#E8793A' },
+    gradient: { from: '#7FCAD3', to: '#7FCAD3', orb: '#FE5E16' },
     imagePlaceholder: { label: 'Funnel Conversion Heatmap', icon: 'cursor-arrow-rays' },
-    image: '/images/ab-testing-browser-mockup.png',
+    image: '/images/ab-testing-browser-mockup-brand.png',
   },
   {
     id: 'analytics',
@@ -254,7 +254,7 @@ const capabilities: Capability[] = [
     insiderTactic: {
       title: 'Ex-Google Insider Advantage',
       detail:
-        'Our team includes former Google Analytics and Ads measurement engineers who understand exactly how Google\'s conversion modeling, data-driven attribution, and consent mode work under the hood. We configure enhanced conversions and server-side tagging at a level of precision most agencies can\'t match.',
+        'Our ex-Google leadership understands how Google\'s conversion modeling, data-driven attribution, and consent mode work under the hood. We configure enhanced conversions and server-side tagging at a level of precision most agencies can\'t match.',
     },
     serviceGroups: [
       {
@@ -294,13 +294,13 @@ const capabilities: Capability[] = [
     proof: {
       headline: 'AG1: -31% Brand Search CAC via attribution audit',
       detail:
-        'Attribution audit revealed $1.2M in misallocated spend. Reallocation drove 31% CAC reduction on brand search within 60 days.',
+        'An attribution audit found Brand Search overspend. Reallocating it cut Brand Search CAC by 31% and freed budget for incremental growth.',
     },
     linkLabel: 'See the AG1 case study',
     linkHref: '/results/ag1-brand-search',
-    gradient: { from: '#5BA4A4', to: '#4a9494', orb: '#E8793A' },
+    gradient: { from: '#7FCAD3', to: '#7FCAD3', orb: '#FE5E16' },
     imagePlaceholder: { label: 'Attribution Model Architecture', icon: 'chart-pie' },
-    image: '/images/scatter-plot-data-viz.png',
+    image: '/images/scatter-plot-data-viz-brand.png',
   },
   {
     id: 'organic-growth',
@@ -353,13 +353,13 @@ const capabilities: Capability[] = [
     proof: {
       headline: 'Pioneering GEO intelligence for AI-era visibility',
       detail:
-        'Our proprietary GEO monitoring tracks brand mentions across 6 AI platforms, informing content strategy that drives measurable AI referral traffic.',
+        'Our proprietary GEO monitoring tracks brand mentions across the major AI answer engines, informing content strategy that drives measurable AI referral traffic.',
     },
     linkLabel: 'Read our GEO intelligence',
     linkHref: '/intelligence',
-    gradient: { from: '#2d7a7a', to: '#1a5c5c', orb: '#5BA4A4' },
+    gradient: { from: '#052E3F', to: '#052E3F', orb: '#7FCAD3' },
     imagePlaceholder: { label: 'AI Search Visibility Map', icon: 'globe-alt' },
-    image: '/images/network-connection-map.png',
+    image: '/images/network-connection-map-brand.png',
   },
   {
     id: 'lifecycle',
@@ -402,15 +402,15 @@ const capabilities: Capability[] = [
       },
     ],
     proof: {
-      headline: '2-3x LTV increases across lifecycle clients',
+      headline: 'Lifecycle measured in lifetime value',
       detail:
-        'Data-driven segmentation and trigger-based flows consistently double or triple customer lifetime value within 12 months.',
+        'Data-driven segmentation and trigger-based flows are built and reported against customer lifetime value, not open rates.',
     },
     linkLabel: 'Start the conversation',
     linkHref: '/get-started',
-    gradient: { from: '#E8793A', to: '#d06628', orb: '#5BA4A4' },
+    gradient: { from: '#FE5E16', to: '#FE5E16', orb: '#7FCAD3' },
     imagePlaceholder: { label: 'Cohort LTV Curves', icon: 'arrow-trending-up' },
-    image: '/images/lifecycle-journey-visualization.png',
+    image: '/images/lifecycle-journey-visualization-brand.png',
   },
   {
     id: 'partnerships',
@@ -422,7 +422,7 @@ const capabilities: Capability[] = [
     description:
       'We don\'t just run ads. We build growth ecosystems that connect brands, investors, and platforms into mutually reinforcing relationships.',
     extendedDescription:
-      'Our PE/VC practice is unique in the agency world. We work directly with fund operating partners to accelerate portfolio company growth, running audit-led sales motions that convert at 90%+.',
+      'Our PE/VC practice is unique in the agency world. We work directly with fund operating partners to accelerate portfolio company growth, starting every engagement with an audit-led diagnostic.',
     services: [
       'Audit-Led Sales Motions for PE/VC Portfolios',
       'Referral & Partner Ecosystems',
@@ -432,25 +432,25 @@ const capabilities: Capability[] = [
       'Investor Relations Marketing Support',
     ],
     proof: {
-      headline: '90%+ of fund-referred clients expand scope within 6 months',
+      headline: 'Audit first, then scope',
       detail:
-        'Our audit-first approach builds trust. Portfolio companies consistently expand from single-channel to full-funnel within two quarters.',
+        'Our audit-first approach builds trust. Portfolio companies start with one channel and expand only where the numbers support it.',
     },
     linkLabel: 'Learn about our PE/VC practice',
     linkHref: '/pe-vc',
-    gradient: { from: '#2d7a7a', to: '#1f6565', orb: '#E8793A' },
+    gradient: { from: '#052E3F', to: '#052E3F', orb: '#FE5E16' },
     imagePlaceholder: { label: 'Portfolio Growth Network', icon: 'users' },
-    image: '/images/project-timeline-ui.png',
+    image: '/images/project-timeline-ui-brand.png',
   },
 ];
 
 const outcomes = [
-  { title: 'Acquisition Efficiency', stat: STATS.avg.cacReduction, statLabel: 'avg. CAC reduction', description: 'Sustained downward pressure on cost-per-acquisition through continuous optimization and creative iteration.' },
-  { title: 'Incremental Revenue', stat: STATS.avg.roas, statLabel: 'avg. ROAS', description: 'Attributable revenue validated through incrementality testing, not just platform-reported ROAS.' },
-  { title: 'Conversion Yield', stat: STATS.avg.cvrLift, statLabel: 'avg. CVR lift', description: 'Measurable lifts to conversion rate, AOV, and funnel efficiency through structured testing.' },
-  { title: 'Lifetime Value', stat: STATS.avg.ltvIncrease, statLabel: 'avg. LTV increase', description: 'LTV:CAC ratio improvements from segmented lifecycle and retention programs that drive EBITDA alignment.' },
-  { title: 'Budget Acceleration', stat: STATS.avg.scaleSpend6mo, statLabel: 'clients scale spend', description: 'Majority of clients increase managed media budget within 6 months as efficiency improves.' },
-  { title: 'Recurring Revenue', stat: STATS.avg.projectToRetainer, statLabel: 'project-to-retainer', description: 'Conversion of audit and project work into long-term retained partnerships.' },
+  { title: 'Acquisition Efficiency', stat: 'CAC', statLabel: 'cost per acquisition', description: 'Sustained downward pressure on cost-per-acquisition through continuous optimization and creative iteration.' },
+  { title: 'Incremental Revenue', stat: 'iROAS', statLabel: 'incremental return', description: 'Attributable revenue validated through incrementality testing, not just platform-reported ROAS.' },
+  { title: 'Conversion Yield', stat: 'CVR', statLabel: 'conversion rate', description: 'Measurable lifts to conversion rate, AOV, and funnel efficiency through structured testing.' },
+  { title: 'Lifetime Value', stat: 'LTV', statLabel: 'lifetime value', description: 'LTV:CAC ratio improvements from segmented lifecycle and retention programs that drive EBITDA alignment.' },
+  { title: 'Budget Acceleration', stat: 'Spend', statLabel: 'scaled on efficiency', description: 'Budget scales only when efficiency holds, so every added dollar is earning its place.' },
+  { title: 'Recurring Revenue', stat: 'MRR', statLabel: 'recurring revenue', description: 'For subscription and recurring-revenue businesses, we report against the revenue line the board watches.' },
 ];
 
 const tiers = [
@@ -470,7 +470,7 @@ const timelinePhases = [
       'Tracking & attribution health check (GA4, pixels, CAPI)',
       'Competitive landscape analysis with share-of-voice data',
       'Strategic roadmap with prioritized quick-wins',
-      '3 immediate optimizations launched (avg. 8-12% efficiency gain)',
+      'First optimizations launched from audit findings',
     ],
   },
   {
@@ -536,20 +536,6 @@ function ServiceImage({ src, label, gradient }: { src: string; label: string; gr
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
       />
-      {/* Subtle gradient overlay for text legibility */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: `linear-gradient(180deg, transparent 40%, ${gradient.to}90 100%)`,
-        }}
-      />
-      {/* Bottom border glow */}
-      <div
-        className="absolute bottom-0 left-[10%] right-[10%] h-px"
-        style={{
-          background: `linear-gradient(90deg, transparent, ${gradient.from}40, transparent)`,
-        }}
-      />
     </div>
   );
 }
@@ -596,13 +582,11 @@ function HeroSection() {
   return (
     <section className="relative min-h-[70vh] flex items-center overflow-hidden" style={{
       background: `
-        radial-gradient(ellipse 50% 50% at 60% 20%, rgba(91, 164, 164, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 20% 70%, rgba(232, 121, 58, 0.04) 0%, transparent 55%),
-        #0A1119
+        #052E3F
       `,
     }}>
       <div className="pointer-events-none absolute inset-0 z-[0]" aria-hidden="true" style={{
-        backgroundImage: 'url(/images/services-hero.webp)',
+        backgroundImage: 'none' /* brand: no busy photo backgrounds; was url(/images/services-hero.webp) */,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         opacity: 0.3,
@@ -615,11 +599,11 @@ function HeroSection() {
         variants={staggerContainer}
         className="relative z-10 mx-auto max-w-6xl px-6 py-32 md:py-40"
       >
-        <motion.p variants={fadeUp} transition={transition} className="text-tt-teal uppercase tracking-[4px] text-sm font-semibold mb-6">
-          GROWTH OBJECTIVES, NOT CHANNEL LISTS
+        <motion.p variants={fadeUp} transition={transition} className="text-tt-orange uppercase tracking-[4px] text-sm font-semibold mb-6">
+          Capabilities
         </motion.p>
         <motion.h1 variants={fadeUp} transition={transition} className="text-5xl md:text-7xl font-extrabold text-white leading-[1.08] tracking-tight">
-          Acquire. Scale Profitably.
+          Acquire. Scale profitably.{' '}
           <br className="hidden md:block" />
           Retain. Repeat.
         </motion.h1>
@@ -646,8 +630,8 @@ function HeroSection() {
         {/* Hero Stats in Glassmorphism Cards */}
         <motion.div variants={fadeUp} transition={transition} className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { value: '$200M+', label: 'Annual ad spend managed' },
-            { value: '50+', label: 'Active brand partners' },
+            { value: '+46%', label: 'Site CVR, national broadband provider' },
+            { value: '+51%', label: 'Customers YoY, AG1' },
             { value: '2,954%', label: '3-year growth (Inc. 5000)' },
             { value: '#123', label: 'Inc. 5000 ranking' },
           ].map((stat) => (
@@ -655,11 +639,11 @@ function HeroSection() {
               key={stat.label}
               className="rounded-2xl p-5 md:p-6 text-center transition-all duration-300 hover:-translate-y-1"
               style={{
-                background: 'rgba(255, 255, 255, 0.03)',
+                background: 'rgba(0, 0, 0, 0.14)',
                 backdropFilter: 'blur(20px) saturate(1.3)',
                 WebkitBackdropFilter: 'blur(20px) saturate(1.3)',
                 border: '1px solid rgba(255, 255, 255, 0.06)',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.04)',
+                boxShadow: 'none',
               }}
             >
               <AnimatedCounter value={stat.value} label={stat.label} />
@@ -690,8 +674,7 @@ function CapabilitySection({ capability, index }: { capability: Capability; inde
       style={{
         scrollMarginTop: '120px',
         background: `
-          radial-gradient(ellipse 60% 40% at ${index % 2 === 0 ? '20%' : '80%'} 30%, ${capability.gradient.from}06 0%, transparent 60%),
-          #0A1119
+          #052E3F
         `,
       }}
     >
@@ -725,12 +708,8 @@ function CapabilitySection({ capability, index }: { capability: Capability; inde
                   variants={fadeUp}
                   transition={transition}
                   className="text-[7rem] md:text-[9rem] font-extrabold leading-none select-none -ml-2"
-                  style={{
-                    background: `linear-gradient(180deg, ${capability.gradient.from}25, ${capability.gradient.from}08)`,
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
+                  style={{ color: 'rgba(239, 240, 239, 0.08)' }}
+                  aria-hidden="true"
                 >
                   {capability.number}
                 </motion.p>
@@ -754,17 +733,17 @@ function CapabilitySection({ capability, index }: { capability: Capability; inde
                   <motion.div
                     variants={fadeUp}
                     transition={transition}
-                    className="mt-8 rounded-xl border border-amber-600/25 bg-amber-950/20 p-5"
+                    className="mt-8 rounded-r-lg border-l-2 border-tt-orange bg-black/[0.14] p-5"
                   >
                     <div className="flex items-center gap-2 mb-3">
                       <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                        <path d="M10 2l2.09 4.26L17 7.27l-3.5 3.41.82 4.82L10 13.27l-4.32 2.23.82-4.82L3 7.27l4.91-1.01L10 2z" fill="#E8793A" />
+                        <path d="M10 2l2.09 4.26L17 7.27l-3.5 3.41.82 4.82L10 13.27l-4.32 2.23.82-4.82L3 7.27l4.91-1.01L10 2z" fill="#FE5E16" />
                       </svg>
-                      <p className="text-xs font-bold uppercase tracking-[2px] text-amber-400">
+                      <p className="text-xs font-bold uppercase tracking-[2px] text-tt-orange">
                         {capability.insiderTactic.title}
                       </p>
                     </div>
-                    <p className="text-amber-200/70 text-sm leading-relaxed">
+                    <p className="text-tt-gray-300 text-sm leading-relaxed">
                       {capability.insiderTactic.detail}
                     </p>
                   </motion.div>
@@ -774,7 +753,7 @@ function CapabilitySection({ capability, index }: { capability: Capability; inde
                 <motion.div variants={fadeUp} transition={transition}>
                   <Link
                     href={capability.linkHref}
-                    className="mt-8 inline-flex items-center gap-2 text-tt-teal font-semibold transition-colors hover:text-white group"
+                    className="mt-8 inline-flex items-center gap-2 text-tt-orange font-semibold transition-colors hover:text-white group"
                   >
                     {capability.linkLabel}
                     <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
@@ -804,13 +783,13 @@ function CapabilitySection({ capability, index }: { capability: Capability; inde
               {/* Services List */}
               <motion.div variants={fadeUp} transition={transition}>
                 <h3 className="text-xs font-semibold uppercase tracking-[3px] text-tt-teal mb-5">
-                  What This Includes
+                  What this includes
                 </h3>
                 {capability.serviceGroups ? (
                   <div className="space-y-8">
                     {capability.serviceGroups.map((group) => (
                       <div key={group.id} id={group.id} style={{ scrollMarginTop: '120px' }}>
-                        <h4 className="text-sm font-bold uppercase tracking-[2px] text-tt-orange mb-3">
+                        <h4 className="text-sm font-bold uppercase tracking-[2px] text-tt-teal mb-3">
                           {group.heading}
                         </h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -820,7 +799,7 @@ function CapabilitySection({ capability, index }: { capability: Capability; inde
                               variants={fadeUp}
                               transition={{ ...transition, delay: i * 0.05 }}
                               className="flex items-start gap-3 rounded-xl px-4 py-3 transition-colors hover:bg-white/[0.03]"
-                              style={{ border: '1px solid rgba(255,255,255,0.04)' }}
+                              style={{ border: '1px solid rgba(255, 255, 255, 0.04)' }}
                             >
                               <span className="mt-2 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-tt-teal/60" />
                               <span className="text-sm text-tt-gray-300 leading-relaxed">{service}</span>
@@ -838,7 +817,7 @@ function CapabilitySection({ capability, index }: { capability: Capability; inde
                         variants={fadeUp}
                         transition={{ ...transition, delay: i * 0.05 }}
                         className="flex items-start gap-3 rounded-xl px-4 py-3 transition-colors hover:bg-white/[0.03]"
-                        style={{ border: '1px solid rgba(255,255,255,0.04)' }}
+                        style={{ border: '1px solid rgba(255, 255, 255, 0.04)' }}
                       >
                         <span className="mt-2 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-tt-teal/60" />
                         <span className="text-sm text-tt-gray-300 leading-relaxed">{service}</span>
@@ -853,13 +832,13 @@ function CapabilitySection({ capability, index }: { capability: Capability; inde
                 <div
                   className="rounded-xl border-l-4 border-l-tt-orange p-6 transition-all duration-300 hover:bg-white/[0.03]"
                   style={{
-                    background: 'rgba(20, 25, 32, 0.8)',
+                    background: 'rgba(5, 46, 63, 0.8)',
                     border: '1px solid rgba(255, 255, 255, 0.06)',
-                    borderLeft: '4px solid #E8793A',
-                    boxShadow: '0 4px 24px rgba(0, 0, 0, 0.2)',
+                    borderLeft: '4px solid #FE5E16',
+                    boxShadow: 'none',
                   }}
                 >
-                  <p className="text-xs font-bold uppercase tracking-[2px] text-tt-orange mb-3">
+                  <p className="text-xs font-bold uppercase tracking-[2px] text-tt-teal mb-3">
                     Proof Point
                   </p>
                   <p className="text-white font-semibold text-lg leading-snug mb-2">
@@ -891,7 +870,7 @@ function OutcomesSection() {
 
   return (
     <section id="measure" className="py-24 px-6 border-t border-white/[0.04] scroll-mt-24" style={{
-      background: `radial-gradient(ellipse 60% 50% at 50% 0%, rgba(91,164,164,0.04) 0%, transparent 60%), #0d1520`,
+      background: `#052E3F`,
     }}>
       <div ref={ref} className="mx-auto max-w-6xl">
         <motion.div
@@ -900,11 +879,11 @@ function OutcomesSection() {
           variants={staggerContainer}
           className="text-center mb-16"
         >
-          <motion.p variants={fadeUp} transition={transition} className="text-tt-teal uppercase tracking-[4px] text-sm font-semibold mb-4">
+          <motion.p variants={fadeUp} transition={transition} className="text-tt-orange uppercase tracking-[4px] text-sm font-semibold mb-4">
             Outcomes
           </motion.p>
           <motion.h2 variants={fadeUp} transition={transition} className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-            How We Measure Success
+            How we measure success
           </motion.h2>
           <motion.p variants={fadeUp} transition={transition} className="mt-4 text-lg text-tt-gray-400 max-w-2xl mx-auto">
             Every engagement is measured against outcomes that matter to your P&L, not vanity metrics.
@@ -954,7 +933,7 @@ function ClientTiersSection() {
 
   return (
     <section className="py-24 px-6 border-t border-white/[0.04]" style={{
-      background: `radial-gradient(ellipse 50% 50% at 70% 50%, rgba(232,121,58,0.03) 0%, transparent 60%), #0A1119`,
+      background: `#052E3F`,
     }}>
       <div ref={ref} className="mx-auto max-w-6xl">
         <motion.div
@@ -964,9 +943,9 @@ function ClientTiersSection() {
           className="text-center mb-16"
         >
           <motion.h2 variants={fadeUp} transition={transition} className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-            We Work With Brands That
+            We work with brands that{' '}
             <br className="hidden md:block" />
-            Prioritize Measurable Growth
+            prioritize measurable growth
           </motion.h2>
           <motion.p variants={fadeUp} transition={transition} className="mt-4 text-lg text-tt-gray-400 max-w-2xl mx-auto">
             From emerging DTC brands to enterprise portfolios, we tailor our approach to your stage and scale.
@@ -987,19 +966,19 @@ function ClientTiersSection() {
               className="rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2"
               style={{
                 background: tier.highlighted
-                  ? 'rgba(232, 121, 58, 0.04)'
-                  : 'rgba(20, 27, 35, 0.5)',
+                  ? 'rgba(254, 94, 22, 0.04)'
+                  : 'rgba(5, 46, 63, 0.5)',
                 backdropFilter: 'blur(12px)',
                 border: tier.highlighted
-                  ? '1px solid rgba(232, 121, 58, 0.25)'
+                  ? '1px solid rgba(254, 94, 22, 0.25)'
                   : '1px solid rgba(255, 255, 255, 0.06)',
                 boxShadow: tier.highlighted
-                  ? '0 0 40px rgba(232, 121, 58, 0.08), 0 8px 32px rgba(0,0,0,0.2)'
-                  : '0 8px 32px rgba(0,0,0,0.2)',
+                  ? 'none'
+                  : '0 8px 32px rgba(0, 0, 0, 0.2)',
               }}
             >
               {tier.highlighted && (
-                <span className="inline-block mb-4 text-[10px] font-bold uppercase tracking-[2px] text-tt-orange bg-tt-orange/10 px-3 py-1 rounded-full">
+                <span className="inline-block mb-4 text-[10px] font-bold uppercase tracking-[2px] text-tt-teal bg-transparent px-3 py-1 rounded-full">
                   Ideal Fit
                 </span>
               )}
@@ -1028,7 +1007,7 @@ function TimelineSection() {
 
   return (
     <section className="py-24 px-6 border-t border-white/[0.04]" style={{
-      background: `radial-gradient(ellipse 50% 40% at 30% 50%, rgba(91,164,164,0.03) 0%, transparent 50%), #0d1520`,
+      background: `#052E3F`,
     }}>
       <div ref={ref} className="mx-auto max-w-4xl">
         <motion.div
@@ -1037,11 +1016,11 @@ function TimelineSection() {
           variants={staggerContainer}
           className="text-center mb-16"
         >
-          <motion.p variants={fadeUp} transition={transition} className="text-tt-teal uppercase tracking-[4px] text-sm font-semibold mb-4">
+          <motion.p variants={fadeUp} transition={transition} className="text-tt-orange uppercase tracking-[4px] text-sm font-semibold mb-4">
             YOUR FIRST YEAR
           </motion.p>
           <motion.h2 variants={fadeUp} transition={transition} className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-            What Success Looks Like
+            What success looks like
           </motion.h2>
           <motion.p variants={fadeUp} transition={transition} className="mt-4 text-lg text-tt-gray-400 max-w-2xl mx-auto">
             Every engagement begins with a structured onboarding that delivers measurable results within the first quarter, then compounds.
@@ -1059,7 +1038,7 @@ function TimelineSection() {
           <div
             className="absolute left-[19px] md:left-[23px] top-0 bottom-0 w-px"
             style={{
-              background: 'linear-gradient(180deg, rgba(100,116,139,0.5) 0%, rgba(100,116,139,0.2) 100%)',
+              background: 'rgba(94, 119, 129, 0.5)',
             }}
           />
 
@@ -1077,15 +1056,15 @@ function TimelineSection() {
                   <div
                     className="absolute w-10 h-10 md:w-12 md:h-12 rounded-full animate-glow-orange"
                     style={{
-                      background: 'radial-gradient(circle, rgba(232,121,58,0.15) 0%, transparent 70%)',
+                      background: 'transparent',
                     }}
                   />
                   {/* Dot */}
                   <div
                     className="relative w-[10px] h-[10px] rounded-full z-10"
                     style={{
-                      backgroundColor: '#E8793A',
-                      boxShadow: '0 0 12px rgba(232,121,58,0.5), 0 0 24px rgba(232,121,58,0.2)',
+                      backgroundColor: '#FE5E16',
+                      boxShadow: 'none',
                     }}
                   />
                 </div>
@@ -1094,20 +1073,20 @@ function TimelineSection() {
                 <div
                   className="rounded-2xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 card-shimmer"
                   style={{
-                    background: 'rgba(20, 27, 35, 0.6)',
+                    background: 'rgba(5, 46, 63, 0.6)',
                     backdropFilter: 'blur(12px)',
                     border: '1px solid rgba(255, 255, 255, 0.06)',
                   }}
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-tt-orange font-bold text-lg">{phase.period}</span>
-                    <span className="h-px flex-1 bg-white/[0.06]" />
+                    <span className="h-px flex-1 bg-black/[0.14]" />
                     <span className="text-white font-semibold text-sm">{phase.title}</span>
                   </div>
 
                   <ul className="space-y-2.5">
                     {phase.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm text-slate-400">
+                      <li key={item} className="flex items-start gap-3 text-sm text-tt-gray-400">
                         <svg className="mt-0.5 flex-shrink-0 w-4 h-4 text-tt-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
@@ -1139,9 +1118,7 @@ function SeenCommerceSection() {
   return (
     <section className="py-24 px-6 border-t border-white/[0.04]" style={{
       background: `
-        radial-gradient(ellipse 55% 45% at 65% 30%, rgba(91, 164, 164, 0.05) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 25% 70%, rgba(232, 121, 58, 0.03) 0%, transparent 55%),
-        #0A1119
+        #052E3F
       `,
     }}>
       <div ref={ref} className="mx-auto max-w-6xl">
@@ -1152,117 +1129,38 @@ function SeenCommerceSection() {
         >
           {/* Section header */}
           <motion.div variants={fadeUp} transition={transition} className="text-center mb-16">
-            <p className="text-tt-teal uppercase tracking-[4px] text-sm font-semibold mb-4">
-              Exclusive Partnership
+            <p className="text-tt-orange uppercase tracking-[4px] text-sm font-semibold mb-4">
+              Strategic Partnership
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight max-w-4xl mx-auto">
-              Turn 80% of Video Engagement into Immediate Commerce.
+              Turn video engagement into immediate commerce.
             </h2>
             <p className="mt-6 text-lg text-tt-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Through our exclusive partnership with SEEEN plc, we transform passive video consumption into shoppable, high-converting assets. Stop losing users between the view and the checkout.
+              Through our strategic partnership with SEEEN plc, we transform passive video consumption into shoppable, high-converting assets. Stop losing users between the view and the checkout.
             </p>
           </motion.div>
 
-          {/* Glassmorphism card with image mockup */}
-          <motion.div variants={scaleIn} transition={transition} className="max-w-4xl mx-auto">
-            <div
-              className="rounded-2xl p-8 md:p-12 transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: 'rgba(20, 27, 35, 0.6)',
-                backdropFilter: 'blur(20px) saturate(1.3)',
-                WebkitBackdropFilter: 'blur(20px) saturate(1.3)',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04)',
-              }}
-            >
-              {/* 16:9 Video Commerce Mockup */}
-              <div
-                className="seeen-commerce-mockup relative w-full rounded-2xl overflow-hidden"
-                style={{
-                  aspectRatio: '16 / 9',
-                  background: '#1B2126',
-                  boxShadow: '0 0 30px rgba(34, 159, 161, 0.12), 0 0 60px rgba(34, 159, 161, 0.06)',
-                  border: '1px solid rgba(34, 159, 161, 0.2)',
-                }}
-              >
-                {/* Subtle grid pattern */}
-                <svg className="absolute inset-0 w-full h-full opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <pattern id="seeen-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#229FA1" strokeWidth="0.5" />
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#seeen-grid)" />
-                </svg>
-
-                {/* Floating teal accent orb */}
-                <div
-                  className="absolute rounded-full blur-[100px] animate-mesh-drift"
-                  style={{
-                    width: '45%',
-                    height: '45%',
-                    background: '#229FA1',
-                    opacity: 0.08,
-                    top: '15%',
-                    right: '15%',
-                  }}
-                />
-
-                {/* Floating orange accent orb */}
-                <div
-                  className="absolute rounded-full blur-[80px]"
-                  style={{
-                    width: '30%',
-                    height: '30%',
-                    background: '#FF6B35',
-                    opacity: 0.05,
-                    bottom: '10%',
-                    left: '10%',
-                  }}
-                />
-
-                {/* Center label */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                  {/* Play icon */}
-                  <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center"
-                    style={{ backgroundColor: 'rgba(34, 159, 161, 0.15)', border: '1px solid rgba(34, 159, 161, 0.25)' }}
-                  >
-                    <svg className="w-8 h-8 text-tt-teal ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                  <p className="text-base font-semibold text-white/70 tracking-wide">
-                    Interactive Video Commerce
-                  </p>
-                  <p className="text-xs text-tt-gray-500 uppercase tracking-[3px]">
-                    Powered by SEEEN
-                  </p>
-                </div>
-
-                {/* Bottom border glow */}
-                <div
-                  className="absolute bottom-0 left-[10%] right-[10%] h-px"
-                  style={{
-                    background: 'linear-gradient(90deg, transparent, rgba(34, 159, 161, 0.35), transparent)',
-                  }}
-                />
-
-                {/* Corner teal glow accents */}
-                <div
-                  className="absolute top-0 left-0 w-32 h-32"
-                  style={{
-                    background: 'radial-gradient(circle at top left, rgba(34, 159, 161, 0.08) 0%, transparent 70%)',
-                  }}
-                />
-                <div
-                  className="absolute bottom-0 right-0 w-32 h-32"
-                  style={{
-                    background: 'radial-gradient(circle at bottom right, rgba(34, 159, 161, 0.08) 0%, transparent 70%)',
-                  }}
-                />
+          <motion.div variants={fadeUp} transition={transition} className="max-w-4xl mx-auto grid gap-4 md:grid-cols-3 text-left">
+            {[
+              { k: 'Watch', t: 'Products tagged inside the video your audience already watches.' },
+              { k: 'Tap', t: 'Shoppers act in the moment, without leaving the content.' },
+              { k: 'Measure', t: 'Video engagement tied to the conversions it drives.' },
+            ].map((step) => (
+              <div key={step.k} className="border-l-2 border-tt-orange pl-5 py-2">
+                <p className="font-display text-xl font-bold text-white">{step.k}</p>
+                <p className="mt-2 text-sm text-tt-gray-300 leading-relaxed">{step.t}</p>
               </div>
-            </div>
+            ))}
+          </motion.div>
+          <motion.div variants={fadeUp} transition={transition} className="mt-10 text-center">
+            <a
+              href="https://newsbywire.com/seeen-plc-and-tiger-tracks-llc-announce-strategic-partnership-to-bring-interactive-video-commerce-to-performance-marketing/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              Read the partnership announcement &rarr;
+            </a>
           </motion.div>
         </motion.div>
       </div>
@@ -1316,7 +1214,7 @@ export default function ServicesPage() {
       <SeenCommerceSection />
 
       <CTASection
-        headline="Let's Build Your Growth Engine"
+        headline="Let's build your growth engine"
         subheadline="Book a free Strategic Diagnostic and see exactly where your revenue is leaking."
         primaryCTA={{ text: 'Request a Strategic Diagnostic', href: '/get-started' }}
         secondaryCTA={{ text: 'View Case Studies', href: '/results' }}

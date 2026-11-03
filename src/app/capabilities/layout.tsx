@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description:
       'Full-funnel performance marketing capabilities: paid media, SEO, creative strategy, analytics, and CRO.',
     url: 'https://tigertracks.ai/capabilities',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 

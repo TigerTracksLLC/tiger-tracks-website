@@ -829,7 +829,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     logoPlaceholder: 'CZ',
-    heroImage: '/images/case-study-portrait.png',
+    heroImage: '/images/case-study-portrait-brand.png',
   },
   {
     slug: 'dovetail',
@@ -879,139 +879,6 @@ export const caseStudies: CaseStudy[] = [
       company: 'Dovetail Furniture',
     },
     logoPlaceholder: 'DT',
-    heroImage: '/images/case-study-product-viz.png',
-  },
-  // --- PLACEHOLDER CASE STUDIES: Missing Industries ---
-  {
-    slug: 'saas-pipeline-acceleration',
-    client: 'Series B SaaS Platform',
-    heroMetric: '+215%',
-    heroMetricLabel: 'Marketing-Qualified Pipeline',
-    category: 'SaaS / Multi-Channel',
-    channels: ['Google', 'Meta', 'LinkedIn'],
-    industry: 'SaaS',
-    challengeType: 'Scaling Spend',
-    summary:
-      'Scaling marketing-qualified pipeline 215% for a Series B SaaS company preparing for growth-stage fundraise.',
-    problem:
-      'A Series B SaaS platform needed to demonstrate scalable, efficient customer acquisition ahead of a growth-stage raise. Existing campaigns generated leads but couldn\'t connect marketing spend to pipeline and ARR. Investors wanted proof that paid channels could scale without CAC inflation.',
-    solution:
-      'We rebuilt the full demand gen stack: campaign architecture, conversion tracking tied to CRM pipeline stages, and creative optimized for demo requests over ebook downloads. Wayfinder AI connected ad platform data to CRM pipeline data, enabling optimization toward revenue-stage events rather than top-of-funnel vanity metrics.',
-    impact:
-      'Marketing-qualified pipeline grew 215% while CAC-to-LTV ratio improved from 1:2.8 to 1:4.1. The pipeline data gave the fundraise narrative concrete, defensible numbers.',
-    results: [
-      { metric: 'MQ Pipeline', value: '+215%', metricType: 'leads' },
-      { metric: 'CAC:LTV Ratio', value: '1:4.1 (from 1:2.8)', metricType: 'ltv' },
-      { metric: 'SQL Conversion Rate', value: '+67%', metricType: 'efficiency' },
-    ],
-    wayfinderTactic: {
-      title: 'CRM Pipeline-Stage Optimization',
-      description: 'Wayfinder AI connected ad platform click data to CRM pipeline stages, enabling bidding optimization toward demo-to-close events rather than form fills.',
-    },
-    attribution: 'Full CRM integration (Salesforce) with offline conversion imports to Google and Meta. Pipeline attribution tracked from first touch to closed-won with multi-touch weighting.',
-    timeline: {
-      before: [
-        { label: 'Q1', value: 100 },
-        { label: 'Q2', value: 110 },
-        { label: 'Q3', value: 108 },
-        { label: 'Q4', value: 115 },
-      ],
-      after: [
-        { label: 'Q5', value: 155 },
-        { label: 'Q6', value: 210 },
-        { label: 'Q7', value: 275 },
-        { label: 'Q8', value: 315 },
-      ],
-    },
-    logoPlaceholder: 'SaaS',
-    isPlaceholder: true,
-  },
-  {
-    slug: 'b2b-enterprise-lead-gen',
-    client: 'Enterprise Services Provider',
-    heroMetric: '-41%',
-    heroMetricLabel: 'Cost Per Sales-Qualified Lead',
-    category: 'B2B / Google + LinkedIn',
-    channels: ['Google', 'LinkedIn'],
-    industry: 'B2B',
-    challengeType: 'Lowering CAC',
-    summary:
-      'Cutting cost per SQL 41% for an enterprise services company drowning in unqualified leads.',
-    problem:
-      'An enterprise services provider was spending heavily on Google and LinkedIn but generating a flood of unqualified leads that wasted sales team time. Cost per sales-qualified lead was unsustainable, and the marketing team couldn\'t justify additional budget without proving pipeline quality improvement.',
-    solution:
-      'We restructured campaigns around intent signals rather than volume. Wayfinder AI built a lead scoring model from historical CRM data, identifying which keyword and audience combinations produced leads that actually closed. This model fed directly into platform bidding strategies.',
-    impact:
-      'Cost per SQL dropped 41% while SQL volume held steady. Sales team efficiency improved dramatically as they stopped chasing dead-end leads, and marketing earned back budget credibility.',
-    results: [
-      { metric: 'Cost Per SQL', value: '-41%', metricType: 'cac' },
-      { metric: 'Lead-to-SQL Rate', value: '+89%', metricType: 'efficiency' },
-      { metric: 'Sales Cycle Length', value: '-18 days', metricType: 'efficiency' },
-    ],
-    wayfinderTactic: {
-      title: 'CRM-Trained Lead Quality Scoring',
-      description: 'Wayfinder AI trained on historical CRM close-rate data to score leads at the keyword-audience level, then fed quality signals back into platform bidding.',
-    },
-    attribution: 'CRM-integrated offline conversion tracking. Lead quality measured from MQL to SQL to closed-won, with revenue attribution at the campaign and keyword level.',
-    timeline: {
-      before: [
-        { label: 'Month 1', value: 850 },
-        { label: 'Month 2', value: 880 },
-        { label: 'Month 3', value: 870 },
-        { label: 'Month 4', value: 900 },
-      ],
-      after: [
-        { label: 'Month 5', value: 720 },
-        { label: 'Month 6', value: 610 },
-        { label: 'Month 7', value: 545 },
-        { label: 'Month 8', value: 530 },
-      ],
-    },
-    logoPlaceholder: 'B2B',
-    isPlaceholder: true,
-  },
-  {
-    slug: 'pe-portfolio-turnaround',
-    client: 'PE Portfolio Company',
-    heroMetric: '+340%',
-    heroMetricLabel: 'ROAS in 120 Days',
-    category: 'PE Portfolio / Multi-Channel',
-    channels: ['Google', 'Meta'],
-    industry: 'PE Portfolio',
-    challengeType: 'Full-Funnel Build',
-    summary:
-      'Turning around a PE portfolio company\'s digital marketing from near-zero to 3.4x ROAS in 120 days.',
-    problem:
-      'A PE firm acquired a consumer brand with no meaningful digital marketing infrastructure. The previous owners had run sporadic campaigns with no tracking, no attribution, and no optimization. The PE ops team needed to prove a digital growth thesis within the first two quarters post-acquisition.',
-    solution:
-      'We deployed Tiger Tracks\' Growth Accelerator Audit framework: forensic analysis of digital marketing efficiency, competitive positioning, technical infrastructure, and growth potential. From the audit findings, we built the full stack from scratch. Wayfinder AI provided the measurement backbone, giving the PE ops team a live dashboard of marketing efficiency metrics against their investment thesis benchmarks.',
-    impact:
-      'ROAS went from effectively unmeasured to 3.4x within 120 days. The PE firm got the data infrastructure and performance proof they needed for their next board presentation.',
-    results: [
-      { metric: 'ROAS', value: '3.4x (from ~0)', metricType: 'roas' },
-      { metric: 'Revenue from Digital', value: '+$2.1M annualized', metricType: 'revenue' },
-      { metric: 'Time to Measurable ROI', value: '120 days', metricType: 'efficiency' },
-    ],
-    wayfinderTactic: {
-      title: 'PE Ops Dashboard with Thesis Benchmarks',
-      description: 'Wayfinder AI provided a live dashboard mapping marketing performance metrics directly against the PE firm\'s investment thesis KPIs, enabling real-time thesis validation.',
-    },
-    attribution: 'Built from scratch: server-side conversion tracking, GA4 implementation, platform pixel deployment, and CRM integration. Full attribution stack deployed in 30 days.',
-    timeline: {
-      before: [
-        { label: 'Day 1', value: 0 },
-        { label: 'Day 15', value: 5 },
-        { label: 'Day 30', value: 15 },
-        { label: 'Day 45', value: 20 },
-      ],
-      after: [
-        { label: 'Day 60', value: 45 },
-        { label: 'Day 75', value: 85 },
-        { label: 'Day 90', value: 140 },
-        { label: 'Day 120', value: 215 },
-      ],
-    },
-    logoPlaceholder: 'PE',
-    isPlaceholder: true,
+    heroImage: '/images/case-study-product-viz-brand.png',
   },
 ];

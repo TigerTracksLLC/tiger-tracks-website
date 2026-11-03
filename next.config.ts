@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { HELD_SLUGS } from './src/data/publishedPosts';
 
 /**
  * Content-Security-Policy.
@@ -110,6 +111,21 @@ const nextConfig: NextConfig = {
         destination: '/intelligence',
         permanent: true,
       },
+      {
+        source: '/free-paid-audit-form',
+        destination: '/get-started',
+        permanent: true,
+      },
+      // Placeholder (composite) case studies removed Oct 2026.
+      { source: '/results/saas-pipeline-acceleration', destination: '/results', permanent: true },
+      { source: '/results/b2b-enterprise-lead-gen', destination: '/results', permanent: true },
+      { source: '/results/pe-portfolio-turnaround', destination: '/results', permanent: true },
+      // Articles on editorial hold (see src/data/publishedPosts.ts)
+      ...[...HELD_SLUGS].map((slug) => ({
+        source: `/intelligence/${slug}`,
+        destination: '/intelligence',
+        permanent: false,
+      })),
       {
         source: '/insights/:slug',
         destination: '/intelligence/:slug',

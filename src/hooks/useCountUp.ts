@@ -12,13 +12,15 @@ export function useCountUp(
   start: number = 0,
   enabled: boolean = true
 ): number {
-  const [current, setCurrent] = useState(start);
+  // Initialize at the final value so server-rendered HTML (and crawlers, and
+  // users with JS off) see real numbers, never zeros. Animation still runs
+  // from `start` once `enabled` flips true.
+  const [current, setCurrent] = useState(end);
   const rafRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!enabled) {
-      setCurrent(start);
       return;
     }
 

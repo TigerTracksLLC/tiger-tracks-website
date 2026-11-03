@@ -117,7 +117,7 @@ export function CustomCursor() {
           width: 8,
           height: 8,
           borderRadius: '50%',
-          backgroundColor: '#E8793A',
+          backgroundColor: '#FE5E16',
           translateX: '-50%',
           translateY: '-50%',
           opacity: isVisible ? 1 : 0,
@@ -135,10 +135,10 @@ export function CustomCursor() {
           width: 32,
           height: 32,
           borderRadius: '50%',
-          border: '1.5px solid rgba(232, 121, 58, 0.5)',
+          border: '1.5px solid rgba(254, 94, 22, 0.5)',
           backgroundColor: isHovering
-            ? 'rgba(232, 121, 58, 0.06)'
-            : 'rgba(232, 121, 58, 0.03)',
+            ? 'rgba(254, 94, 22, 0.06)'
+            : 'rgba(254, 94, 22, 0.03)',
           translateX: '-50%',
           translateY: '-50%',
           opacity: isVisible ? (isHovering ? 0.6 : 0.8) : 0,

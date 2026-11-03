@@ -23,10 +23,7 @@ export function CTASection({
         dark ? '' : 'bg-white'
       }`}
       style={dark ? {
-        background: `
-          radial-gradient(ellipse 70% 80% at 50% 100%, rgba(232, 121, 58, 0.08) 0%, transparent 60%),
-          radial-gradient(ellipse 100% 100% at 50% 50%, #0f1520 0%, #060c11 100%)
-        `,
+        background: `transparent`,
       } : undefined}
     >
       {/* Subtle data-bg overlay for dark mode */}
@@ -35,7 +32,7 @@ export function CTASection({
           className="pointer-events-none absolute inset-0 opacity-5"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 1px 1px, rgba(91,164,164,0.3) 1px, transparent 0)',
+              'transparent',
             backgroundSize: '40px 40px',
           }}
         />

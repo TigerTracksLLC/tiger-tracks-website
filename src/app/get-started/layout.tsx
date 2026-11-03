@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description:
       'Request a free strategic diagnostic from Tiger Tracks.',
     url: 'https://tigertracks.ai/get-started',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 

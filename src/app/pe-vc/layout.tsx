@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description:
       'Performance marketing partner for PE and VC portfolio companies.',
     url: 'https://tigertracks.ai/pe-vc',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 

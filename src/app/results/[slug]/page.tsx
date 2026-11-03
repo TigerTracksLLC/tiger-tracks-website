@@ -24,7 +24,7 @@ export async function generateMetadata({
   const title = `${cs.client}: ${cs.heroMetric} ${cs.heroMetricLabel}`;
   const description = cs.summary.length > 160 ? `${cs.summary.slice(0, 157)}…` : cs.summary;
   const url = `${SITE_URL}/results/${cs.slug}`;
-  const image = cs.heroImage || '/images/social-share-card-bg.png';
+  const image = cs.heroImage || '/images/og-brand.png';
 
   return {
     title,

@@ -6,9 +6,10 @@ import { Footer } from '@/components/Footer';
 import { ClientBody } from '@/components/ClientBody';
 import { WebVitals } from '@/components/WebVitals';
 import { CookieConsent } from '@/components/CookieConsent';
+import { ConsentBanner } from '@/components/ConsentBanner';
 
 const SITE_URL = 'https://tigertracks.ai';
-const OG_IMAGE = '/images/social-share-card-bg.png';
+const OG_IMAGE = '/images/og-brand.png';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -28,14 +29,14 @@ export const metadata: Metadata = {
     siteName: 'Tiger Tracks',
     title: 'Tiger Tracks | Performance Marketing Built by Ex-Google Leaders',
     description:
-      'Inc. 5000 #123 agency with 2,954% growth. Proprietary AI. Trusted by AG1, ABH, and 50+ growth brands.',
+      'Inc. 5000 #123 performance growth agency founded by ex-Google operators. Trusted by brands like AG1 and Anastasia Beverly Hills.',
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'Tiger Tracks - Performance Marketing' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Tiger Tracks | Performance Marketing Built by Ex-Google Leaders',
     description:
-      'Inc. 5000 #123 agency with 2,954% growth. Proprietary AI. Trusted by AG1, ABH, and 50+ growth brands.',
+      'Inc. 5000 #123 performance growth agency founded by ex-Google operators. Trusted by brands like AG1 and Anastasia Beverly Hills.',
     images: [OG_IMAGE],
   },
   robots: {
@@ -43,24 +44,6 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
-
-// Office locations for LocalBusiness structured data.
-// Fill in streetAddress / postalCode per office once confirmed; they are
-// emitted into the structured data only when present (see below), so partial
-// data is safe to ship.
-interface Office {
-  city: string;
-  region: string;
-  streetAddress?: string;
-  postalCode?: string;
-}
-
-const OFFICES: Office[] = [
-  { city: 'Palm Beach', region: 'FL' },
-  { city: 'New York', region: 'NY' },
-  { city: 'Chicago', region: 'IL' },
-  { city: 'Los Angeles', region: 'CA' },
-];
 
 export default function RootLayout({
   children,
@@ -72,16 +55,8 @@ export default function RootLayout({
       <head>
         {/* Consent Mode v2 defaults (denied) + Cookiebot CMP - must precede GTM */}
         <CookieConsent />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="preload" href="/fonts/work-sans-latin-800-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/inter-latin-300-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <Script
           id="gtm-script"
           strategy="afterInteractive"
@@ -103,15 +78,24 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'Tiger Tracks',
               url: 'https://tigertracks.ai',
-              logo: 'https://tigertracks.ai/images/TT.LOGO-02.png',
-              description: 'Inc. 5000 #123 performance marketing agency built by ex-Google leaders.',
-              foundingDate: '2019',
+              logo: 'https://tigertracks.ai/brand/tt-avatar.svg',
+              legalName: 'Tiger Tracks, LLC',
+              description: 'Inc. 5000 #123 performance growth agency founded by ex-Google operators. Fully remote, New York based.',
+              foundingDate: '2021',
+              founder: { '@type': 'Person', name: 'Cliff Simmons' },
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'New York',
+                addressRegion: 'NY',
+                addressCountry: 'US',
+              },
               sameAs: [
-                'https://www.linkedin.com/company/tiger-tracks-ai',
+                'https://www.linkedin.com/company/tiger-tracks-media/',
+                'https://www.inc.com/profile/tiger-tracks',
               ],
               contactPoint: {
                 '@type': 'ContactPoint',
-                email: 'hello@tigertracks.ai',
+                email: 'info@tigertracks.ai',
                 contactType: 'sales',
               },
             }),
@@ -128,31 +112,8 @@ export default function RootLayout({
             }),
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              OFFICES.map((o) => ({
-                '@context': 'https://schema.org',
-                '@type': 'LocalBusiness',
-                name: `Tiger Tracks - ${o.city}`,
-                url: 'https://tigertracks.ai',
-                image: 'https://tigertracks.ai/images/TT.LOGO-02.png',
-                parentOrganization: { '@type': 'Organization', name: 'Tiger Tracks' },
-                address: {
-                  '@type': 'PostalAddress',
-                  ...(o.streetAddress && { streetAddress: o.streetAddress }),
-                  addressLocality: o.city,
-                  addressRegion: o.region,
-                  ...(o.postalCode && { postalCode: o.postalCode }),
-                  addressCountry: 'US',
-                },
-              })),
-            ),
-          }}
-        />
       </head>
-      <body className="font-sans antialiased text-white">
+      <body className="font-sans antialiased text-white bg-tt-ink">
         <WebVitals />
         <noscript>
           <iframe
@@ -169,10 +130,10 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <div className="ambient-light" aria-hidden="true" />
           <Navbar />
           <main id="main-content" className="relative z-[5]">{children}</main>
           <Footer />
+          <ConsentBanner />
         </ClientBody>
       </body>
     </html>

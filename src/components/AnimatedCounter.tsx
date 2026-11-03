@@ -77,7 +77,7 @@ export function AnimatedCounter({
   return (
     <div ref={ref} className={`text-center group ${className}`}>
       <div
-        className={`text-5xl font-extrabold tracking-tight transition-all duration-700 ${
+        className={`text-[clamp(1.6rem,7vw,3rem)] font-extrabold tracking-tight transition-all duration-700 ${
           inView ? 'text-white opacity-100 translate-y-0' : 'text-white opacity-100 translate-y-0'
         }`}
       >
@@ -103,13 +103,13 @@ export function AnimatedCounter({
       <div
         className={`mx-auto mt-4 h-px w-16 transition-all duration-1000 delay-500 ${
           completed
-            ? 'opacity-100 scale-x-100 shadow-[0_0_12px_rgba(91,164,164,0.3)]'
+            ? 'opacity-100 scale-x-100'
             : hasBeenInView
             ? 'opacity-60 scale-x-75'
             : 'opacity-30 scale-x-50'
         }`}
         style={{
-          background: 'linear-gradient(90deg, transparent, rgba(91,164,164,0.5), transparent)',
+          background: 'rgba(127, 202, 211, 0.5)',
         }}
       />
     </div>

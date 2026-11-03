@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       'How Tiger Tracks attributes performance, defines core metrics, runs incrementality tests, and where attribution has real limits.',
     url: 'https://tigertracks.ai/results/methodology',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 
@@ -32,7 +32,7 @@ function Section({
   return (
     <section className="mb-16">
       {eyebrow && (
-        <p className="text-xs font-semibold uppercase tracking-[3px] text-tt-teal mb-3">
+        <p className="text-xs font-semibold uppercase tracking-[3px] text-tt-orange mb-3">
           {eyebrow}
         </p>
       )}
@@ -59,7 +59,7 @@ function MetricCard({
     <div
       className="rounded-2xl p-6"
       style={{
-        background: 'rgba(20, 27, 35, 0.5)',
+        background: 'rgba(5, 46, 63, 0.5)',
         border: '1px solid rgba(255, 255, 255, 0.06)',
       }}
     >
@@ -88,24 +88,22 @@ export default function MethodologyPage() {
         className="relative overflow-hidden px-6"
         style={{
           background: `
-            radial-gradient(ellipse 50% 50% at 60% 20%, rgba(91, 164, 164, 0.06) 0%, transparent 60%),
-            radial-gradient(ellipse 40% 40% at 20% 80%, rgba(232, 121, 58, 0.04) 0%, transparent 55%),
-            #0A1119
+            #052E3F
           `,
         }}
       >
         <div className="relative z-10 mx-auto max-w-3xl py-24">
           <Link
             href="/results"
-            className="inline-flex items-center gap-1 text-tt-gray-400 hover:text-tt-teal transition-colors text-sm mb-10"
+            className="inline-flex items-center gap-1 text-tt-gray-400 hover:text-tt-orange transition-colors text-sm mb-10"
           >
             &larr; Back to Case Studies
           </Link>
-          <p className="text-tt-teal uppercase tracking-[4px] text-sm font-semibold mb-5">
+          <p className="text-tt-orange uppercase tracking-[4px] text-sm font-semibold mb-5">
             Measurement & Verification
           </p>
           <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight tracking-tight">
-            How We Measure &amp; Verify Results
+            How we measure &amp; verify results
           </h1>
           <p className="mt-6 text-lg text-tt-gray-400 leading-relaxed">
             Every number we publish is grounded in a defined method. This page
@@ -118,7 +116,7 @@ export default function MethodologyPage() {
       </section>
 
       {/* Body */}
-      <section className="px-6" style={{ background: '#0d1520' }}>
+      <section className="px-6" style={{ background: '#052E3F' }}>
         <div className="mx-auto max-w-3xl py-20">
           <Section eyebrow="Attribution" title="Our Attribution Approach">
             <p>
@@ -297,7 +295,7 @@ export default function MethodologyPage() {
       </section>
 
       <CTASection
-        headline="Want This Level of Rigor on Your Account?"
+        headline="Want this level of rigor on your account?"
         subheadline="Book a diagnostic and we will walk you through exactly how we would measure your program."
         primaryCTA={{ text: 'Request a Strategic Diagnostic', href: '/get-started' }}
         secondaryCTA={{ text: 'View Case Studies', href: '/results' }}

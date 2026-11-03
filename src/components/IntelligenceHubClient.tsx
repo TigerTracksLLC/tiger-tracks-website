@@ -13,12 +13,12 @@ import { useInView } from '@/hooks/useInView';
 /* ------------------------------------------------------------------ */
 
 const CATEGORY_IMAGES: Record<string, string> = {
-  'AI & Automation': '/images/ai-automation-abstract.png',
-  'Platform Strategy': '/images/seo-organic-discovery.png',
-  'Measurement & Attribution': '/images/conversion-optimization-abstract.png',
-  'Creative & Content': '/images/creative-ugc-performance.png',
-  'Agency Strategy': '/images/agency-strategy-abstract.png',
-  'PE/VC': '/images/pe-vc-financial-tech.png',
+  'AI & Automation': '/images/ai-automation-abstract-brand.png',
+  'Platform Strategy': '/images/seo-organic-discovery-brand.png',
+  'Measurement & Attribution': '/images/conversion-optimization-abstract-brand.png',
+  'Creative & Content': '/images/creative-ugc-performance-brand.png',
+  'Agency Strategy': '/images/agency-strategy-abstract-brand.png',
+  'PE/VC': '/images/pe-vc-financial-tech-brand.png',
 };
 
 const DEEP_REPORTS = [
@@ -26,7 +26,7 @@ const DEEP_REPORTS = [
     category: 'PE/VC',
     title: "Unlocking General Catalyst's Customer Value Fund",
     desc: 'Top US subscription companies poised for non-dilutive growth capital.',
-    slug: 'unlocking-general-catalysts-customer-value-fund',
+    slug: 'unlocking-general-catalyst-s-customer-value-fund-the-top-us-subscription-companies-poised-for-non-dilutive-growth',
   },
   {
     category: 'AI & Automation',
@@ -52,11 +52,11 @@ const CATEGORIES = [
 
 function MonoByline({ post }: { post: BlogPost }) {
   return (
-    <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-mono text-[#9E9E9E]">
+    <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-mono text-[#A9B6BA]">
       <span>{post.date}</span>
-      <span className="text-[#229FA1]">&bull;</span>
+      <span className="text-[#7FCAD3]">&bull;</span>
       <span>{post.readTime}</span>
-      <span className="text-[#229FA1]">&bull;</span>
+      <span className="text-[#7FCAD3]">&bull;</span>
       <span>Tiger Tracks</span>
     </div>
   );
@@ -94,8 +94,8 @@ function WideCard({ post, index }: { post: BlogPost; index: number }) {
         href={`/intelligence/${post.slug}`}
         className="group relative block rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 h-full"
         style={{
-          background: '#1B2126',
-          border: '1px solid rgba(255,255,255,0.06)',
+          background: '#052E3F',
+          border: '1px solid rgba(255, 255, 255, 0.06)',
         }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
@@ -125,28 +125,28 @@ function WideCard({ post, index }: { post: BlogPost; index: number }) {
               className="absolute inset-0"
               style={{
                 background:
-                  'linear-gradient(135deg, rgba(34,159,161,0.10) 0%, rgba(10,17,25,0.95) 100%)',
+                  'rgba(127, 202, 211, 0.10)',
               }}
             />
           )}
           {/* Bottom fade */}
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(27,33,38,0.95) 100%)' }}
+            style={{ background: 'rgba(5, 46, 63, 0.35)' }}
           />
         </div>
 
         {/* Content */}
         <div className="p-6">
-          <span className="inline-block rounded-full bg-[#229FA1]/10 border border-[#229FA1]/20 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-[#229FA1]">
+          <span className="inline-block rounded-full bg-[#7FCAD3]/10 border border-[#7FCAD3]/20 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-[#7FCAD3]">
             {post.category}
           </span>
 
-          <h3 className="mt-3 text-xl font-bold text-white transition-colors duration-300 group-hover:text-[#229FA1] line-clamp-2 leading-snug">
+          <h3 className="mt-3 text-xl font-bold text-white transition-colors duration-300 group-hover:text-[#7FCAD3] line-clamp-2 leading-snug">
             {post.title}
           </h3>
 
-          <p className="mt-2 text-sm text-[#9C9CAE] line-clamp-2 leading-relaxed">
+          <p className="mt-2 text-sm text-[#A9B6BA] line-clamp-3 leading-relaxed">
             {post.excerpt}
           </p>
 
@@ -160,8 +160,8 @@ function WideCard({ post, index }: { post: BlogPost; index: number }) {
           className="absolute bottom-0 left-0 h-px transition-all duration-500"
           style={{
             width: isHovered ? '100%' : '0%',
-            background: 'linear-gradient(90deg, transparent, #229FA1, transparent)',
-            boxShadow: isHovered ? '0 0 8px rgba(34,159,161,0.4)' : 'none',
+            background: '#7FCAD3',
+            boxShadow: isHovered ? 'none' : 'none',
           }}
         />
       </Link>
@@ -188,8 +188,8 @@ function NarrowCard({ post, index }: { post: BlogPost; index: number }) {
         href={`/intelligence/${post.slug}`}
         className="group relative flex flex-col justify-between rounded-2xl p-7 h-full transition-all duration-500 hover:-translate-y-1"
         style={{
-          background: '#1B2126',
-          border: isHovered ? '1px solid rgba(34,159,161,0.35)' : '1px solid rgba(255,255,255,0.06)',
+          background: '#052E3F',
+          border: isHovered ? '1px solid rgba(127, 202, 211, 0.35)' : '1px solid rgba(255, 255, 255, 0.06)',
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -199,25 +199,25 @@ function NarrowCard({ post, index }: { post: BlogPost; index: number }) {
           className="pointer-events-none absolute inset-0 rounded-2xl transition-opacity duration-500"
           style={{
             opacity: isHovered ? 1 : 0,
-            background: 'radial-gradient(ellipse at 30% 20%, rgba(34,159,161,0.04) 0%, transparent 60%)',
+            background: 'transparent',
           }}
         />
 
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-5">
-            <span className="inline-block rounded-full bg-[#229FA1]/10 border border-[#229FA1]/20 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-[#229FA1]">
+            <span className="inline-block rounded-full bg-[#7FCAD3]/10 border border-[#7FCAD3]/20 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-[#7FCAD3]">
               {post.category}
             </span>
-            <span className="text-[10px] font-mono uppercase tracking-widest text-[#9E9E9E]">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-[#A9B6BA]">
               {post.readTime}
             </span>
           </div>
 
-          <h3 className="text-lg font-bold text-white transition-colors duration-300 group-hover:text-[#229FA1] line-clamp-3 leading-snug">
+          <h3 className="text-lg font-bold text-white transition-colors duration-300 group-hover:text-[#7FCAD3] line-clamp-3 leading-snug">
             {post.title}
           </h3>
 
-          <p className="mt-3 text-sm text-[#9C9CAE] line-clamp-3 leading-relaxed">
+          <p className="mt-3 text-sm text-[#A9B6BA] line-clamp-3 leading-relaxed">
             {post.excerpt}
           </p>
         </div>
@@ -231,8 +231,8 @@ function NarrowCard({ post, index }: { post: BlogPost; index: number }) {
           className="absolute bottom-0 left-0 h-px transition-all duration-500"
           style={{
             width: isHovered ? '100%' : '0%',
-            background: 'linear-gradient(90deg, transparent, #229FA1, transparent)',
-            boxShadow: isHovered ? '0 0 8px rgba(34,159,161,0.4)' : 'none',
+            background: '#7FCAD3',
+            boxShadow: isHovered ? 'none' : 'none',
           }}
         />
       </Link>
@@ -268,10 +268,10 @@ function SpotlightArticle({ post }: { post: BlogPost }) {
       <Link
         ref={cardRef}
         href={`/intelligence/${post.slug}`}
-        className="group relative block rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(34,159,161,0.08)]"
+        className="group relative block rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1"
         style={{
-          background: '#1B2126',
-          border: '1px solid rgba(255,255,255,0.06)',
+          background: '#052E3F',
+          border: '1px solid rgba(255, 255, 255, 0.06)',
         }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
@@ -284,19 +284,19 @@ function SpotlightArticle({ post }: { post: BlogPost }) {
           {/* Left: Text */}
           <div className="p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
             <div className="flex items-center gap-3 mb-5">
-              <span className="inline-block rounded-full bg-[#229FA1]/10 border border-[#229FA1]/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#229FA1]">
+              <span className="inline-block rounded-full bg-[#7FCAD3]/10 border border-[#7FCAD3]/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#7FCAD3]">
                 {post.category}
               </span>
-              <span className="inline-block rounded-full bg-[#FF6B35]/10 border border-[#FF6B35]/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#FF6B35]">
+              <span className="inline-block rounded-full bg-transparent border border-[#FE5E16]/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#FE5E16]">
                 Featured
               </span>
             </div>
 
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white group-hover:text-[#229FA1] transition-colors duration-300 leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white group-hover:text-[#7FCAD3] transition-colors duration-300 leading-tight">
               {post.title}
             </h2>
 
-            <p className="mt-5 text-base text-[#9C9CAE] leading-relaxed line-clamp-3">
+            <p className="mt-5 text-base text-[#A9B6BA] leading-relaxed line-clamp-3">
               {post.excerpt}
             </p>
 
@@ -305,7 +305,7 @@ function SpotlightArticle({ post }: { post: BlogPost }) {
             </div>
 
             <div className="mt-8">
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#229FA1] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1e8b8d] group-hover:shadow-lg group-hover:shadow-[#229FA1]/20">
+              <span className="inline-flex items-center gap-2 rounded-full bg-tt-orange px-6 py-3 text-sm font-semibold text-tt-ink transition-all duration-300 hover:bg-white">
                 Read the Report
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2"
@@ -338,7 +338,7 @@ function SpotlightArticle({ post }: { post: BlogPost }) {
               <div
                 className="absolute inset-0"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(34,159,161,0.15) 0%, rgba(10,17,25,0.9) 100%)',
+                  background: 'rgba(127, 202, 211, 0.15)',
                 }}
               />
             )}
@@ -347,7 +347,7 @@ function SpotlightArticle({ post }: { post: BlogPost }) {
               className="absolute inset-0 pointer-events-none"
               style={{
                 background:
-                  'linear-gradient(270deg, transparent 60%, rgba(27,33,38,1) 100%), linear-gradient(180deg, transparent 60%, rgba(27,33,38,0.5) 100%)',
+                  'rgba(5, 46, 63, 0.3)',
               }}
             />
           </div>
@@ -358,8 +358,8 @@ function SpotlightArticle({ post }: { post: BlogPost }) {
           className="absolute bottom-0 left-0 h-px transition-all duration-500"
           style={{
             width: isHovered ? '100%' : '0%',
-            background: 'linear-gradient(90deg, transparent, #229FA1, transparent)',
-            boxShadow: isHovered ? '0 0 12px rgba(34,159,161,0.5)' : 'none',
+            background: '#7FCAD3',
+            boxShadow: isHovered ? 'none' : 'none',
           }}
         />
       </Link>
@@ -373,22 +373,22 @@ function SpotlightArticle({ post }: { post: BlogPost }) {
 
 function DeepReportsBanner() {
   return (
-    <section className="py-16 px-6" style={{ background: '#0A1119' }}>
+    <section className="py-16 px-6" style={{ background: '#052E3F' }}>
       <div className="mx-auto max-w-6xl">
         <div
           className="rounded-2xl overflow-hidden p-10 md:p-14"
           style={{
-            background: 'linear-gradient(135deg, #0f1923 0%, #162030 100%)',
-            border: '1px solid rgba(91,164,164,0.15)',
+            background: '#052E3F',
+            border: '1px solid rgba(127, 202, 211, 0.15)',
           }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px flex-1 bg-gradient-to-r from-[#229FA1]/40 to-transparent" />
-            <span className="text-xs font-bold uppercase tracking-[4px] text-[#229FA1]">Deep Reports</span>
-            <div className="h-px flex-1 bg-gradient-to-l from-[#229FA1]/40 to-transparent" />
+            <div className="h-px flex-1 bg-[#7FCAD3]/40" />
+            <span className="text-xs font-bold uppercase tracking-[4px] text-[#7FCAD3]">Deep Reports</span>
+            <div className="h-px flex-1 bg-[#7FCAD3]/40" />
           </div>
 
-          <p className="text-center text-[#9C9CAE] mb-10 max-w-xl mx-auto">
+          <p className="text-center text-[#A9B6BA] mb-10 max-w-xl mx-auto">
             In-depth research that goes beyond the blog. Download our premium
             reports and get the full strategic picture.
           </p>
@@ -400,19 +400,19 @@ function DeepReportsBanner() {
                 href={`/intelligence/${report.slug}`}
                 className="group rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
                 style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  background: 'rgba(0, 0, 0, 0.14)',
+                  border: '1px solid rgba(255, 255, 255, 0.06)',
                 }}
               >
-                <span className="inline-block rounded-full bg-[#229FA1]/10 border border-[#229FA1]/20 px-3 py-1 text-xs font-semibold text-[#229FA1]">
+                <span className="inline-block rounded-full bg-[#7FCAD3]/10 border border-[#7FCAD3]/20 px-3 py-1 text-xs font-semibold text-[#7FCAD3]">
                   {report.category}
                 </span>
-                <h3 className="mt-3 text-lg font-bold text-white group-hover:text-[#229FA1] transition-colors">
+                <h3 className="mt-3 text-lg font-bold text-white group-hover:text-[#7FCAD3] transition-colors">
                   {report.title}
                 </h3>
-                <p className="mt-2 text-sm text-[#9C9CAE]">{report.desc}</p>
+                <p className="mt-2 text-sm text-[#A9B6BA]">{report.desc}</p>
                 <div className="mt-5">
-                  <span className="text-sm font-semibold text-[#FF6B35] flex items-center gap-2">
+                  <span className="text-sm font-semibold text-[#FE5E16] flex items-center gap-2">
                     Download Report
                     <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -427,9 +427,9 @@ function DeepReportsBanner() {
             <input
               type="email"
               placeholder="Enter your email for early access"
-              className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-[#6b7280] focus:outline-none focus:border-[#229FA1]/40 transition"
+              className="w-full rounded-lg bg-black/[0.14] border border-white/10 px-4 py-3 text-sm text-white placeholder-[#91A2A9] focus:outline-none focus:border-[#7FCAD3]/40 transition"
             />
-            <button className="shrink-0 rounded-lg bg-[#229FA1] px-6 py-3 text-sm font-semibold text-white hover:bg-[#1e8b8d] transition">
+            <button className="shrink-0 rounded-full bg-tt-orange px-6 py-3 text-sm font-semibold text-tt-ink hover:bg-white transition">
               Get Reports
             </button>
           </div>
@@ -521,13 +521,13 @@ export function IntelligenceHubClient({ posts }: { posts: BlogPost[] }) {
       <section
         ref={heroRef}
         className="relative overflow-hidden"
-        style={{ background: '#0A1119' }}
+        style={{ background: '#052E3F' }}
       >
         <div
           className="pointer-events-none absolute inset-0"
           aria-hidden="true"
           style={{
-            background: 'radial-gradient(ellipse 50% 50% at 50% 30%, rgba(34,159,161,0.05) 0%, transparent 60%)',
+            background: 'transparent',
           }}
         />
 
@@ -536,13 +536,13 @@ export function IntelligenceHubClient({ posts }: { posts: BlogPost[] }) {
             heroInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
-          <p className="text-[10px] font-semibold uppercase tracking-[5px] font-mono text-[#229FA1]">
-            Thought Leadership & Intelligence
+          <p className="eyebrow">
+            Eye of the Tiger
           </p>
           <h1 className="mt-4 text-4xl font-extrabold text-white md:text-5xl lg:text-6xl max-w-4xl leading-tight">
-            Eye of the Tiger: Thought Leadership & Intelligence
+            Thought leadership and intelligence
           </h1>
-          <p className="mt-4 text-lg text-[#9C9CAE] max-w-2xl">
+          <p className="mt-4 text-lg text-[#A9B6BA] max-w-2xl">
             Strategic research and tactical playbooks for the performance era.
           </p>
         </div>
@@ -559,7 +559,7 @@ export function IntelligenceHubClient({ posts }: { posts: BlogPost[] }) {
       <div
         className="sticky top-16 z-30 border-b border-white/5"
         style={{
-          background: 'rgba(10,17,25,0.85)',
+          background: 'rgba(5, 46, 63, 0.85)',
           backdropFilter: 'blur(16px) saturate(150%)',
           WebkitBackdropFilter: 'blur(16px) saturate(150%)',
         }}
@@ -575,8 +575,8 @@ export function IntelligenceHubClient({ posts }: { posts: BlogPost[] }) {
                 }}
                 className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition ${
                   activeCategory === cat
-                    ? 'bg-[#229FA1] text-white'
-                    : 'bg-white/5 text-[#9C9CAE] hover:bg-white/10 hover:text-white'
+                    ? 'bg-tt-paper text-tt-ink'
+                    : 'bg-black/[0.14] text-[#A9B6BA] hover:bg-white/10 hover:text-white'
                 }`}
               >
                 {cat}
@@ -590,7 +590,7 @@ export function IntelligenceHubClient({ posts }: { posts: BlogPost[] }) {
       <section
         className="py-16 px-6"
         style={{
-          background: 'radial-gradient(ellipse 80% 40% at 50% 0%, rgba(34,159,161,0.03) 0%, transparent 50%), #0A1119',
+          background: '#052E3F',
         }}
       >
         <div className="mx-auto max-w-6xl">
@@ -599,7 +599,7 @@ export function IntelligenceHubClient({ posts }: { posts: BlogPost[] }) {
           </h2>
 
           {displayPosts.length === 0 ? (
-            <p className="py-16 text-center text-[#6b7280]">
+            <p className="py-16 text-center text-[#91A2A9]">
               No articles in this category yet.
             </p>
           ) : (
@@ -613,13 +613,13 @@ export function IntelligenceHubClient({ posts }: { posts: BlogPost[] }) {
                     onClick={() => setVisibleCount((c) => c + POSTS_PER_PAGE)}
                     className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
                     style={{
-                      color: '#229FA1',
-                      border: '1px solid rgba(34,159,161,0.3)',
-                      background: 'rgba(34,159,161,0.08)',
+                      color: '#FFFFFF',
+                  border: '1px solid rgba(239, 240, 239, 0.45)',
+                  background: 'transparent',
                     }}
                   >
                     Load More Articles
-                    <span className="text-xs opacity-60">
+                    <span className="text-xs text-tt-gray-300">
                       ({remainingCount} remaining)
                     </span>
                   </button>
@@ -635,8 +635,8 @@ export function IntelligenceHubClient({ posts }: { posts: BlogPost[] }) {
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
       <CTASection
-        headline="Stay Ahead of the Curve"
-        subheadline="Subscribe to Tiger Tracks Thought Leadership & Intelligence for strategic research delivered to your inbox."
+        headline="Put this research to work"
+        subheadline="Book a free Strategic Diagnostic and see how these ideas apply to your numbers."
         primaryCTA={{ text: 'Request a Strategic Diagnostic', href: '/get-started' }}
         dark
       />

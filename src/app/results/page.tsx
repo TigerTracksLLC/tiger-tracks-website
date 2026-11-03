@@ -17,14 +17,12 @@ function HeroSection() {
   return (
     <section className="relative min-h-[40vh] flex items-center overflow-hidden" style={{
       background: `
-        radial-gradient(ellipse 50% 50% at 60% 30%, rgba(91, 164, 164, 0.05) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 20% 70%, rgba(232, 121, 58, 0.04) 0%, transparent 55%),
-        #0A1119
+        #052E3F
       `,
     }}>
       {/* MJ casestudies-hero background */}
       <div className="pointer-events-none absolute inset-0 z-[0]" aria-hidden="true" style={{
-        backgroundImage: 'url(/images/casestudies-hero.webp)',
+        backgroundImage: 'none' /* brand: no busy photo backgrounds; was url(/images/casestudies-hero.webp) */,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         opacity: 0.3,
@@ -36,24 +34,24 @@ function HeroSection() {
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        <p className="text-tt-teal uppercase tracking-[4px] text-sm font-semibold mb-6">
+        <p className="text-tt-orange uppercase tracking-[4px] text-sm font-semibold mb-6">
           CASE STUDIES
         </p>
         <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-[1.08] tracking-tight">
-          Results That Speak
+          Results that speak{' '}
           <br className="hidden md:block" />
-          for Themselves
+          for themselves
         </h1>
         <p className="mt-6 text-xl text-tt-gray-400 max-w-3xl leading-relaxed">
           {caseStudies.length} case studies with hard metrics: CAC, LTV, ROAS, and revenue impact.
-          Every result tracked with verified attribution.
+          Each result is reported against the metric the client hired us to move.
         </p>
         {/* Aggregate stats */}
         <div className="mt-10 flex flex-wrap gap-8">
           {[
-            { value: STATS.brandsServed, label: 'Brands Served' },
-            { value: STATS.adSpendLifetime, label: 'Ad Spend Managed to Date' },
-            { value: STATS.industries, label: 'Industries' },
+            { value: String(caseStudies.length), label: 'Case Studies' },
+            { value: String(new Set(caseStudies.map((c) => c.industry)).size), label: 'Industries' },
+            { value: STATS.revenueGrowth, label: 'Inc. 5000 Growth' },
           ].map((stat) => (
             <div key={stat.label}>
               <p className="text-3xl font-extrabold text-white">{stat.value}</p>
@@ -83,7 +81,7 @@ function FilterBar({
 }) {
   return (
     <div className="sticky top-16 z-30 border-b border-white/5" style={{
-      background: 'rgba(10, 17, 25, 0.85)',
+      background: 'rgba(5, 46, 63, 0.85)',
       backdropFilter: 'blur(16px) saturate(150%)',
       WebkitBackdropFilter: 'blur(16px) saturate(150%)',
     }}>
@@ -99,7 +97,7 @@ function FilterBar({
                 className={`flex-shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition cursor-pointer ${
                   activeChallenge === filter
                     ? 'bg-tt-orange text-white'
-                    : 'bg-white/5 text-tt-gray-400 hover:bg-white/10 hover:text-white'
+                    : 'bg-black/[0.14] text-tt-gray-400 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 {filter}
@@ -136,8 +134,7 @@ function CaseStudyGrid({
   return (
     <section className="py-20 px-6" style={{
       background: `
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(91, 164, 164, 0.04) 0%, transparent 50%),
-        #0A1119
+        #052E3F
       `,
     }}>
       <div ref={ref} className="mx-auto max-w-6xl">
@@ -150,7 +147,7 @@ function CaseStudyGrid({
         {filtered.length > 0 ? (
           <div
             key={`${activeIndustry}-${activeChallenge}`}
-            className={`grid gap-8 md:grid-cols-2 lg:grid-cols-3 transition-all duration-500 ${
+            className={`grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 [&>*]:min-w-0 transition-all duration-500 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
@@ -232,7 +229,7 @@ export default function CaseStudiesPage() {
         activeChallenge={activeChallenge}
       />
       <CTASection
-        headline="Get Results Like These"
+        headline="Get results like these"
         subheadline="Book a free Strategic Diagnostic and get a 90-day roadmap built around your actual numbers."
         primaryCTA={{ text: 'Request a Strategic Diagnostic', href: '/get-started' }}
         dark

@@ -120,12 +120,12 @@ function buildEmailHtml(body: Record<string, string>): string {
   ];
 
   return `
-    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; max-width: 600px; margin: 0 auto; background: #0A1119; border-radius: 12px; overflow: hidden;">
-      <div style="background: linear-gradient(135deg, #229FA1, #1e8b8d); padding: 32px 24px; text-align: center;">
-        <h1 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: -0.02em;">
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; max-width: 600px; margin: 0 auto; background: #052E3F; border-radius: 12px; overflow: hidden;">
+      <div style="background: linear-gradient(#7FCAD3, #7FCAD3); padding: 32px 24px; text-align: center;">
+        <h1 style="margin: 0; color: #FFFFFF; font-size: 22px; font-weight: 700; letter-spacing: -0.02em;">
           New Diagnostic Request
         </h1>
-        <p style="margin: 8px 0 0; color: rgba(255,255,255,0.8); font-size: 14px;">
+        <p style="margin: 8px 0 0; color: rgba(255, 255, 255, 0.8); font-size: 14px;">
           Tiger Tracks Strategic Diagnostic Form
         </p>
       </div>
@@ -135,10 +135,10 @@ function buildEmailHtml(body: Record<string, string>): string {
             .map(
               ([label, value]) => `
             <tr>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.06); color: #9E9E9E; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; width: 130px; vertical-align: top;">
+              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); color: #9FB0B7; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; width: 130px; vertical-align: top;">
                 ${label}
               </td>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.06); color: #ffffff; font-size: 14px;">
+              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); color: #FFFFFF; font-size: 14px;">
                 ${value}
               </td>
             </tr>
@@ -146,15 +146,15 @@ function buildEmailHtml(body: Record<string, string>): string {
             )
             .join('')}
         </table>
-        <div style="margin-top: 24px; padding: 16px; background: rgba(34,159,161,0.08); border: 1px solid rgba(34,159,161,0.2); border-radius: 8px;">
-          <p style="margin: 0; color: #229FA1; font-size: 13px;">
+        <div style="margin-top: 24px; padding: 16px; background: rgba(127, 202, 211, 0.08); border: 1px solid rgba(127, 202, 211, 0.2); border-radius: 8px;">
+          <p style="margin: 0; color: #7FCAD3; font-size: 13px;">
             Reply directly to this email to reach <strong>${body.name}</strong> at <strong>${body.email}</strong>.
             This lead was also added to HubSpot automatically.
           </p>
         </div>
       </div>
-      <div style="padding: 16px 24px; text-align: center; border-top: 1px solid rgba(255,255,255,0.06);">
-        <p style="margin: 0; color: #6b7280; font-size: 11px;">
+      <div style="padding: 16px 24px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.06);">
+        <p style="margin: 0; color: #5E7781; font-size: 11px;">
           Sent from tigertracks.ai diagnostic form
         </p>
       </div>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description:
       'Proprietary AI-powered marketing tools built by Tiger Tracks for growth brands.',
     url: 'https://tigertracks.ai/ai-tools',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 

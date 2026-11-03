@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Press & Media | Tiger Tracks',
     description: 'Press coverage and media resources for Tiger Tracks, Inc. 5000 #123.',
     url: 'https://tigertracks.ai/press',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 

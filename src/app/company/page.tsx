@@ -38,9 +38,14 @@ const milestones = [
     title: 'Inc. 5000 #123',
     description: '2,954% three-year revenue growth.',
   },
+  {
+    year: '2026',
+    title: 'President Joins',
+    description: 'Adam Potashnick joins from Brainlabs to scale how Tiger Tracks operates and grows.',
+  },
 ];
 
-const founders = [
+const leaders = [
   {
     name: 'Cliff Simmons',
     title: 'CEO & Co-Founder',
@@ -50,12 +55,12 @@ const founders = [
     credentials: ['Ex-Google', 'Former CGO, Ready', 'Inc. 5000 Founder'],
   },
   {
-    name: 'Henry Kittle',
-    title: 'Co-Founder',
-    initials: 'HK',
-    image: '/henry-headshot.png',
-    bio: 'Former Google Shopping Specialist with deep expertise in e-commerce advertising and product feed optimization. Co-founded Tiger Tracks with Cliff Simmons in 2021, building the proprietary technology and data infrastructure that powers the agency’s competitive advantage across 500+ campaigns.',
-    credentials: ['Ex-Google', 'E-Commerce Specialist', 'Technical Co-Founder'],
+    name: 'Adam Potashnick',
+    title: 'President',
+    initials: 'AP',
+    image: '',
+    bio: 'Joins Tiger Tracks from Brainlabs, with a career leading growth and operations at global agencies. Partnering with Cliff to scale how we operate and grow.',
+    credentials: ['Ex-Brainlabs', 'Agency Growth & Operations', 'New York'],
   },
 ];
 
@@ -166,16 +171,16 @@ function FounderHeadshot({
   initials: string;
   name: string;
 }) {
-  const [failed, setFailed] = useState(false);
+  const [failed, setFailed] = useState(!src);
 
   return (
     <div className="flex justify-center">
       <div
-        className="relative group/img w-48 h-48 md:w-56 md:h-56 aspect-square rounded-full overflow-hidden border-2 border-orange-500 transition-all duration-500 hover:shadow-[0_0_30px_rgba(232,121,58,0.25)]"
+        className="relative group/img w-48 h-48 md:w-56 md:h-56 aspect-square rounded-full overflow-hidden border-2 border-tt-orange transition-all duration-500"
       >
         {failed ? (
           <div className="w-full h-full flex items-center justify-center" style={{
-            background: 'linear-gradient(135deg, rgba(91, 164, 164, 0.1) 0%, rgba(20, 27, 35, 0.95) 100%)',
+            background: 'rgba(127, 202, 211, 0.1)',
           }}>
             <span className="text-5xl font-bold text-tt-gray-600">{initials}</span>
           </div>
@@ -199,17 +204,15 @@ function FounderHeadshot({
 function LogoTrustBar() {
   return (
     <section className="relative py-16 overflow-hidden" style={{
-      background: 'linear-gradient(180deg, #0A1119 0%, #0d1520 100%)',
+      background: '#052E3F',
     }}>
       <div className="mx-auto max-w-6xl px-6">
         <p className="text-center text-sm uppercase tracking-[4px] text-tt-gray-500 mb-10">
-          Our clients
+          Brands we've grown
         </p>
 
         {/* Scrolling logo rail */}
         <div className="relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#0d1520] to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#0d1520] to-transparent" />
 
           <div className="flex animate-logo-scroll items-center">
             {[...logoNames, ...logoNames].map((name, i) => (
@@ -218,7 +221,7 @@ function LogoTrustBar() {
                 className="mx-8 shrink-0 text-tt-gray-500 hover:text-white transition-colors duration-300"
               >
                 <span className="text-sm font-semibold tracking-wide whitespace-nowrap uppercase"
-                  style={{ fontFamily: name === 'Anastasia Beverly Hills' ? 'Georgia, serif' : 'inherit' }}
+                  style={{ fontFamily: 'inherit' }}
                 >
                   {name}
                 </span>
@@ -229,7 +232,7 @@ function LogoTrustBar() {
 
         {/* Founder experience — clearly separated from current clients */}
         <p className="text-center text-sm uppercase tracking-[4px] text-tt-gray-500 mt-14 mb-8">
-          Brands our founders built at Google
+          Founders’ work at Google
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
           {googleEraNames.map((name) => (
@@ -257,8 +260,7 @@ function GrowthSection() {
   return (
     <section className="py-24 px-6" style={{
       background: `
-        radial-gradient(ellipse 60% 40% at 50% 80%, rgba(232, 121, 58, 0.03) 0%, transparent 50%),
-        #0A1119
+        #052E3F
       `,
     }}>
       <div className="mx-auto max-w-5xl">
@@ -272,14 +274,14 @@ function GrowthSection() {
           {[
             { value: STATS.revenueGrowth, label: 'Three-year revenue growth' },
             { value: STATS.incRank, label: 'Inc. 5000 Fastest-Growing' },
-            { value: String(STATS.teamSize), label: 'Performance Specialists' },
-            { value: STATS.adSpendAnnual, label: 'Annual Ad Spend Managed' },
+            { value: String(STATS.teamSize), label: 'Senior specialists' },
+            { value: 'NYC', label: 'Based, fully remote' },
           ].map((stat) => (
             <div
               key={stat.label}
               className="rounded-2xl p-6 text-center"
               style={{
-                background: 'rgba(20, 27, 35, 0.5)',
+                background: 'rgba(5, 46, 63, 0.5)',
                 border: '1px solid rgba(255, 255, 255, 0.06)',
               }}
             >
@@ -291,12 +293,12 @@ function GrowthSection() {
         {/* Stylized Growth Chart */}
         <div className="mb-20">
           <div className="rounded-2xl p-8 md:p-10" style={{
-            background: 'rgba(20, 27, 35, 0.4)',
+            background: 'rgba(5, 46, 63, 0.4)',
             border: '1px solid rgba(255, 255, 255, 0.06)',
           }}>
             <div className="flex items-center justify-between mb-6">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[3px] text-tt-teal">Revenue Growth</p>
+                <p className="text-sm font-semibold uppercase tracking-[3px] text-tt-orange">Revenue Growth</p>
                 <p className="text-2xl font-bold text-white mt-1">2,954% in 3 Years</p>
               </div>
               <div className="text-right">
@@ -309,65 +311,42 @@ function GrowthSection() {
             <svg viewBox="0 0 600 140" className="w-full" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="growthGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#5BA4A4" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#5BA4A4" stopOpacity="0.02" />
+                  <stop offset="0%" stopColor="#7FCAD3" stopOpacity="0.12" />
+                  <stop offset="100%" stopColor="#7FCAD3" stopOpacity="0.12" />
                 </linearGradient>
               </defs>
               {/* Grid lines */}
-              <line x1="0" y1="35" x2="600" y2="35" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-              <line x1="0" y1="70" x2="600" y2="70" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-              <line x1="0" y1="105" x2="600" y2="105" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
+              <line x1="0" y1="35" x2="600" y2="35" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />
+              <line x1="0" y1="70" x2="600" y2="70" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />
+              <line x1="0" y1="105" x2="600" y2="105" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />
 
               {/* Fill area */}
-              <path d="M0 130 L50 125 L150 115 L250 95 L350 65 L450 30 L550 12 L600 8 L600 140 L0 140 Z" fill="url(#growthGrad)" />
+              <path d="M0 130 L50 125 L150 115 L250 95 L350 65 L450 30 L550 12 L600 8 L600 140 L0 140 Z" fill="#7FCAD3" fillOpacity={0.12} />
 
               {/* Line */}
-              <path d="M0 130 L50 125 L150 115 L250 95 L350 65 L450 30 L550 12 L600 8" fill="none" stroke="#5BA4A4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M0 130 L50 125 L150 115 L250 95 L350 65 L450 30 L550 12 L600 8" fill="none" stroke="#7FCAD3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
 
               {/* Glow dot at end */}
-              <circle cx="600" cy="8" r="4" fill="#5BA4A4" />
-              <circle cx="600" cy="8" r="8" fill="#5BA4A4" opacity="0.2" />
+              <circle cx="600" cy="8" r="4" fill="#7FCAD3" />
+              <circle cx="600" cy="8" r="8" fill="#7FCAD3" opacity="0.2" />
 
               {/* Year labels */}
-              <text x="0" y="138" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="system-ui">2021</text>
-              <text x="145" y="138" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="system-ui">2022</text>
-              <text x="345" y="138" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="system-ui">2023</text>
-              <text x="560" y="138" fill="rgba(255,255,255,0.3)" fontSize="10" fontFamily="system-ui">2024</text>
+              <text x="0" y="138" fill="rgba(255, 255, 255, 0.3)" fontSize="10" fontFamily="DM Sans, Arial, sans-serif">2021</text>
+              <text x="145" y="138" fill="rgba(255, 255, 255, 0.3)" fontSize="10" fontFamily="DM Sans, Arial, sans-serif">2022</text>
+              <text x="345" y="138" fill="rgba(255, 255, 255, 0.3)" fontSize="10" fontFamily="DM Sans, Arial, sans-serif">2023</text>
+              <text x="560" y="138" fill="rgba(255, 255, 255, 0.3)" fontSize="10" fontFamily="DM Sans, Arial, sans-serif">2024</text>
             </svg>
           </div>
         </div>
 
         {/* Client Testimonial (replaces CEO quote) */}
-        <div
-          ref={quoteRef}
-          className={`transition-all duration-700 ${
-            quoteInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <blockquote className="border-l-4 border-tt-teal pl-8 max-w-3xl mx-auto">
-            <p className="text-xl text-tt-gray-300 leading-relaxed italic">
-              &ldquo;Partnering with Tiger Tracks has been amazing. They work fast,
-              execute flawlessly and apply specialized knowledge of ad platforms with
-              a relentless focus on hitting growth goals.&rdquo;
-            </p>
-            <footer className="mt-6 flex items-center gap-4">
-              <div>
-                <p className="font-semibold text-white">Jason Marshall</p>
-                <p className="text-sm text-tt-gray-500">Chief Growth Officer, AG1</p>
-              </div>
-              <span className="ml-auto rounded-full bg-tt-teal/10 px-4 py-1.5 text-xs font-semibold text-tt-teal border border-tt-teal/20">
-                +51% Acquired Customers
-              </span>
-            </footer>
-          </blockquote>
-        </div>
       </div>
     </section>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  Who We Serve (NEW)                                                 */
+/*  Who we serve (NEW)                                                 */
 /* ------------------------------------------------------------------ */
 
 function WhoWeServeSection() {
@@ -376,14 +355,13 @@ function WhoWeServeSection() {
   return (
     <section className="py-24 px-6" style={{
       background: `
-        radial-gradient(ellipse 50% 40% at 70% 30%, rgba(232, 121, 58, 0.03) 0%, transparent 50%),
-        #0d1520
+        #052E3F
       `,
     }}>
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-14">
           <p className="text-sm font-semibold uppercase tracking-[4px] text-tt-orange mb-4">Industry Expertise</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Who We Serve</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Who we serve</h2>
           <p className="mt-4 text-lg text-tt-gray-400 max-w-2xl mx-auto">
             We specialize in high-growth brands and PE/VC portfolio companies
             across six core verticals. Our sweet spot: $50K+/month in ad spend
@@ -402,13 +380,13 @@ function WhoWeServeSection() {
               key={v.name}
               className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
               style={{
-                background: 'rgba(20, 27, 35, 0.6)',
+                background: 'rgba(5, 46, 63, 0.6)',
                 backdropFilter: 'blur(12px)',
                 border: '1px solid rgba(255, 255, 255, 0.06)',
                 transitionDelay: `${i * 80}ms`,
               }}
             >
-              <span className="text-xs font-bold text-tt-teal/60 tracking-wider">{v.icon}</span>
+              <span className="text-xs font-bold text-tt-teal tracking-wider">{v.icon}</span>
               <h3 className="text-lg font-bold text-white mt-2">{v.name}</h3>
               <p className="mt-2 text-sm text-tt-gray-500">{v.clients}</p>
             </div>
@@ -420,7 +398,7 @@ function WhoWeServeSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Meet Your Pod (NEW)                                                */
+/*  Meet your pod (NEW)                                                */
 /* ------------------------------------------------------------------ */
 
 function MeetYourPodSection() {
@@ -429,17 +407,16 @@ function MeetYourPodSection() {
   return (
     <section className="py-24 px-6" style={{
       background: `
-        radial-gradient(ellipse 60% 50% at 30% 40%, rgba(91, 164, 164, 0.04) 0%, transparent 50%),
-        #0A1119
+        #052E3F
       `,
     }}>
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-14">
-          <p className="text-sm font-semibold uppercase tracking-[4px] text-tt-teal mb-4">Your Dedicated Team</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Meet Your Pod</h2>
+          <p className="text-sm font-semibold uppercase tracking-[4px] text-tt-orange mb-4">Your Dedicated Team</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Meet your pod</h2>
           <p className="mt-4 text-lg text-tt-gray-400 max-w-2xl mx-auto">
             Every client gets a dedicated pod of senior specialists, not junior account managers.
-            32 people, zero generalists. Here is what your pod looks like on day one.
+            30+ people, zero generalists. Here is what your pod looks like on day one.
           </p>
         </div>
 
@@ -454,44 +431,44 @@ function MeetYourPodSection() {
           <div className="max-w-4xl mx-auto mb-12">
             <svg viewBox="0 0 800 320" className="w-full" xmlns="http://www.w3.org/2000/svg">
               {/* Center node - Client */}
-              <circle cx="400" cy="160" r="50" fill="rgba(232, 121, 58, 0.1)" stroke="#E8793A" strokeWidth="2" />
-              <text x="400" y="155" textAnchor="middle" fill="#E8793A" fontSize="11" fontWeight="700" fontFamily="system-ui">YOUR</text>
-              <text x="400" y="170" textAnchor="middle" fill="#E8793A" fontSize="11" fontWeight="700" fontFamily="system-ui">BRAND</text>
+              <circle cx="400" cy="160" r="50" fill="rgba(254, 94, 22, 0.1)" stroke="#FE5E16" strokeWidth="2" />
+              <text x="400" y="155" textAnchor="middle" fill="#FE5E16" fontSize="11" fontWeight="700" fontFamily="DM Sans, Arial, sans-serif">YOUR</text>
+              <text x="400" y="170" textAnchor="middle" fill="#FE5E16" fontSize="11" fontWeight="700" fontFamily="DM Sans, Arial, sans-serif">BRAND</text>
 
               {/* Connection lines */}
-              <line x1="350" y1="140" x2="180" y2="80" stroke="rgba(91, 164, 164, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
-              <line x1="350" y1="180" x2="180" y2="240" stroke="rgba(91, 164, 164, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
-              <line x1="450" y1="140" x2="620" y2="80" stroke="rgba(91, 164, 164, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
-              <line x1="450" y1="180" x2="620" y2="240" stroke="rgba(91, 164, 164, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
+              <line x1="350" y1="140" x2="180" y2="80" stroke="rgba(127, 202, 211, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
+              <line x1="350" y1="180" x2="180" y2="240" stroke="rgba(127, 202, 211, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
+              <line x1="450" y1="140" x2="620" y2="80" stroke="rgba(127, 202, 211, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
+              <line x1="450" y1="180" x2="620" y2="240" stroke="rgba(127, 202, 211, 0.3)" strokeWidth="1.5" strokeDasharray="4 4" />
 
               {/* Pod role nodes */}
               {/* Strategist - top left */}
-              <circle cx="140" cy="70" r="40" fill="rgba(91, 164, 164, 0.08)" stroke="rgba(91, 164, 164, 0.3)" strokeWidth="1.5" />
-              <text x="140" y="63" textAnchor="middle" fill="#5BA4A4" fontSize="9" fontWeight="700" fontFamily="system-ui">PERFORMANCE</text>
-              <text x="140" y="76" textAnchor="middle" fill="#5BA4A4" fontSize="9" fontWeight="700" fontFamily="system-ui">STRATEGIST</text>
-              <text x="140" y="96" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="system-ui">Senior</text>
+              <circle cx="140" cy="70" r="40" fill="rgba(127, 202, 211, 0.08)" stroke="rgba(127, 202, 211, 0.3)" strokeWidth="1.5" />
+              <text x="140" y="63" textAnchor="middle" fill="#7FCAD3" fontSize="9" fontWeight="700" fontFamily="DM Sans, Arial, sans-serif">PERFORMANCE</text>
+              <text x="140" y="76" textAnchor="middle" fill="#7FCAD3" fontSize="9" fontWeight="700" fontFamily="DM Sans, Arial, sans-serif">STRATEGIST</text>
+              <text x="140" y="96" textAnchor="middle" fill="rgba(255, 255, 255, 0.4)" fontSize="8" fontFamily="DM Sans, Arial, sans-serif">Senior</text>
 
               {/* Creative Lead - top right */}
-              <circle cx="660" cy="70" r="40" fill="rgba(91, 164, 164, 0.08)" stroke="rgba(91, 164, 164, 0.3)" strokeWidth="1.5" />
-              <text x="660" y="63" textAnchor="middle" fill="#5BA4A4" fontSize="9" fontWeight="700" fontFamily="system-ui">CREATIVE</text>
-              <text x="660" y="76" textAnchor="middle" fill="#5BA4A4" fontSize="9" fontWeight="700" fontFamily="system-ui">LEAD</text>
-              <text x="660" y="96" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="system-ui">Senior</text>
+              <circle cx="660" cy="70" r="40" fill="rgba(127, 202, 211, 0.08)" stroke="rgba(127, 202, 211, 0.3)" strokeWidth="1.5" />
+              <text x="660" y="63" textAnchor="middle" fill="#7FCAD3" fontSize="9" fontWeight="700" fontFamily="DM Sans, Arial, sans-serif">CREATIVE</text>
+              <text x="660" y="76" textAnchor="middle" fill="#7FCAD3" fontSize="9" fontWeight="700" fontFamily="DM Sans, Arial, sans-serif">LEAD</text>
+              <text x="660" y="96" textAnchor="middle" fill="rgba(255, 255, 255, 0.4)" fontSize="8" fontFamily="DM Sans, Arial, sans-serif">Senior</text>
 
               {/* Media Buyer - bottom left */}
-              <circle cx="140" cy="250" r="40" fill="rgba(91, 164, 164, 0.08)" stroke="rgba(91, 164, 164, 0.3)" strokeWidth="1.5" />
-              <text x="140" y="243" textAnchor="middle" fill="#5BA4A4" fontSize="9" fontWeight="700" fontFamily="system-ui">MEDIA</text>
-              <text x="140" y="256" textAnchor="middle" fill="#5BA4A4" fontSize="9" fontWeight="700" fontFamily="system-ui">BUYER</text>
-              <text x="140" y="276" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="system-ui">Senior</text>
+              <circle cx="140" cy="250" r="40" fill="rgba(127, 202, 211, 0.08)" stroke="rgba(127, 202, 211, 0.3)" strokeWidth="1.5" />
+              <text x="140" y="243" textAnchor="middle" fill="#7FCAD3" fontSize="9" fontWeight="700" fontFamily="DM Sans, Arial, sans-serif">MEDIA</text>
+              <text x="140" y="256" textAnchor="middle" fill="#7FCAD3" fontSize="9" fontWeight="700" fontFamily="DM Sans, Arial, sans-serif">BUYER</text>
+              <text x="140" y="276" textAnchor="middle" fill="rgba(255, 255, 255, 0.4)" fontSize="8" fontFamily="DM Sans, Arial, sans-serif">Senior</text>
 
               {/* Data Analyst - bottom right */}
-              <circle cx="660" cy="250" r="40" fill="rgba(91, 164, 164, 0.08)" stroke="rgba(91, 164, 164, 0.3)" strokeWidth="1.5" />
-              <text x="660" y="243" textAnchor="middle" fill="#5BA4A4" fontSize="9" fontWeight="700" fontFamily="system-ui">DATA</text>
-              <text x="660" y="256" textAnchor="middle" fill="#5BA4A4" fontSize="9" fontWeight="700" fontFamily="system-ui">ANALYST</text>
-              <text x="660" y="276" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="system-ui">Mid-Senior</text>
+              <circle cx="660" cy="250" r="40" fill="rgba(127, 202, 211, 0.08)" stroke="rgba(127, 202, 211, 0.3)" strokeWidth="1.5" />
+              <text x="660" y="243" textAnchor="middle" fill="#7FCAD3" fontSize="9" fontWeight="700" fontFamily="DM Sans, Arial, sans-serif">DATA</text>
+              <text x="660" y="256" textAnchor="middle" fill="#7FCAD3" fontSize="9" fontWeight="700" fontFamily="DM Sans, Arial, sans-serif">ANALYST</text>
+              <text x="660" y="276" textAnchor="middle" fill="rgba(255, 255, 255, 0.4)" fontSize="8" fontFamily="DM Sans, Arial, sans-serif">Mid-Senior</text>
 
               {/* Outer glow rings */}
-              <circle cx="400" cy="160" r="130" fill="none" stroke="rgba(232, 121, 58, 0.06)" strokeWidth="1" />
-              <circle cx="400" cy="160" r="185" fill="none" stroke="rgba(91, 164, 164, 0.04)" strokeWidth="1" />
+              <circle cx="400" cy="160" r="130" fill="none" stroke="rgba(254, 94, 22, 0.06)" strokeWidth="1" />
+              <circle cx="400" cy="160" r="185" fill="none" stroke="rgba(127, 202, 211, 0.04)" strokeWidth="1" />
             </svg>
           </div>
 
@@ -502,7 +479,7 @@ function MeetYourPodSection() {
                 key={p.role}
                 className="rounded-xl p-5 text-center"
                 style={{
-                  background: 'rgba(20, 27, 35, 0.5)',
+                  background: 'rgba(5, 46, 63, 0.5)',
                   border: '1px solid rgba(255, 255, 255, 0.06)',
                 }}
               >
@@ -517,7 +494,7 @@ function MeetYourPodSection() {
 
           {/* Pod footnote */}
           <p className="text-center text-sm text-tt-gray-500 mt-8 max-w-2xl mx-auto">
-            Pods scale with your program. Larger engagements add SEO specialists, lifecycle marketers, and dedicated creative producers. Offices in Palm Beach, LA, Chicago, and NYC.
+            Pods scale with your program. Larger engagements add SEO specialists, lifecycle marketers, and dedicated creative producers. We are a fully remote team, based in New York.
           </p>
         </div>
       </div>
@@ -535,15 +512,14 @@ function WayfinderPreviewSection() {
   return (
     <section className="py-24 px-6" style={{
       background: `
-        radial-gradient(ellipse 50% 50% at 50% 30%, rgba(91, 164, 164, 0.04) 0%, transparent 50%),
-        #0d1520
+        #052E3F
       `,
     }}>
       <div className="mx-auto max-w-5xl">
         <div className="text-center mb-14">
-          <p className="text-sm font-semibold uppercase tracking-[4px] text-tt-teal mb-4">Proprietary Technology</p>
+          <p className="text-sm font-semibold uppercase tracking-[4px] text-tt-orange mb-4">Proprietary Technology</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white">Powered by Wayfinder AI</h2>
-          <p className="mt-4 text-lg text-tt-gray-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-tt-gray-400 max-w-2xl mx-auto long-copy">
             Wayfinder connects your entire marketing stack into one intelligence layer, using ML to surface cross-channel optimization opportunities that humans miss. Our TT AI-Tools suite adds LLM-powered creative analysis, predictive LTV modeling, and real-time bid optimization on top.
           </p>
         </div>
@@ -555,17 +531,17 @@ function WayfinderPreviewSection() {
             inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
           style={{
-            background: 'rgba(10, 17, 25, 0.9)',
-            border: '1px solid rgba(91, 164, 164, 0.15)',
-            boxShadow: '0 0 60px rgba(91, 164, 164, 0.06)',
+            background: 'rgba(5, 46, 63, 0.9)',
+            border: '1px solid rgba(127, 202, 211, 0.15)',
+            boxShadow: 'none',
           }}
         >
           {/* Top bar */}
           <div className="flex items-center gap-2 px-6 py-3 border-b border-white/5">
             <div className="flex gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
+              <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+              <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+              <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
             </div>
             <div className="ml-4 flex items-center gap-2">
               <span className="text-[10px] font-semibold text-tt-teal tracking-wider">WAYFINDER</span>
@@ -597,11 +573,11 @@ function WayfinderPreviewSection() {
                 {/* KPI row */}
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { label: 'ROAS', value: '4.2x', change: '+18%', up: true },
+                    { label: 'ROAS (illustrative)', value: '3.1x', change: '+12%', up: true },
                     { label: 'CAC', value: '$23.40', change: '-12%', up: false },
                     { label: 'Conv. Rate', value: '3.8%', change: '+7%', up: true },
                   ].map((m) => (
-                    <div key={m.label} className="rounded-lg p-3" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)' }}>
+                    <div key={m.label} className="rounded-lg p-3" style={{ background: 'rgba(0, 0, 0, 0.14)', border: '1px solid rgba(255, 255, 255, 0.04)' }}>
                       <p className="text-[9px] uppercase tracking-wider text-tt-gray-600">{m.label}</p>
                       <p className="mt-1 text-lg font-bold text-white">{m.value}</p>
                       <p className={`text-[11px] font-semibold ${m.up ? 'text-tt-teal' : 'text-tt-orange'}`}>{m.change}</p>
@@ -610,7 +586,7 @@ function WayfinderPreviewSection() {
                 </div>
 
                 {/* Chart area */}
-                <div className="rounded-lg p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)' }}>
+                <div className="rounded-lg p-4" style={{ background: 'rgba(0, 0, 0, 0.14)', border: '1px solid rgba(255, 255, 255, 0.04)' }}>
                   <div className="flex items-center justify-between mb-3">
                     <p className="text-[10px] uppercase tracking-wider text-tt-gray-500">Cross-Channel Performance</p>
                     <p className="text-[10px] text-tt-teal">ML Optimization Active</p>
@@ -620,14 +596,14 @@ function WayfinderPreviewSection() {
                       <div
                         key={i}
                         className="flex-1 rounded-t transition-all duration-300"
-                        style={{ height: `${h}%`, background: `rgba(91, 164, 164, ${0.4 + (h / 200)})` }}
+                        style={{ height: `${h}%`, background: `rgba(127, 202, 211, ${0.4 + (h / 200)})` }}
                       />
                     ))}
                   </div>
                 </div>
 
                 {/* AI Insight callout */}
-                <div className="rounded-lg p-3 flex items-center gap-3" style={{ background: 'rgba(91, 164, 164, 0.05)', border: '1px solid rgba(91, 164, 164, 0.1)' }}>
+                <div className="rounded-lg p-3 flex items-center gap-3" style={{ background: 'rgba(127, 202, 211, 0.05)', border: '1px solid rgba(127, 202, 211, 0.1)' }}>
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-tt-teal/20 flex items-center justify-center">
                     <svg className="w-3 h-3 text-tt-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
@@ -641,16 +617,12 @@ function WayfinderPreviewSection() {
             </div>
           </div>
 
-          {/* Blur overlay for confidentiality effect */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none" style={{
-            background: 'linear-gradient(transparent, rgba(13, 21, 32, 0.8))',
-          }} />
         </div>
 
         <div className="mt-8 text-center">
           <Link
             href="/wayfinder"
-            className="inline-flex items-center gap-2 text-tt-teal text-sm font-semibold hover:text-tt-teal-muted transition-colors"
+            className="inline-flex items-center gap-2 text-tt-orange text-sm font-semibold hover:text-tt-orange-muted transition-colors"
           >
             Learn more about Wayfinder AI
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -673,14 +645,13 @@ function TestimonialsSection() {
   return (
     <section className="py-24 px-6" style={{
       background: `
-        radial-gradient(ellipse 60% 40% at 30% 50%, rgba(232, 121, 58, 0.03) 0%, transparent 50%),
-        #0A1119
+        #052E3F
       `,
     }}>
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-14">
           <p className="text-sm font-semibold uppercase tracking-[4px] text-tt-orange mb-4">Client Results</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">What Our Clients Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">What our clients say</h2>
         </div>
 
         <div
@@ -694,7 +665,7 @@ function TestimonialsSection() {
               key={t.name}
               className="rounded-2xl p-8 flex flex-col"
               style={{
-                background: 'rgba(20, 27, 35, 0.6)',
+                background: 'rgba(5, 46, 63, 0.6)',
                 backdropFilter: 'blur(12px)',
                 border: '1px solid rgba(255, 255, 255, 0.06)',
                 transitionDelay: `${i * 120}ms`,
@@ -705,7 +676,7 @@ function TestimonialsSection() {
                 {t.metric}
               </span>
 
-              <p className="text-tt-gray-300 leading-relaxed text-sm italic flex-1">
+              <p className="text-tt-gray-300 leading-relaxed text-sm flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
@@ -731,13 +702,12 @@ function TimelineSection() {
   return (
     <section className="py-24 px-6" style={{
       background: `
-        radial-gradient(ellipse 50% 40% at 30% 50%, rgba(91, 164, 164, 0.03) 0%, transparent 50%),
-        #0d1520
+        #052E3F
       `,
     }}>
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Our Journey</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Our journey</h2>
         </div>
 
         <div
@@ -747,7 +717,7 @@ function TimelineSection() {
           }`}
         >
           {/* Vertical line */}
-          <div className="absolute left-[19px] md:left-[23px] top-4 bottom-4 w-px bg-gradient-to-b from-tt-teal/40 via-tt-teal/20 to-transparent" />
+          <div className="absolute left-[19px] md:left-[23px] top-4 bottom-4 w-px bg-tt-teal/40" />
 
           <div className="space-y-10">
             {milestones.map((m, i) => (
@@ -755,19 +725,19 @@ function TimelineSection() {
                 {/* Glowing dot */}
                 <div className="relative z-10 flex-shrink-0 mt-1">
                   <div className="h-10 w-10 md:h-12 md:w-12 rounded-full flex items-center justify-center" style={{
-                    background: 'rgba(91, 164, 164, 0.1)',
-                    border: '2px solid rgba(91, 164, 164, 0.3)',
-                    boxShadow: '0 0 16px rgba(91, 164, 164, 0.15)',
+                    background: 'rgba(127, 202, 211, 0.1)',
+                    border: '2px solid rgba(127, 202, 211, 0.3)',
+                    boxShadow: 'none',
                   }}>
                     <div className="h-3 w-3 rounded-full bg-tt-teal" style={{
-                      boxShadow: '0 0 8px rgba(91, 164, 164, 0.5)',
+                      boxShadow: 'none',
                     }} />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="flex-1 pb-2">
-                  <span className="text-sm font-bold text-tt-orange uppercase tracking-wider">
+                  <span className="text-sm font-bold text-tt-teal uppercase tracking-wider">
                     {m.year}
                   </span>
                   <h3 className="mt-1 text-xl font-bold text-white">{m.title}</h3>
@@ -792,25 +762,23 @@ function FoundersSection() {
   return (
     <section className="relative py-28 px-6 overflow-hidden" style={{
       background: `
-        radial-gradient(ellipse 60% 50% at 30% 40%, rgba(232, 121, 58, 0.04) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 50% at 70% 60%, rgba(91, 164, 164, 0.04) 0%, transparent 50%),
-        #0A1119
+        #052E3F
       `,
     }}>
       {/* Spotlight radial behind the cards */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{
-        background: 'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(232, 121, 58, 0.03) 0%, transparent 60%)',
+        background: 'transparent',
       }} />
 
       <div className="relative z-10 mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold uppercase tracking-[4px] text-tt-orange mb-4">Leadership</p>
+          <p className="text-sm font-semibold uppercase tracking-[4px] text-tt-orange mb-4">Who leads Tiger Tracks</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            The Founders
+            Leadership
           </h2>
           <p className="mt-4 text-lg text-tt-gray-400 max-w-2xl mx-auto">
-            Ex-Google operators who built and scaled performance marketing programs
-            for the world's largest brands.
+            Senior operators who have built and scaled performance marketing programs
+            for some of the world's largest brands.
           </p>
         </div>
 
@@ -820,43 +788,27 @@ function FoundersSection() {
             inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          {founders.map((founder, i) => (
+          {leaders.map((founder, i) => (
             <div
               key={founder.name}
-              className="group"
+              className="border-l-2 border-tt-orange pl-6 md:pl-8"
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <FounderHeadshot
-                src={founder.image}
-                initials={founder.initials}
-                name={founder.name}
-              />
-
-              <div className="mt-6 text-center">
-                <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                  {founder.name}
-                </h3>
-                <p className="text-tt-orange font-semibold mt-1 text-lg">
-                  {founder.title}
-                </p>
-              </div>
-
-              <div className="mt-4 flex flex-wrap justify-center gap-2">
+              <p className="eyebrow">{founder.title}</p>
+              <h3 className="mt-3 text-3xl md:text-4xl font-bold text-white tracking-tight">
+                {founder.name}
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2">
                 {founder.credentials.map((cred) => (
                   <span
                     key={cred}
-                    className="rounded-full px-3 py-1 text-xs font-medium text-tt-gray-400"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                    }}
+                    className="rounded-full px-3 py-1 text-xs font-medium text-tt-gray-300 border border-white/15"
                   >
                     {cred}
                   </span>
                 ))}
               </div>
-
-              <p className="mt-5 text-tt-gray-400 leading-relaxed text-[15px] text-center">
+              <p className="mt-5 text-tt-gray-300 leading-relaxed text-base">
                 {founder.bio}
               </p>
             </div>
@@ -877,13 +829,12 @@ function PrinciplesSection() {
   return (
     <section className="py-24 px-6" style={{
       background: `
-        radial-gradient(ellipse 70% 50% at 70% 30%, rgba(91, 164, 164, 0.03) 0%, transparent 50%),
-        #0d1520
+        #052E3F
       `,
     }}>
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">What Drives Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">What drives us</h2>
         </div>
 
         <div
@@ -897,12 +848,12 @@ function PrinciplesSection() {
               key={p.title}
               className="rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1"
               style={{
-                background: 'rgba(20, 27, 35, 0.6)',
+                background: 'rgba(5, 46, 63, 0.6)',
                 backdropFilter: 'blur(12px)',
                 border: '1px solid rgba(255, 255, 255, 0.06)',
               }}
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-tt-orange/10 mb-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-transparent border border-tt-orange/40 mb-4">
                 {p.icon}
               </div>
               <h3 className="text-xl font-bold text-white">{p.title}</h3>
@@ -927,46 +878,44 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center px-6 overflow-hidden" style={{
         background: `
-          radial-gradient(ellipse 60% 50% at 30% 20%, rgba(91, 164, 164, 0.06) 0%, transparent 60%),
-          radial-gradient(ellipse 40% 40% at 80% 70%, rgba(232, 121, 58, 0.04) 0%, transparent 55%),
-          #0A1119
+          #052E3F
         `,
       }}>
         <div className="pointer-events-none absolute inset-0 z-[0]" aria-hidden="true" style={{
-          backgroundImage: 'url(/images/about-atrium.webp)',
+          backgroundImage: 'none' /* brand: no busy photo backgrounds; was url(/images/about-atrium.webp) */,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.35,
         }} />
         <div className="pointer-events-none absolute inset-0 z-[1]" aria-hidden="true" style={{
-          background: 'radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(6, 12, 17, 0.6) 100%)',
+          background: 'transparent',
         }} />
         <div className="relative z-10 mx-auto max-w-7xl w-full py-24">
-          <p className="text-tt-teal uppercase tracking-[4px] text-sm font-semibold mb-6">
+          <p className="text-tt-orange uppercase tracking-[4px] text-sm font-semibold mb-6">
             OUR STORY
           </p>
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
-            Built at Google. Proven at Scale.
-            <br className="hidden md:block" /> Now Yours.
+            Built at Google. Proven at scale.{' '}
+            <br className="hidden md:block" /> Now yours.
           </h1>
           <p className="mt-8 text-xl text-tt-gray-400 max-w-3xl leading-relaxed">
             Tiger Tracks was founded in 2021 by ex-Google leaders who spent years
             managing some of the world&rsquo;s largest advertising budgets. Today,
-            we&rsquo;re Inc. 5000 #123 with 2,954% revenue growth, 40 specialists,
+            we&rsquo;re Inc. 5000 #123 with 2,954% revenue growth, a fully remote team of 30+ specialists,
             and a proprietary AI platform trusted by brands like AG1, Anastasia
             Beverly Hills, and Monarch Money.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/get-started"
-              className="inline-block rounded-full bg-tt-orange px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:bg-tt-orange-dark hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
+              className="inline-block rounded-full bg-tt-orange px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:bg-tt-orange-dark hover:-translate-y-0.5 active:translate-y-0"
             >
               Request a Strategic Diagnostic
             </Link>
             <Link
               href="/results"
               className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
-              style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+              style={{ background: 'rgba(0, 0, 0, 0.14)', border: '1px solid rgba(255, 255, 255, 0.1)' }}
             >
               View Case Studies
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -983,10 +932,10 @@ export default function AboutPage() {
       {/* Growth Stats + Featured Testimonial */}
       <GrowthSection />
 
-      {/* Who We Serve */}
+      {/* Who we serve */}
       <WhoWeServeSection />
 
-      {/* Meet Your Pod */}
+      {/* Meet your pod */}
       <MeetYourPodSection />
 
       {/* Wayfinder AI Preview */}
@@ -1001,16 +950,16 @@ export default function AboutPage() {
       {/* Founders */}
       <FoundersSection />
 
-      {/* What Drives Us */}
+      {/* What drives us */}
       <PrinciplesSection />
 
       <CTASection
-        headline="Ready to Work with Us?"
+        headline="Ready to work with us?"
         subheadline="Book a free Strategic Diagnostic and see what ex-Google performance marketing can do for your brand."
         primaryCTA={{ text: 'Request a Strategic Diagnostic', href: '/get-started' }}
         secondaryCTA={{ text: 'View Case Studies', href: '/results' }}
         dark
-        badges={['Inc. 5000 #123', 'Meta Business Partner', '40 Specialists', '$200M+ Ad Spend Managed']}
+        badges={['Inc. 5000 #123', 'Meta Business Partner', '30+ Specialists', 'Fully Remote, NYC Based']}
       />
     </div>
   );

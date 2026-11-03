@@ -4,7 +4,8 @@ import { useState, useTransition } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { BlogPost, blogPosts } from '@/data/blogPosts';
+import { BlogPost } from '@/data/blogPosts';
+import { publishedPosts as blogPosts } from '@/data/publishedPosts';
 import { CTASection } from '@/components/CTASection';
 import {
   NotionBlockRenderer,
@@ -20,12 +21,12 @@ import { submitNewsletter } from '@/app/actions/submitNewsletter';
 /* ------------------------------------------------------------------ */
 
 const CATEGORY_IMAGES: Record<string, string> = {
-  'AI & Automation': '/images/ai-automation-abstract.png',
-  'Platform Strategy': '/images/seo-organic-discovery.png',
-  'Measurement & Attribution': '/images/conversion-optimization-abstract.png',
-  'Creative & Content': '/images/creative-ugc-performance.png',
-  'Agency Strategy': '/images/agency-strategy-abstract.png',
-  'PE/VC': '/images/pe-vc-financial-tech.png',
+  'AI & Automation': '/images/ai-automation-abstract-brand.png',
+  'Platform Strategy': '/images/seo-organic-discovery-brand.png',
+  'Measurement & Attribution': '/images/conversion-optimization-abstract-brand.png',
+  'Creative & Content': '/images/creative-ugc-performance-brand.png',
+  'Agency Strategy': '/images/agency-strategy-abstract-brand.png',
+  'PE/VC': '/images/pe-vc-financial-tech-brand.png',
 };
 
 /* ------------------------------------------------------------------ */
@@ -45,8 +46,8 @@ function ReadingProgressBar() {
       className="fixed top-0 left-0 right-0 z-50 h-[2px] origin-left print:hidden"
       style={{
         scaleX,
-        background: 'linear-gradient(90deg, #229FA1, #5BA4A4, #229FA1)',
-        boxShadow: '0 0 10px rgba(34,159,161,0.5), 0 0 30px rgba(34,159,161,0.2)',
+        background: '#7FCAD3',
+        boxShadow: 'none',
       }}
     />
   );
@@ -98,7 +99,7 @@ function ShareBar({ title }: { title: string }) {
       <button
         onClick={shareLinkedIn}
         className={btnClass}
-        style={{ background: 'rgba(34,159,161,0.08)', border: '1px solid rgba(34,159,161,0.2)', color: '#229FA1' }}
+        style={{ background: 'rgba(127, 202, 211, 0.08)', border: '1px solid rgba(127, 202, 211, 0.2)', color: '#7FCAD3' }}
         aria-label="Share on LinkedIn"
       >
         <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
@@ -110,7 +111,7 @@ function ShareBar({ title }: { title: string }) {
       <button
         onClick={shareX}
         className={btnClass}
-        style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#d1d1d8' }}
+        style={{ background: 'rgba(0, 0, 0, 0.14)', border: '1px solid rgba(255, 255, 255, 0.1)', color: '#C5CDCF' }}
         aria-label="Share on X"
       >
         <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
@@ -123,9 +124,9 @@ function ShareBar({ title }: { title: string }) {
         onClick={copyLink}
         className={btnClass}
         style={{
-          background: copied ? 'rgba(34,159,161,0.15)' : 'rgba(255,255,255,0.05)',
-          border: copied ? '1px solid rgba(34,159,161,0.4)' : '1px solid rgba(255,255,255,0.1)',
-          color: copied ? '#229FA1' : '#d1d1d8',
+          background: copied ? 'rgba(127, 202, 211, 0.15)' : 'rgba(255, 255, 255, 0.05)',
+          border: copied ? '1px solid rgba(127, 202, 211, 0.4)' : '1px solid rgba(255, 255, 255, 0.1)',
+          color: copied ? '#7FCAD3' : '#C5CDCF',
         }}
         aria-label="Copy link"
       >
@@ -149,15 +150,15 @@ function ShareBar({ title }: { title: string }) {
 function ContentFallback({ article }: { article: BlogPost }) {
   return (
     <div className="py-12 text-center">
-      <p className="text-[#F0EFED] text-base font-sans mb-4">
+      <p className="text-[#EFF0EF] text-base font-sans mb-4">
         This article is loading its content from Notion.
       </p>
       {article.excerpt && (
-        <p className="text-[#F0EFED]/60 text-base font-sans italic max-w-lg mx-auto mb-8">
+        <p className="text-[#EFF0EF]/60 text-base font-sans max-w-lg mx-auto mb-8">
           {article.excerpt}
         </p>
       )}
-      <p className="text-sm text-[#F0EFED]/40 font-sans">
+      <p className="text-sm text-[#EFF0EF]/40 font-sans">
         If this persists, the content may be temporarily unavailable. Please try refreshing in a moment.
       </p>
     </div>
@@ -177,10 +178,10 @@ function RelatedCard({ post }: { post: BlogPost }) {
       href={`/intelligence/${post.slug}`}
       className="group relative block rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1"
       style={{
-        background: '#1B2126',
+        background: '#052E3F',
         border: isHovered
-          ? '1px solid rgba(34,159,161,0.35)'
-          : '1px solid rgba(255,255,255,0.06)',
+          ? '1px solid rgba(127, 202, 211, 0.35)'
+          : '1px solid rgba(255, 255, 255, 0.06)',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -198,29 +199,29 @@ function RelatedCard({ post }: { post: BlogPost }) {
           <div
             className="absolute inset-0"
             style={{
-              background: 'linear-gradient(135deg, rgba(34,159,161,0.10) 0%, rgba(10,17,25,0.95) 100%)',
+              background: 'rgba(127, 202, 211, 0.10)',
             }}
           />
         )}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(27,33,38,0.95) 100%)' }}
+          style={{ background: 'rgba(5, 46, 63, 0.35)' }}
         />
       </div>
 
       <div className="p-6">
-        <span className="inline-block rounded-full bg-[#229FA1]/10 border border-[#229FA1]/20 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-[#229FA1]">
+        <span className="inline-block rounded-full bg-[#7FCAD3]/10 border border-[#7FCAD3]/20 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-[#7FCAD3]">
           {post.category}
         </span>
-        <h3 className="mt-3 text-lg font-bold text-white transition-colors duration-300 group-hover:text-[#229FA1] line-clamp-2 leading-snug">
+        <h3 className="mt-3 text-lg font-bold text-white transition-colors duration-300 group-hover:text-[#7FCAD3] line-clamp-2 leading-snug">
           {post.title}
         </h3>
-        <p className="mt-2 text-sm text-[#9C9CAE] line-clamp-2 leading-relaxed">
+        <p className="mt-2 text-sm text-[#A9B6BA] line-clamp-2 leading-relaxed">
           {post.excerpt}
         </p>
-        <div className="mt-4 flex items-center gap-2 text-[10px] uppercase tracking-widest font-mono text-[#9E9E9E]">
+        <div className="mt-4 flex items-center gap-2 text-[10px] uppercase tracking-widest font-mono text-[#A9B6BA]">
           <span>{post.date}</span>
-          <span className="text-[#229FA1]">&bull;</span>
+          <span className="text-[#7FCAD3]">&bull;</span>
           <span>{post.readTime}</span>
         </div>
       </div>
@@ -229,8 +230,8 @@ function RelatedCard({ post }: { post: BlogPost }) {
         className="absolute bottom-0 left-0 h-px transition-all duration-500"
         style={{
           width: isHovered ? '100%' : '0%',
-          background: 'linear-gradient(90deg, transparent, #229FA1, transparent)',
-          boxShadow: isHovered ? '0 0 8px rgba(34,159,161,0.4)' : 'none',
+          background: '#7FCAD3',
+          boxShadow: isHovered ? 'none' : 'none',
         }}
       />
     </Link>
@@ -294,7 +295,7 @@ function TableOfContents({ blocks }: { blocks?: NotionBlock[] }) {
   return (
     <nav
       aria-label="Table of contents"
-      className="mb-10 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 print:hidden"
+      className="mb-10 rounded-2xl border border-white/[0.08] bg-black/[0.14] p-5 print:hidden"
     >
       <button
         type="button"
@@ -302,11 +303,11 @@ function TableOfContents({ blocks }: { blocks?: NotionBlock[] }) {
         aria-expanded={open}
         className="flex w-full items-center justify-between gap-3 text-left"
       >
-        <span className="text-[11px] font-semibold uppercase tracking-[3px] text-[#229FA1]">
+        <span className="text-[11px] font-semibold uppercase tracking-[3px] text-[#7FCAD3]">
           On this page
         </span>
         <svg
-          className={`h-4 w-4 text-[#9C9CAE] transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+          className={`h-4 w-4 text-[#A9B6BA] transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -322,7 +323,7 @@ function TableOfContents({ blocks }: { blocks?: NotionBlock[] }) {
             <li key={h.id} style={{ paddingLeft: `${(h.level - minLevel) * 16}px` }}>
               <a
                 href={`#${h.id}`}
-                className="block text-sm leading-snug text-[#9C9CAE] transition-colors duration-200 hover:text-[#229FA1]"
+                className="block text-sm leading-snug text-[#A9B6BA] transition-colors duration-200 hover:text-[#7FCAD3]"
               >
                 {h.text}
               </a>
@@ -356,24 +357,24 @@ function AuthorBio({ article }: { article: BlogPost }) {
     .toUpperCase();
 
   return (
-    <aside className="mt-10 flex items-start gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 print:hidden">
+    <aside className="mt-10 flex items-start gap-4 rounded-2xl border border-white/[0.08] bg-black/[0.14] p-5 print:hidden">
       <div
         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white"
-        style={{ background: 'linear-gradient(135deg, #229FA1, #1e8b8d)' }}
+        style={{ background: '#7FCAD3' }}
         aria-hidden="true"
       >
         {initials}
       </div>
       <div>
-        <p className="text-[11px] font-semibold uppercase tracking-[2px] text-[#229FA1]">
+        <p className="text-[11px] font-semibold uppercase tracking-[2px] text-[#7FCAD3]">
           {isPerson ? 'Author' : 'About the author'}
         </p>
-        <p className="mt-1 text-base font-semibold text-[#F0EFED]">{name}</p>
-        <p className="text-sm text-[#9C9CAE]">{role}</p>
-        <p className="mt-2 text-sm leading-relaxed text-[#9C9CAE]">{bio}</p>
+        <p className="mt-1 text-base font-semibold text-[#EFF0EF]">{name}</p>
+        <p className="text-sm text-[#A9B6BA]">{role}</p>
+        <p className="mt-2 text-sm leading-relaxed text-[#A9B6BA]">{bio}</p>
         <Link
           href="/company"
-          className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-[#229FA1] transition hover:gap-2.5"
+          className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-[#7FCAD3] transition hover:gap-2.5"
         >
           Meet the team
           <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -422,21 +423,21 @@ function NewsletterSignup({ title }: { title: string }) {
 
   return (
     <section
-      className="mt-10 rounded-2xl border border-[#229FA1]/20 p-6 sm:p-8 print:hidden"
-      style={{ background: 'linear-gradient(135deg, rgba(34,159,161,0.10), rgba(34,159,161,0.02))' }}
+      className="mt-10 rounded-2xl border border-[#7FCAD3]/20 p-6 sm:p-8 print:hidden"
+      style={{ background: 'rgba(127, 202, 211, 0.10)' }}
     >
-      <p className="text-[11px] font-semibold uppercase tracking-[3px] text-[#229FA1]">
+      <p className="text-[11px] font-semibold uppercase tracking-[3px] text-[#7FCAD3]">
         Eye of the Tiger
       </p>
-      <h3 className="mt-2 text-xl font-bold text-[#F0EFED]">
+      <h3 className="mt-2 text-xl font-bold text-[#EFF0EF]">
         Get our research in your inbox
       </h3>
-      <p className="mt-2 max-w-md text-sm leading-relaxed text-[#9C9CAE]">
+      <p className="mt-2 max-w-md text-sm leading-relaxed text-[#A9B6BA]">
         Strategic research and tactical playbooks for operators and investors. No spam, unsubscribe anytime.
       </p>
 
       {status === 'ok' ? (
-        <p className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#229FA1]">
+        <p className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#7FCAD3]">
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
@@ -465,12 +466,12 @@ function NewsletterSignup({ title }: { title: string }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@company.com"
-            className="w-full flex-1 rounded-full border border-white/10 bg-[#0A1119] px-5 py-3 text-sm text-[#F0EFED] placeholder-[#9C9CAE]/60 outline-none transition focus:border-[#229FA1]/60"
+            className="w-full flex-1 rounded-full border border-white/10 bg-[#052E3F] px-5 py-3 text-sm text-[#EFF0EF] placeholder-[#A9B6BA]/60 outline-none transition focus:border-[#7FCAD3]/60"
           />
           <button
             type="submit"
             disabled={isPending}
-            className="shrink-0 rounded-full bg-[#229FA1] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e8b8d] disabled:opacity-60"
+            className="shrink-0 rounded-full bg-tt-orange px-6 py-3 text-sm font-semibold text-tt-ink transition hover:bg-white disabled:opacity-60"
           >
             {isPending ? 'Subscribing...' : 'Subscribe'}
           </button>
@@ -513,17 +514,17 @@ export function ArticlePageClient({ article, blocks }: ArticlePageClientProps) {
       <ReadingProgressBar />
 
       {/* ============================================================ */}
-      {/*  Full Page Background (#191919 = Notion dark mode)            */}
+      {/*  Full Page Background (#052E3F = Notion dark mode)            */}
       {/* ============================================================ */}
       <section
         className="relative min-h-screen py-12 md:py-20 px-4 sm:px-6 print:py-0 print:px-0 print:bg-white"
-        style={{ background: '#191919' }}
+        style={{ background: '#052E3F' }}
       >
         {/* Back navigation */}
         <div className="mx-auto max-w-[720px] mb-6 print:hidden">
           <Link
             href="/intelligence"
-            className="inline-flex items-center gap-1.5 text-sm text-slate-400 transition hover:text-[#229FA1]"
+            className="inline-flex items-center gap-1.5 text-sm text-tt-gray-400 transition hover:text-[#7FCAD3]"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -564,14 +565,14 @@ export function ArticlePageClient({ article, blocks }: ArticlePageClientProps) {
           {/* ====================================================== */}
           <header className="mb-8">
             <h1
-              className="font-sans text-[40px] font-bold text-[#F0EFED] leading-[48px] print:text-black"
+              className="font-sans text-[40px] font-bold text-[#EFF0EF] leading-[48px] print:text-black"
               style={{ textWrap: 'balance' } as React.CSSProperties}
             >
               {article.title}
             </h1>
 
             {/* Metadata line: italic, 16px */}
-            <p className="mt-4 text-base font-sans italic text-[#F0EFED]/60 print:text-gray-500">
+            <p className="mt-4 text-base font-sans text-[#EFF0EF]/60 print:text-tt-gray-500">
               Tiger Tracks &middot; Eye of the Tiger &middot; {article.category} &middot; {formatDate(article.date)}
             </p>
 
@@ -582,7 +583,7 @@ export function ArticlePageClient({ article, blocks }: ArticlePageClientProps) {
           </header>
 
           {/* Divider */}
-          <hr className="border-t border-white/[0.08] mb-6 print:border-gray-300" />
+          <hr className="border-t border-white/[0.08] mb-6 print:border-tt-gray-300" />
 
           {/* ====================================================== */}
           {/*  Table of Contents (auto-built from headings)            */}
@@ -607,14 +608,14 @@ export function ArticlePageClient({ article, blocks }: ArticlePageClientProps) {
           {/* ====================================================== */}
           {/*  Footer                                                  */}
           {/* ====================================================== */}
-          <hr className="border-t border-white/[0.08] mt-10 mb-6 print:border-gray-300" />
+          <hr className="border-t border-white/[0.08] mt-10 mb-6 print:border-tt-gray-300" />
 
           <div className="flex items-center justify-between print:hidden">
             <ShareBar title={article.title} />
           </div>
 
           {/* Print footer */}
-          <div className="hidden print:block mt-12 pt-6 border-t border-gray-300 text-center text-xs text-gray-500">
+          <div className="hidden print:block mt-12 pt-6 border-t border-tt-gray-300 text-center text-xs text-tt-gray-500">
             <p>Tiger Tracks &bull; tigertracks.ai</p>
           </div>
         </motion.article>
@@ -623,14 +624,14 @@ export function ArticlePageClient({ article, blocks }: ArticlePageClientProps) {
       {/* ============================================================ */}
       {/*  Related Research                                             */}
       {/* ============================================================ */}
-      <section className="py-20 px-6 print:hidden" style={{ background: '#191919' }}>
+      <section className="py-20 px-6 print:hidden" style={{ background: '#052E3F' }}>
         <div className="mx-auto max-w-6xl">
           <div className="flex items-center gap-3 mb-10">
-            <div className="h-px flex-1 bg-gradient-to-r from-[#229FA1]/30 to-transparent" />
-            <h2 className="text-sm font-bold uppercase tracking-[4px] text-[#229FA1] whitespace-nowrap">
+            <div className="h-px flex-1 bg-[#7FCAD3]/30" />
+            <h2 className="text-sm font-bold uppercase tracking-[4px] text-[#7FCAD3] whitespace-nowrap">
               Related Research
             </h2>
-            <div className="h-px flex-1 bg-gradient-to-l from-[#229FA1]/30 to-transparent" />
+            <div className="h-px flex-1 bg-[#7FCAD3]/30" />
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -644,7 +645,7 @@ export function ArticlePageClient({ article, blocks }: ArticlePageClientProps) {
       {/* CTA */}
       <div className="print:hidden">
         <CTASection
-          headline="Put This Research Into Action"
+          headline="Put this research into action"
           subheadline="Book a free Strategic Diagnostic and see how these insights apply to your specific business."
           primaryCTA={{ text: 'Request a Strategic Diagnostic', href: '/get-started' }}
           secondaryCTA={{ text: 'Read More Research', href: '/intelligence' }}

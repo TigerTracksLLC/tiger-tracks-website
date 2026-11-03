@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description:
       'Join Tiger Tracks. Explore open roles at the Inc. 5000 #123 performance marketing agency.',
     url: 'https://tigertracks.ai/careers',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 

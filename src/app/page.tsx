@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { LogoBar } from '@/components/LogoBar';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
-import { ParticleField } from '@/components/ParticleField';
 import { HeroTestimonial } from '@/components/HeroTestimonial';
 import { STATS } from '@/lib/stats';
 
@@ -168,7 +167,7 @@ function useCursorGlow() {
    ================================================================ */
 
 /** Live sparkline SVG with animated drawing */
-function Sparkline({ data, color = '#5BA4A4', areaColor, className = '' }: {
+function Sparkline({ data, color = '#7FCAD3', areaColor, className = '' }: {
   data: number[];
   color?: string;
   areaColor?: string;
@@ -257,7 +256,7 @@ function AnimatedBars({ bars, inView }: {
 }
 
 /** Progress ring SVG */
-function ProgressRing({ percent, size = 80, strokeWidth = 4, color = '#5BA4A4', inView }: {
+function ProgressRing({ percent, size = 80, strokeWidth = 4, color = '#7FCAD3', inView }: {
   percent: number;
   size?: number;
   strokeWidth?: number;
@@ -272,7 +271,7 @@ function ProgressRing({ percent, size = 80, strokeWidth = 4, color = '#5BA4A4', 
     <svg width={size} height={size} className="transform -rotate-90">
       <circle
         cx={size / 2} cy={size / 2} r={r}
-        fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth={strokeWidth}
+        fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth={strokeWidth}
       />
       <circle
         cx={size / 2} cy={size / 2} r={r}
@@ -323,11 +322,7 @@ function HeroSection() {
       }}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        background: `
-          radial-gradient(ellipse 40% 50% at 85% 10%, rgba(232, 121, 58, 0.07) 0%, transparent 60%),
-          radial-gradient(ellipse 50% 60% at 15% 20%, rgba(91, 164, 164, 0.06) 0%, transparent 55%),
-          radial-gradient(ellipse 100% 80% at 50% 0%, #0f1a2e 0%, #0A1119 60%)
-        `,
+        background: `transparent`,
       }}
     >
       {/* Layer 0: MJ hero-streaks background image */}
@@ -335,7 +330,7 @@ function HeroSection() {
         className="pointer-events-none absolute inset-0 z-[0]"
         aria-hidden="true"
         style={{
-          backgroundImage: 'url(/images/hero-streaks.webp)',
+          backgroundImage: 'none' /* brand: no busy photo backgrounds; was url(/images/hero-streaks.webp) */,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.4,
@@ -344,7 +339,7 @@ function HeroSection() {
 
       {/* Heavy dark overlay for legibility */}
       <div
-        className="pointer-events-none absolute inset-0 z-[1] bg-black/60"
+        className="pointer-events-none absolute inset-0 z-[1] hidden"
         aria-hidden="true"
       />
 
@@ -353,7 +348,7 @@ function HeroSection() {
         className="pointer-events-none absolute inset-0 z-[2]"
         aria-hidden="true"
         style={{
-          background: 'radial-gradient(ellipse 50% 45% at 50% 45%, rgba(15, 23, 36, 0.85) 0%, rgba(10, 17, 25, 0.98) 70%, rgba(10, 17, 25, 1) 100%)',
+          background: 'transparent',
         }}
       />
 
@@ -362,7 +357,7 @@ function HeroSection() {
         className="pointer-events-none absolute inset-0 z-[3]"
         aria-hidden="true"
         style={{
-          background: 'radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(6, 12, 17, 0.7) 100%)',
+          background: 'transparent',
         }}
       />
 
@@ -370,13 +365,12 @@ function HeroSection() {
       <div
         className="pointer-events-none absolute inset-0 z-[4] opacity-40"
         style={{
-          background: 'radial-gradient(600px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(91,164,164,0.06), transparent 60%)',
+          background: 'transparent',
         }}
       />
 
       {/* Particle network animation */}
       <div className="pointer-events-none absolute inset-0 z-[10]">
-        <ParticleField particleCount={90} color="#5BA4A4" />
       </div>
 
       {/* Animated gradient mesh Layer 1 */}
@@ -388,15 +382,15 @@ function HeroSection() {
       >
         <div
           className="absolute top-[-20%] left-[-15%] h-[800px] w-[800px] rounded-full animate-mesh-drift"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.14) 0%, transparent 70%)', filter: 'blur(80px)' }}
+          style={{ background: 'transparent', filter: 'blur(80px)' }}
         />
         <div
           className="absolute bottom-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full animate-float-slower"
-          style={{ background: 'radial-gradient(circle, rgba(232,121,58,0.09) 0%, transparent 70%)', filter: 'blur(100px)' }}
+          style={{ background: 'transparent', filter: 'blur(100px)' }}
         />
         <div
           className="absolute top-[35%] right-[10%] h-[400px] w-[400px] rounded-full animate-mesh-pulse"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.07) 0%, transparent 60%)', filter: 'blur(60px)' }}
+          style={{ background: 'transparent', filter: 'blur(60px)' }}
         />
       </div>
 
@@ -409,15 +403,9 @@ function HeroSection() {
       >
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[900px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse, rgba(91,164,164,0.05) 0%, transparent 60%)', filter: 'blur(40px)' }}
+          style={{ background: 'transparent', filter: 'blur(40px)' }}
         />
         <div className="absolute inset-0 dot-grid-subtle animate-dot-pulse" />
-      </div>
-
-      {/* Layer 3 horizontal accent lines */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute top-[30%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-teal/10 to-transparent" />
-        <div className="absolute top-[70%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-orange/5 to-transparent" />
       </div>
 
       {/* Content */}
@@ -437,13 +425,12 @@ function HeroSection() {
               initial={reduceMotion ? false : 'hidden'}
               animate="visible"
               custom={0}
-              className="inline-flex items-center gap-2.5 rounded-full border border-tt-teal/20 bg-tt-teal/5 px-5 py-2 mb-8"
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/15 px-5 py-2 mb-8"
             >
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-tt-teal opacity-40" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-tt-teal" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-tt-orange" />
               </span>
-              <span className="text-sm font-medium text-tt-teal tracking-wide">Inc. 5000 Fastest-Growing, #123 | TIGER TRACKS</span>
+              <span className="text-sm font-medium text-tt-paper uppercase tracking-[0.18em]">Inc. 5000 #123</span>
             </motion.div>
 
             {/* Main headline: TIGER (teal gradient) TRACKS (white).
@@ -456,19 +443,11 @@ function HeroSection() {
               custom={0}
             >
               <h1
-                className="text-5xl font-extrabold tracking-tight sm:text-6xl xl:text-7xl"
-                style={{ letterSpacing: '-0.03em', lineHeight: 0.95, textShadow: '0 4px 30px rgba(0,0,0,0.5)' }}
+                className="text-5xl font-extrabold tracking-tight sm:text-6xl xl:text-[4rem]"
+                style={{ letterSpacing: '-0.03em', lineHeight: 1.02 }}
               >
-                <span
-                  className="inline-block bg-clip-text text-transparent bg-gradient-to-br from-[#5BA4A4] via-[#7BC4C4] to-[#A8D4D4]"
-                  style={{ textShadow: 'none', filter: 'drop-shadow(0 2px 20px rgba(91,164,164,0.25))' }}
-                >
-                  TIGER
-                </span>
-                {' '}
-                <span className="inline-block text-white" style={{ filter: 'drop-shadow(0 2px 16px rgba(0,0,0,0.4))' }}>
-                  TRACKS
-                </span>
+                Most agencies provide activity.{' '}
+                <span className="text-tt-orange">We provide evidence.</span>
               </h1>
             </motion.div>
 
@@ -481,15 +460,14 @@ function HeroSection() {
               className="space-y-4 mt-6"
             >
               <p
-                className="text-lg font-medium tracking-wide text-slate-100 sm:text-xl xl:text-2xl"
-                style={{ letterSpacing: '0.04em' }}
+                className="text-lg text-tt-gray-100 sm:text-xl xl:text-2xl font-display font-semibold"
               >
-                Where precision meets growth.
+                Track. Capture. Convert.
               </p>
 
-              <p className="mx-auto lg:mx-0 max-w-xl text-base text-slate-100 font-medium leading-relaxed">
-                Ex-Google performance marketing leaders, powered by proprietary AI, delivering
-                measurable revenue growth for the world&apos;s most ambitious brands.
+              <p className="mx-auto lg:mx-0 max-w-xl text-base text-tt-gray-100 font-medium leading-relaxed">
+                Performance marketing built by ex-Google leaders. Paid media, search, creative,
+                CRO and measurement run as one team, reported against the numbers your board watches.
               </p>
             </motion.div>
 
@@ -504,7 +482,7 @@ function HeroSection() {
               {/* Primary CTA */}
               <Link
                 href="/growth-audit"
-                className="group relative inline-flex items-center justify-center rounded-full bg-tt-orange px-8 py-3.5 text-base font-normal tracking-[-0.16px] text-white transition-shadow duration-200 hover:shadow-[0_0_20px_rgba(232,121,58,0.45)]"
+                className="group relative inline-flex items-center justify-center rounded-full bg-tt-orange px-8 py-3.5 text-base font-normal tracking-[-0.16px] text-white transition-shadow duration-200"
               >
                 <span className="relative block h-6 overflow-hidden leading-6">
                   <span className="block transition-transform duration-[340ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-full motion-reduce:transform-none motion-reduce:transition-none">
@@ -522,7 +500,7 @@ function HeroSection() {
               {/* Secondary: Ghost button with thin border */}
               <Link
                 href="/results"
-                className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-transparent px-8 py-3.5 text-base font-semibold text-slate-200 transition-all duration-300 hover:bg-white/5 hover:border-white/40 hover:text-white"
+                className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-transparent px-8 py-3.5 text-base font-semibold text-tt-gray-200 transition-all duration-300 hover:bg-white/5 hover:border-white/40 hover:text-white"
               >
                 View Results
               </Link>
@@ -537,19 +515,19 @@ function HeroSection() {
               className="mt-10 grid grid-cols-3 gap-3 max-w-md mx-auto lg:max-w-none lg:mx-0"
             >
               {[
-                { value: '2,954%', label: 'Revenue Growth' },
-                { value: '+51%', label: 'Customers YoY (AG1)' },
-                { value: '50+', label: 'Growth Brands' },
+                { value: '2,954%', label: 'Inc. 5000 growth' },
+                { value: '+51%', label: 'AG1 customers' },
+                { value: '+46%', label: 'Broadband CVR' },
               ].map((stat) => (
                 <div
                   key={stat.label}
                   className="rounded-xl backdrop-blur-xl border-t border-l border-white/10 px-3 py-4 text-center transition-all duration-500 hover:-translate-y-0.5"
                   style={{
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 32px rgba(0,0,0,0.3)',
+                    background: 'rgba(0, 0, 0, 0.14)',
+                    boxShadow: 'none',
                   }}
                 >
-                  <AnimatedCounter value={stat.value} label={stat.label} className="[&>div:first-child]:text-xl sm:[&>div:first-child]:text-2xl [&>div:last-of-type]:mt-1 [&>div:last-of-type]:text-[11px]" />
+                  <AnimatedCounter value={stat.value} label={stat.label} className="[&>div:first-child]:text-xl sm:[&>div:first-child]:text-2xl [&>div:last-of-type]:mt-1 [&>div:last-of-type]:text-[10px] sm:[&>div:last-of-type]:text-[11px] [&>div:last-of-type]:tracking-normal sm:[&>div:last-of-type]:tracking-widest" />
                 </div>
               ))}
             </motion.div>
@@ -564,7 +542,7 @@ function HeroSection() {
             className="w-full"
           >
             <div className="mb-4 flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-tt-teal/30 bg-tt-teal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-tt-teal">
+              <span className="inline-flex items-center gap-2 rounded-full border border-tt-teal/30 bg-transparent px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-tt-orange">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-tt-teal opacity-50" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-tt-teal" />
@@ -572,7 +550,7 @@ function HeroSection() {
                 Featured at SXSW
               </span>
             </div>
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/10">
               <video
                 controls
                 preload="metadata"
@@ -586,9 +564,9 @@ function HeroSection() {
             </div>
             <div className="mt-5 text-center">
               <p className="text-lg sm:text-xl font-bold text-white">
-                <span className="text-tt-teal">CMO of AG1</span>{' '}&amp; CEO of Tiger Tracks
+                <span className="text-tt-orange">CMO of AG1</span>{' '}&amp; CEO of Tiger Tracks
               </p>
-              <p className="mt-1.5 text-sm text-slate-300">
+              <p className="mt-1.5 text-sm text-tt-gray-300">
                 &ldquo;Under the AI Microscope&rdquo;
               </p>
             </div>
@@ -599,15 +577,6 @@ function HeroSection() {
         <HeroTestimonial />
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-scroll-bounce">
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-tt-gray-500 uppercase tracking-widest">Scroll</span>
-          <svg className="w-5 h-5 text-tt-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7" />
-          </svg>
-        </div>
-      </div>
     </section>
   );
 }
@@ -645,9 +614,9 @@ const capabilities = [
       </svg>
     ),
     accent: 'teal' as const,
-    stat: STATS.representative.roasLift,
-    statLabel: 'Top client ROAS lift',
-    bgImage: '/images/media-buying-dashboard.png',
+    stat: '+51%',
+    statLabel: 'AG1 customers YoY',
+    bgImage: '/images/media-buying-dashboard-brand.png',
   },
   {
     title: 'Analytics',
@@ -659,9 +628,9 @@ const capabilities = [
       </svg>
     ),
     accent: 'teal' as const,
-    stat: '100%',
-    statLabel: 'Data visibility',
-    bgImage: '/images/scatter-plot-data-viz.png',
+    stat: 'MMM',
+    statLabel: 'Bayesian media mix modeling',
+    bgImage: '/images/scatter-plot-data-viz-brand.png',
   },
 
   {
@@ -674,9 +643,9 @@ const capabilities = [
       </svg>
     ),
     accent: 'teal' as const,
-    stat: STATS.representative.cvrLift,
-    statLabel: 'Top client CVR lift',
-    bgImage: '/images/ab-testing-browser-mockup.png',
+    stat: STATS.broadband.cvrLift,
+    statLabel: 'Site CVR, national broadband provider',
+    bgImage: '/images/ab-testing-browser-mockup-brand.png',
   },
   {
     title: 'Creative',
@@ -688,9 +657,9 @@ const capabilities = [
       </svg>
     ),
     accent: 'orange' as const,
-    stat: STATS.representative.creativeWinRate,
-    statLabel: 'Creative win rate',
-    bgImage: '/images/creative-ugc-phone-mockup.png',
+    stat: 'Pre-flight',
+    statLabel: 'Attention scoring before launch',
+    bgImage: '/images/creative-ugc-phone-mockup-brand.png',
   },
   {
     title: 'Organic',
@@ -702,9 +671,9 @@ const capabilities = [
       </svg>
     ),
     accent: 'teal' as const,
-    stat: STATS.representative.organicTraffic,
-    statLabel: 'Top client organic traffic lift',
-    bgImage: '/images/network-connection-map.png',
+    stat: STATS.broadband.rankingPositions,
+    statLabel: 'Google ranking positions, broadband',
+    bgImage: '/images/network-connection-map-brand.png',
   },
   {
     title: 'Lifecycle',
@@ -716,9 +685,9 @@ const capabilities = [
       </svg>
     ),
     accent: 'orange' as const,
-    stat: STATS.representative.ltvIncrease,
-    statLabel: 'Top client LTV increase',
-    bgImage: '/images/lifecycle-journey-visualization.png',
+    stat: 'LTV',
+    statLabel: 'Programs built around lifetime value',
+    bgImage: '/images/lifecycle-journey-visualization-brand.png',
   },] as const;
 
 function BentoCapabilities() {
@@ -728,15 +697,15 @@ function BentoCapabilities() {
     <section data-tint="ink" className="relative bg-atmosphere py-28 sm:py-36 overflow-hidden glow-top">
       {/* Background elements */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-teal/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-teal/15 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-tt-teal/30" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-tt-teal/15" />
         <div
           className="absolute top-[10%] right-[-10%] h-[600px] w-[600px] rounded-full animate-mesh-drift"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.09) 0%, transparent 60%)', filter: 'blur(80px)' }}
+          style={{ background: 'transparent', filter: 'blur(80px)' }}
         />
         <div
           className="absolute bottom-[5%] left-[-8%] h-[500px] w-[500px] rounded-full animate-float-slower"
-          style={{ background: 'radial-gradient(circle, rgba(232,121,58,0.05) 0%, transparent 65%)', filter: 'blur(100px)' }}
+          style={{ background: 'transparent', filter: 'blur(100px)' }}
         />
         <div className="absolute inset-0 dot-grid animate-dot-pulse" />
         <div className="absolute inset-0 crosshatch-grid opacity-40" />
@@ -745,14 +714,14 @@ function BentoCapabilities() {
       <div ref={sectionRef} className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center mb-20">
-          <span className="reveal stagger-1 inline-block text-sm font-semibold text-tt-teal uppercase tracking-widest mb-4">
+          <span className="reveal stagger-1 inline-block text-sm font-semibold text-tt-orange uppercase tracking-widest mb-4">
             Capabilities
           </span>
           <h2 className="reveal stagger-2 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl" aria-label="Full-funnel marketing that compounds.">
             Full-funnel marketing<br />
             <span className="gradient-text">that compounds.</span>
           </h2>
-          <p className="reveal stagger-3 mt-6 text-lg text-slate-300 leading-relaxed">
+          <p className="reveal stagger-3 mt-6 text-lg text-tt-gray-300 leading-relaxed">
             Each layer amplifies the others. Media drives signal, creative converts,
             lifecycle extends value, and measurement fuels smarter decisions.
           </p>
@@ -764,7 +733,7 @@ function BentoCapabilities() {
             <Link
               key={cap.title}
               href={cap.href}
-              className={`reveal stagger-${i + 1} group relative h-full flex flex-col justify-between rounded-2xl p-8 no-underline bento-cap-card hover:-translate-y-1 focus:ring-2 focus:ring-orange-500 focus:outline-none overflow-hidden`}
+              className={`reveal stagger-${i + 1} group relative h-full flex flex-col justify-between rounded-2xl p-8 no-underline bento-cap-card hover:-translate-y-1 focus:ring-2 focus:ring-tt-orange focus:outline-none overflow-hidden`}
             >
               {/* Background image — decorative only (alt="" intentional) */}
               {cap.bgImage && (
@@ -775,14 +744,14 @@ function BentoCapabilities() {
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover opacity-[0.07] transition-all duration-700 group-hover:opacity-[0.15] group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1119] via-[#0A1119]/80 to-transparent" />
+                  <div className="absolute inset-0 bg-tt-ink/40" />
                 </div>
               )}
               {/* Top content */}
               <div className="relative z-10">
                 <div
                   className={`mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 group-hover:scale-110 ${
-                    cap.accent === 'teal' ? 'bg-tt-teal/10 text-tt-teal' : 'bg-tt-orange/10 text-tt-orange'
+                    cap.accent === 'teal' ? 'bg-tt-teal/10 text-tt-teal' : 'bg-transparent border border-tt-orange/40 text-tt-orange'
                   }`}
                 >
                   {cap.icon}
@@ -790,7 +759,7 @@ function BentoCapabilities() {
                 <h3 className="text-lg font-bold text-tt-teal mb-3 group-hover:text-white transition-colors duration-300">
                   {cap.title}
                 </h3>
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className="text-sm text-tt-gray-300 leading-relaxed">
                   {cap.description}
                 </p>
               </div>
@@ -804,7 +773,7 @@ function BentoCapabilities() {
                   >
                     {cap.stat}
                   </span>
-                  <span className="text-xs text-slate-400 uppercase tracking-wider">{cap.statLabel}</span>
+                  <span className="text-xs text-tt-gray-400 uppercase tracking-wider">{cap.statLabel}</span>
                 </div>
               )}
 
@@ -818,12 +787,7 @@ function BentoCapabilities() {
           ))}
         </div>
         <p className="mt-8 text-xs text-tt-gray-500 max-w-3xl">
-          Figures shown are representative results from individual client engagements, not
-          portfolio averages. See our{' '}
-          <Link href="/capabilities#measure" className="underline hover:text-tt-teal">
-            verified portfolio averages
-          </Link>{' '}
-          for typical outcomes.
+          Figures shown are results from individual client engagements, not portfolio averages.
         </p>
       </div>
     </section>
@@ -836,10 +800,10 @@ function BentoCapabilities() {
 
 const metrics = [
   { value: STATS.revenueGrowth, label: 'Three-year revenue growth', glow: true },
-  { value: STATS.avg.cacReduction, label: 'Avg CAC reduction', glow: false },
-  { value: STATS.avg.roas, label: 'Avg ROAS', glow: false },
-  { value: STATS.brandsServed, label: 'Brands served', glow: false },
-  { value: STATS.avgClientTenure, label: 'Avg client tenure', glow: false },
+  { value: STATS.broadband.cvrLift, label: 'Conversion rate, national broadband provider', glow: false },
+  { value: STATS.broadband.purchases, label: 'Purchases, national broadband provider', glow: false },
+  { value: STATS.broadband.revenue, label: 'Revenue, national broadband provider', glow: false },
+  { value: STATS.broadband.rankingPositions, label: 'Avg Google ranking positions gained', glow: false },
 ] as const;
 
 function MetricsSection() {
@@ -848,8 +812,7 @@ function MetricsSection() {
   return (
     <section className="relative py-24 overflow-hidden" style={{
       background: `
-        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(91, 164, 164, 0.04) 0%, transparent 70%),
-        #0A1119
+        #052E3F
       `,
     }}>
       {/* Layer 0: MJ stats-pillars bg (when available) */}
@@ -857,7 +820,7 @@ function MetricsSection() {
         className="pointer-events-none absolute inset-0 z-[0]"
         aria-hidden="true"
         style={{
-          backgroundImage: 'url(/images/stats-pillars.webp)',
+          backgroundImage: 'none' /* brand: no busy photo backgrounds; was url(/images/stats-pillars.webp) */,
           backgroundSize: 'cover',
           backgroundPosition: 'center bottom',
           opacity: 0.2,
@@ -869,11 +832,11 @@ function MetricsSection() {
         {/* Accent orbs behind metrics */}
         <div
           className="absolute top-[-30%] left-[20%] h-[400px] w-[600px] rounded-full animate-mesh-pulse"
-          style={{ background: 'radial-gradient(ellipse, rgba(91,164,164,0.08) 0%, transparent 60%)', filter: 'blur(60px)' }}
+          style={{ background: 'transparent', filter: 'blur(60px)' }}
         />
         <div
           className="absolute bottom-[-20%] right-[30%] h-[300px] w-[400px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse, rgba(232,121,58,0.04) 0%, transparent 60%)', filter: 'blur(80px)' }}
+          style={{ background: 'transparent', filter: 'blur(80px)' }}
         />
       </div>
       <div ref={sectionRef} className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
@@ -913,9 +876,9 @@ const caseStudies = [
     category: 'DTC / Multi-Channel',
     channels: ['Meta', 'Google'],
     summary: 'Restructured Meta campaigns to drive compounding acquisition growth across channels.',
-    gradientFrom: 'rgba(91,164,164,0.25)',
-    gradientTo: 'rgba(91,164,164,0.03)',
-    accentOrb: 'rgba(232,121,58,0.12)',
+    gradientFrom: 'rgba(127, 202, 211, 0.25)',
+    gradientTo: 'rgba(127, 202, 211, 0.03)',
+    accentOrb: 'rgba(254, 94, 22, 0.12)',
     patternOpacity: 0.15,
   },
   {
@@ -926,9 +889,9 @@ const caseStudies = [
     category: 'Broadband & Telecom / 2026',
     channels: ['Multi-Channel'],
     summary: 'Purchases up 32%, revenue up 15%, and average Google ranking up 21 positions, from two test markets to the national footprint in six months.',
-    gradientFrom: 'rgba(91,164,164,0.20)',
-    gradientTo: 'rgba(232,121,58,0.06)',
-    accentOrb: 'rgba(232,121,58,0.10)',
+    gradientFrom: 'rgba(127, 202, 211, 0.20)',
+    gradientTo: 'rgba(254, 94, 22, 0.06)',
+    accentOrb: 'rgba(254, 94, 22, 0.10)',
     patternOpacity: 0.18,
   },
   {
@@ -939,12 +902,18 @@ const caseStudies = [
     category: 'Finance',
     channels: ['Multi-Channel'],
     summary: 'Users up 368% with unit economics that held under investor scrutiny. Monarch went on to raise a $75M Series B.',
-    gradientFrom: 'rgba(232,121,58,0.20)',
-    gradientTo: 'rgba(91,164,164,0.05)',
-    accentOrb: 'rgba(91,164,164,0.15)',
+    gradientFrom: 'rgba(254, 94, 22, 0.20)',
+    gradientTo: 'rgba(127, 202, 211, 0.05)',
+    accentOrb: 'rgba(127, 202, 211, 0.15)',
     patternOpacity: 0.12,
   },
 ] as const;
+
+const CASE_IMAGES: Record<string, string> = {
+  'ag1-meta': '/images/media-buying-dashboard-brand.png',
+  'national-broadband-provider': '/images/conversion-optimization-abstract-brand.png',
+  'monarch-money': '/images/scatter-plot-data-viz-brand.png',
+};
 
 function TiltCaseStudyCard({ cs, delay }: {
   cs: typeof caseStudies[number];
@@ -964,48 +933,31 @@ function TiltCaseStudyCard({ cs, delay }: {
           onMouseLeave={handleLeave}
           className="tilt-card glass-card gradient-border card-shimmer overflow-hidden transition-all duration-500 hover:scale-[1.02]"
         >
-          {/* Abstract gradient visual top of card */}
-          <div className="relative h-40 overflow-hidden group-hover:h-44 transition-all duration-700">
-            <div
-              className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
-              style={{
-                background: `radial-gradient(ellipse at 30% 50%, ${cs.gradientFrom}, transparent 70%), radial-gradient(ellipse at 80% 20%, ${cs.accentOrb}, transparent 60%), linear-gradient(135deg, ${cs.gradientTo}, transparent)`,
-              }}
+          {/* Brand image header */}
+          <div className="relative h-40 overflow-hidden">
+            <img
+              src={CASE_IMAGES[cs.slug] ?? '/images/media-buying-dashboard-brand.png'}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            {/* Dot pattern overlay */}
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.12) 1px, transparent 0)',
-                backgroundSize: '20px 20px',
-                opacity: cs.patternOpacity,
-              }}
-            />
-            {/* Floating abstract shapes */}
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 160" preserveAspectRatio="xMidYMid slice">
-              <circle cx="320" cy="40" r="60" fill="rgba(255,255,255,0.03)" />
-              <circle cx="80" cy="120" r="40" fill="rgba(255,255,255,0.02)" />
-              <path d="M200 20 Q250 80 300 40 Q350 0 380 60" stroke="rgba(255,255,255,0.06)" strokeWidth="1" fill="none" />
-              <path d="M20 80 Q80 30 160 90 Q200 110 260 70" stroke="rgba(255,255,255,0.04)" strokeWidth="1" fill="none" />
-            </svg>
-            {/* Bottom fade to card bg */}
-            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[rgba(2,2,5,0.9)] to-transparent" />
           </div>
 
           <div className="relative p-8 md:p-10 pt-4">
             {/* Top accent line */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-teal/30 to-transparent group-hover:via-tt-teal/60 transition-all duration-500" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-tt-teal/30 group-hover:bg-tt-teal/60 transition-all duration-500" />
 
             {/* Client & category */}
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-sm font-bold uppercase tracking-wider text-tt-teal">{cs.client}</span>
-              <span className="h-px flex-1 bg-gradient-to-r from-tt-teal/20 to-transparent" />
+              <span className="text-sm font-bold uppercase tracking-wider text-tt-orange">{cs.client}</span>
+              <span className="h-px flex-1 bg-tt-teal/20" />
             </div>
             <p className="text-xs text-tt-gray-500 mb-6">{cs.category}</p>
 
             {/* MASSIVE hero metric dominates the card face */}
             <div className="mb-6">
-              <p className="text-6xl md:text-7xl font-extrabold text-white metric-glow group-hover:text-tt-teal transition-colors duration-500 leading-none">
+              <p className="text-6xl md:text-7xl font-extrabold text-white metric-glow group-hover:text-tt-gray-200 transition-colors duration-500 leading-none">
                 {cs.heroMetric}
               </p>
               <p className="mt-3 text-sm text-tt-gray-400">{cs.heroMetricLabel}</p>
@@ -1027,7 +979,7 @@ function TiltCaseStudyCard({ cs, delay }: {
             <p className="text-sm leading-relaxed text-tt-gray-400">{cs.summary}</p>
 
             {/* Read more */}
-            <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-tt-teal">
+            <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-tt-orange">
               <span>Read full story</span>
               <svg
                 className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2"
@@ -1052,16 +1004,16 @@ function CaseStudiesSection() {
         {/* Large center wash */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[900px] rounded-full animate-mesh-drift"
-          style={{ background: 'radial-gradient(ellipse, rgba(91,164,164,0.07) 0%, transparent 55%)', filter: 'blur(80px)' }}
+          style={{ background: 'transparent', filter: 'blur(80px)' }}
         />
         {/* Corner accent orbs */}
         <div
           className="absolute top-[-5%] right-[-5%] h-[400px] w-[400px] rounded-full animate-float-slow"
-          style={{ background: 'radial-gradient(circle, rgba(232,121,58,0.06) 0%, transparent 60%)', filter: 'blur(70px)' }}
+          style={{ background: 'transparent', filter: 'blur(70px)' }}
         />
         <div
           className="absolute bottom-[-5%] left-[-5%] h-[350px] w-[350px] rounded-full animate-float-slower"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.05) 0%, transparent 60%)', filter: 'blur(60px)' }}
+          style={{ background: 'transparent', filter: 'blur(60px)' }}
         />
         {/* Crosshatch pattern */}
         <div className="absolute inset-0 crosshatch-grid opacity-30" />
@@ -1120,21 +1072,19 @@ function TechSection() {
   }, []);
 
   const feedBars = [
-    { label: 'Titles', value: 72, color: 'linear-gradient(to top, rgba(91,164,164,0.6), rgba(91,164,164,0.2))' },
-    { label: 'Desc', value: 58, color: 'linear-gradient(to top, rgba(91,164,164,0.5), rgba(91,164,164,0.15))' },
-    { label: 'Images', value: 85, color: 'linear-gradient(to top, rgba(232,121,58,0.6), rgba(232,121,58,0.2))' },
-    { label: 'Price', value: 92, color: 'linear-gradient(to top, rgba(232,121,58,0.65), rgba(232,121,58,0.25))' },
-    { label: 'GTINs', value: 68, color: 'linear-gradient(to top, rgba(91,164,164,0.55), rgba(91,164,164,0.18))' },
-    { label: 'Custom', value: 45, color: 'linear-gradient(to top, rgba(91,164,164,0.4), rgba(91,164,164,0.1))' },
-    { label: 'Overall', value: 95, color: 'linear-gradient(to top, rgba(232,121,58,0.7), rgba(232,121,58,0.3))' },
+    { label: 'Titles', value: 72, color: '#7FCAD3' },
+    { label: 'Desc', value: 58, color: '#7FCAD3' },
+    { label: 'Images', value: 85, color: '#7FCAD3' },
+    { label: 'Price', value: 92, color: '#7FCAD3' },
+    { label: 'GTINs', value: 68, color: '#7FCAD3' },
+    { label: 'Custom', value: 45, color: '#7FCAD3' },
+    { label: 'Overall', value: 95, color: '#FE5E16' },
   ];
 
   return (
     <section data-tint="teal" className="relative py-28 sm:py-36 overflow-hidden noise-overlay glow-bottom" style={{
       background: `
-        radial-gradient(ellipse 35% 45% at 90% 5%, rgba(232, 121, 58, 0.1) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 50% at 5% 90%, rgba(91, 164, 164, 0.08) 0%, transparent 60%),
-        #0d1520
+        #052E3F
       `,
     }}>
       {/* Scanline overlay - active system / live data signal */}
@@ -1142,7 +1092,7 @@ function TechSection() {
         className="pointer-events-none absolute inset-0 z-[1]"
         aria-hidden="true"
         style={{
-          background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(91, 164, 164, 0.012) 2px, rgba(91, 164, 164, 0.012) 4px)',
+          background: 'none',
         }}
       />
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -1151,26 +1101,24 @@ function TechSection() {
         {/* Multiple animated orbs for depth */}
         <div
           className="absolute top-[-10%] left-[20%] h-[700px] w-[700px] rounded-full animate-mesh-drift"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.10) 0%, transparent 55%)', filter: 'blur(100px)' }}
+          style={{ background: 'transparent', filter: 'blur(100px)' }}
         />
         <div
           className="absolute bottom-[-15%] right-[10%] h-[500px] w-[500px] rounded-full animate-float-slow"
-          style={{ background: 'radial-gradient(circle, rgba(232,121,58,0.07) 0%, transparent 55%)', filter: 'blur(80px)' }}
+          style={{ background: 'transparent', filter: 'blur(80px)' }}
         />
         <div
           className="absolute top-[30%] right-[-5%] h-[400px] w-[400px] rounded-full animate-mesh-pulse"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.06) 0%, transparent 60%)', filter: 'blur(60px)' }}
+          style={{ background: 'transparent', filter: 'blur(60px)' }}
         />
         {/* Ring pattern */}
         <div className="absolute inset-0 ring-grid opacity-60" />
         {/* Accent lines */}
-        <div className="absolute top-[25%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-teal/8 to-transparent" />
-        <div className="absolute top-[75%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-orange/5 to-transparent" />
       </div>
 
       <div ref={sectionRef} className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-20">
-          <span className="reveal stagger-1 inline-block text-sm font-semibold text-tt-teal uppercase tracking-widest mb-4">
+          <span className="reveal stagger-1 inline-block text-sm font-semibold text-tt-orange uppercase tracking-widest mb-4">
             Proprietary Technology
           </span>
           <h2 className="reveal stagger-2 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl" aria-label="Other agencies use your tools. We built our own.">
@@ -1181,10 +1129,10 @@ function TechSection() {
 
         <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Wayfinder AI with live sparkline */}
-          <Link href="/wayfinder" passHref className="reveal stagger-3 group relative gradient-border gradient-border-active glass-card-elevated p-8 md:p-10 block cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-[#229FA1]">
+          <Link href="/wayfinder" passHref className="reveal stagger-3 group relative gradient-border gradient-border-active glass-card-elevated p-8 md:p-10 block cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-[#7FCAD3]">
             {/* Orange heat accent glow (2 of 3) */}
             <div className="pointer-events-none absolute -inset-8 z-[-1]" aria-hidden="true" style={{
-              background: 'radial-gradient(circle, rgba(232, 121, 58, 0.08) 0%, transparent 65%)',
+              background: 'transparent',
               filter: 'blur(40px)',
               borderRadius: '50%',
             }} />
@@ -1193,7 +1141,7 @@ function TechSection() {
                 <span className="block h-3 w-3 rounded-full bg-tt-teal" />
                 <span className="absolute inset-0 h-3 w-3 rounded-full bg-tt-teal animate-ping opacity-30" />
               </div>
-              <span className="text-xs font-semibold text-tt-teal uppercase tracking-wider">Live</span>
+              <span className="text-xs font-semibold text-tt-orange uppercase tracking-wider">Live</span>
             </div>
 
             <h3 className="text-2xl font-bold text-white mb-4">Wayfinder AI</h3>
@@ -1202,7 +1150,7 @@ function TechSection() {
             </p>
 
             {/* Live sparkline data viz */}
-            <div className="rounded-xl border border-white/5 bg-white/[0.02] p-4 mb-6">
+            <div className="rounded-xl border border-white/5 bg-black/[0.14] p-4 mb-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[10px] text-tt-gray-500 uppercase tracking-wider">Budget Reallocation Score</span>
                 <span className="flex items-center gap-1.5">
@@ -1212,8 +1160,8 @@ function TechSection() {
               </div>
               <Sparkline
                 data={[22, 28, 25, 35, 32, 45, 42, 55, 50, 62, 58, 72, 68, 80, 75, 85]}
-                color="#5BA4A4"
-                areaColor="rgba(91,164,164,0.06)"
+                color="#7FCAD3"
+                areaColor="rgba(127, 202, 211, 0.06)"
                 className="w-full h-14"
               />
             </div>
@@ -1229,7 +1177,7 @@ function TechSection() {
               ))}
             </ul>
 
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-tt-teal group-hover:text-tt-teal-muted transition-colors">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-tt-orange group-hover:text-white transition-colors">
               See Wayfinder in action
               <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1238,7 +1186,7 @@ function TechSection() {
           </Link>
 
           {/* Feed Optimization with animated stacked bars */}
-          <Link href="/capabilities#analytics" className="reveal stagger-4 group relative glass-card gradient-border p-8 md:p-10 block cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-lg hover:shadow-black/30 hover:border-[#229FA1]">
+          <Link href="/capabilities#analytics" className="reveal stagger-4 group relative glass-card gradient-border p-8 md:p-10 block cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-black/30 hover:border-[#7FCAD3]">
             <div className="flex items-center gap-3 mb-6">
               <span className="block h-3 w-3 rounded-full bg-tt-orange" />
               <span className="text-xs font-semibold text-tt-orange uppercase tracking-wider">Platform</span>
@@ -1261,10 +1209,10 @@ function TechSection() {
             </ul>
 
             {/* Animated bar chart */}
-            <div ref={barsRef} className="rounded-xl border border-white/5 bg-white/[0.02] p-4">
+            <div ref={barsRef} className="rounded-xl border border-white/5 bg-black/[0.14] p-4">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-[10px] text-tt-gray-500 uppercase tracking-wider">Feed Quality Scores</span>
-                <span className="text-[10px] text-tt-orange font-semibold">+34% avg</span>
+                <span className="text-[10px] text-tt-gray-400 font-semibold">Illustrative</span>
               </div>
               <div className="flex items-end gap-1.5 h-20">
                 {feedBars.map((bar, i) => (
@@ -1327,20 +1275,19 @@ function PEPartnershipSection() {
         {/* Animated orbs */}
         <div
           className="absolute top-[10%] right-[-8%] h-[600px] w-[600px] rounded-full animate-float-slower"
-          style={{ background: 'radial-gradient(circle, rgba(232,121,58,0.08) 0%, transparent 55%)', filter: 'blur(80px)' }}
+          style={{ background: 'transparent', filter: 'blur(80px)' }}
         />
         <div
           className="absolute bottom-[5%] left-[-5%] h-[500px] w-[500px] rounded-full animate-mesh-drift"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.07) 0%, transparent 60%)', filter: 'blur(90px)' }}
+          style={{ background: 'transparent', filter: 'blur(90px)' }}
         />
         <div
           className="absolute top-[50%] left-[40%] h-[300px] w-[300px] rounded-full animate-mesh-pulse"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.05) 0%, transparent 60%)', filter: 'blur(50px)' }}
+          style={{ background: 'transparent', filter: 'blur(50px)' }}
         />
         {/* Ring pattern */}
         <div className="absolute inset-0 ring-grid opacity-40" />
         {/* Accent lines */}
-        <div className="absolute top-[40%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-orange/6 to-transparent" />
       </div>
 
       <div ref={sectionRef} className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
@@ -1351,7 +1298,7 @@ function PEPartnershipSection() {
               For PE & VC Funds
             </span>
             <h2 className="reveal stagger-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Accelerate portfolio growth with a team that&apos;s done it 40+ times.
+              Accelerate portfolio growth with operators who have done it before.
             </h2>
             <p className="reveal stagger-3 mt-6 text-lg leading-relaxed text-tt-gray-400">
               We partner with PE and VC funds to inject performance marketing muscle into
@@ -1361,9 +1308,9 @@ function PEPartnershipSection() {
             {/* Mini stats with progress rings */}
             <div className="reveal stagger-4 mt-10 grid grid-cols-3 gap-6">
               {[
-                { val: '12', label: 'Fund partners' },
-                { val: '40+', label: 'Portfolio companies' },
-                { val: '3.1x', label: 'Avg revenue lift' },
+                { val: '100', label: 'Day operating plan' },
+                { val: '2,954%', label: 'Inc. 5000 growth' },
+                { val: '#123', label: 'Inc. 5000 rank' },
               ].map((s) => (
                 <AnimatedCounter key={s.label} value={s.val} label={s.label} className="metric-glow [&>div:first-child]:text-2xl" />
               ))}
@@ -1382,29 +1329,19 @@ function PEPartnershipSection() {
           {/* Right interactive timeline with animated fill + progress ring */}
           <div className="reveal-right stagger-3 relative">
             <div className="relative glass-card-elevated p-8 md:p-10">
-              {/* Progress ring */}
-              <div className="flex items-center justify-center mb-8">
-                <div className="relative">
-                  <ProgressRing percent={90} size={100} strokeWidth={5} color="#5BA4A4" inView={timelineVisible} />
-                  <div className="absolute inset-0 flex items-center justify-center flex-col">
-                    <span className="text-2xl font-extrabold text-white">90%+</span>
-                    <span className="text-[9px] text-tt-gray-500 uppercase tracking-wider">Expand</span>
-                  </div>
-                </div>
-              </div>
               <p className="text-center text-tt-gray-400 text-sm mb-8">
-                of fund-referred clients expand scope within 6 months
+                The 100-day plan, from first call to fund-level reporting
               </p>
 
               {/* Animated timeline */}
               <div ref={timelineRef} className="relative">
                 {/* Animated fill line */}
-                <div className="absolute left-4 top-0 bottom-0 w-px bg-white/5" />
+                <div className="absolute left-4 top-0 bottom-0 w-px bg-black/[0.14]" />
                 <div
                   className="absolute left-4 top-0 w-px transition-all"
                   style={{
                     height: timelineVisible ? '100%' : '0%',
-                    background: 'linear-gradient(180deg, #5BA4A4 0%, #E8793A 100%)',
+                    background: '#7FCAD3',
                     transitionDuration: '1.5s',
                     transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
                     transitionDelay: '0.3s',
@@ -1417,14 +1354,14 @@ function PEPartnershipSection() {
                     <div
                       className="absolute left-[9px] top-1 h-3.5 w-3.5 rounded-full border-2 border-tt-teal bg-tt-black transition-all"
                       style={{
-                        borderColor: timelineVisible ? '#5BA4A4' : 'rgba(255,255,255,0.1)',
-                        boxShadow: timelineVisible ? '0 0 12px rgba(91,164,164,0.3)' : 'none',
+                        borderColor: timelineVisible ? '#7FCAD3' : 'rgba(255, 255, 255, 0.1)',
+                        boxShadow: timelineVisible ? 'none' : 'none',
                         transitionDuration: '0.6s',
                         transitionDelay: `${0.5 + i * 0.3}s`,
                       }}
                     />
                     <p
-                      className="text-xs font-semibold text-tt-teal uppercase tracking-wider transition-all"
+                      className="text-xs font-semibold text-tt-orange uppercase tracking-wider transition-all"
                       style={{
                         opacity: timelineVisible ? 1 : 0,
                         transform: timelineVisible ? 'translateX(0)' : 'translateX(-10px)',
@@ -1465,25 +1402,25 @@ const articles = [
     category: 'AI & Automation',
     title: 'Beyond the Chatbox: The No-Shame Guide to the Agentic AI Era of 2026',
     readTime: '12 min',
-    slug: 'agentic-ai-era-2026',
-    gradient: 'linear-gradient(135deg, rgba(91,164,164,0.22), rgba(232,121,58,0.08) 50%, rgba(91,164,164,0.04))',
+    slug: 'beyond-the-chatbox-the-no-shame-guide-to-the-agentic-ai-era-of-2026',
     svgPattern: 'M20 40 Q60 10 100 40 Q140 70 180 35 Q220 5 260 45' as const,
+    image: '/images/ai-automation-abstract-brand.png',
   },
   {
     category: 'Platform Strategy',
     title: 'GEO Is the New SEO: Why Generative Engine Optimization Is Not Optional in 2026',
     readTime: '10 min',
-    slug: 'geo-is-the-new-seo',
-    gradient: 'linear-gradient(135deg, rgba(232,121,58,0.18), rgba(91,164,164,0.10) 50%, rgba(232,121,58,0.03))',
+    slug: 'geo-is-the-new-seo-why-generative-engine-optimization-is-not-optional-in-2026',
     svgPattern: 'M10 30 Q50 60 100 25 Q150 -5 200 35 Q250 70 280 30' as const,
+    image: '/images/seo-organic-discovery-brand.png',
   },
   {
     category: 'Measurement',
-    title: 'The Cookieless Reckoning: First-Party Data, Incrementality, and the Measurement Stack That Survives',
-    readTime: '14 min',
-    slug: 'cookieless-reckoning',
-    gradient: 'linear-gradient(135deg, rgba(91,164,164,0.16), rgba(91,164,164,0.06) 40%, rgba(232,121,58,0.10))',
+    title: 'MMM vs. MTA: The Measurement Debate That Determines Where Your Budget Goes',
+    readTime: '5 min',
+    slug: 'mmm-vs-mta-the-measurement-debate-that-determines-where-your-budget-goes',
     svgPattern: 'M30 50 Q80 15 130 45 Q180 75 230 30 Q260 10 280 40' as const,
+    image: '/images/network-connection-map-brand.png',
   },
 ] as const;
 
@@ -1497,11 +1434,11 @@ function IntelligenceSection() {
         {/* Atmospheric orbs */}
         <div
           className="absolute top-[15%] left-[-5%] h-[500px] w-[500px] rounded-full animate-float-slow"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.06) 0%, transparent 60%)', filter: 'blur(80px)' }}
+          style={{ background: 'transparent', filter: 'blur(80px)' }}
         />
         <div
           className="absolute bottom-[10%] right-[-5%] h-[400px] w-[400px] rounded-full animate-mesh-drift-alt"
-          style={{ background: 'radial-gradient(circle, rgba(232,121,58,0.04) 0%, transparent 60%)', filter: 'blur(70px)' }}
+          style={{ background: 'transparent', filter: 'blur(70px)' }}
         />
         <div className="absolute inset-0 crosshatch-grid opacity-25" />
         <div className="absolute inset-0 dot-grid-subtle animate-dot-pulse" />
@@ -1509,7 +1446,7 @@ function IntelligenceSection() {
 
       <div ref={sectionRef} className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-20">
-          <span className="reveal stagger-1 inline-block text-sm font-semibold text-tt-teal uppercase tracking-widest mb-4">
+          <span className="reveal stagger-1 inline-block text-sm font-semibold text-tt-orange uppercase tracking-widest mb-4">
             Intelligence Series
           </span>
           <h2 className="reveal stagger-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -1527,25 +1464,15 @@ function IntelligenceSection() {
               href={`/intelligence/${article.slug}`}
               className={`reveal stagger-${i + 1} group relative glass-card card-shimmer block overflow-hidden`}
             >
-              {/* Abstract hero visual */}
+              {/* Brand image header */}
               <div className="relative h-36 overflow-hidden">
-                <div
-                  className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
-                  style={{ background: article.gradient }}
+                <img
+                  src={article.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 80" preserveAspectRatio="xMidYMid slice">
-                  <path d={article.svgPattern} stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" fill="none" />
-                  <circle cx="240" cy="25" r="30" fill="rgba(255,255,255,0.03)" />
-                  <circle cx="60" cy="55" r="20" fill="rgba(255,255,255,0.02)" />
-                </svg>
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0)',
-                    backgroundSize: '24px 24px',
-                  }}
-                />
-                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[rgba(2,2,5,0.95)] to-transparent" />
               </div>
 
               <div className="p-8 pt-4">
@@ -1598,10 +1525,7 @@ function FinalCTA() {
       data-tint="bronze"
       className="relative py-32 sm:py-40 overflow-hidden noise-overlay"
       style={{
-        background: `
-          radial-gradient(ellipse 70% 80% at 50% 100%, rgba(232, 121, 58, 0.12) 0%, transparent 60%),
-          radial-gradient(ellipse 100% 100% at 50% 50%, #0f1520 0%, #060c11 100%)
-        `,
+        background: `transparent`,
       }}
     >
       {/* Layer 0: MJ bokeh background (when available) */}
@@ -1609,7 +1533,7 @@ function FinalCTA() {
         className="pointer-events-none absolute inset-0 z-[0]"
         aria-hidden="true"
         style={{
-          backgroundImage: 'url(/images/cta-bokeh.webp)',
+          backgroundImage: 'none' /* brand: no busy photo backgrounds; was url(/images/cta-bokeh.webp) */,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.5,
@@ -1620,7 +1544,7 @@ function FinalCTA() {
       <div
         className="pointer-events-none absolute inset-0 z-[1] opacity-60"
         style={{
-          background: 'radial-gradient(900px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(91,164,164,0.10), rgba(232,121,58,0.03) 40%, transparent 65%)',
+          background: 'transparent',
         }}
       />
 
@@ -1628,15 +1552,15 @@ function FinalCTA() {
         {/* Large animated orbs */}
         <div
           className="absolute top-[-20%] left-[-10%] h-[700px] w-[700px] rounded-full animate-mesh-drift"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.12) 0%, transparent 55%)', filter: 'blur(100px)' }}
+          style={{ background: 'transparent', filter: 'blur(100px)' }}
         />
         <div
           className="absolute bottom-[-20%] right-[-10%] h-[600px] w-[600px] rounded-full animate-float-slower"
-          style={{ background: 'radial-gradient(circle, rgba(232,121,58,0.08) 0%, transparent 55%)', filter: 'blur(80px)' }}
+          style={{ background: 'transparent', filter: 'blur(80px)' }}
         />
         <div
           className="absolute top-[20%] right-[20%] h-[400px] w-[400px] rounded-full animate-mesh-pulse"
-          style={{ background: 'radial-gradient(circle, rgba(91,164,164,0.06) 0%, transparent 60%)', filter: 'blur(60px)' }}
+          style={{ background: 'transparent', filter: 'blur(60px)' }}
         />
         {/* Dense pattern layers */}
         <div className="absolute inset-0 dot-grid opacity-40" />
@@ -1645,14 +1569,12 @@ function FinalCTA() {
         {/* Ring pattern */}
         <div className="absolute inset-0 ring-grid opacity-40" />
         {/* Accent lines */}
-        <div className="absolute top-[35%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-teal/10 to-transparent" />
-        <div className="absolute top-[65%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-orange/6 to-transparent" />
       </div>
 
       <div ref={sectionRef} className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <h2 className="reveal stagger-1 text-4xl font-bold text-white sm:text-5xl lg:text-6xl" aria-label="Your Revenue Is Leaking. We'll Find Where.">
-          Your Revenue Is Leaking.<br />
-          <span className="gradient-text-warm">We&apos;ll Find Where.</span>
+        <h2 className="reveal stagger-1 text-4xl font-bold text-white sm:text-5xl lg:text-6xl" aria-label="Your revenue is leaking. We'll find where.">
+          Your revenue is leaking.<br />
+          <span className="gradient-text-warm">We&apos;ll find where.</span>
         </h2>
 
         <p className="reveal stagger-2 mt-6 text-xl text-tt-gray-400 max-w-2xl mx-auto">
@@ -1660,7 +1582,7 @@ function FinalCTA() {
           creative, and attribution.
         </p>
 
-        <p className="reveal stagger-2 mt-4 text-base text-tt-teal/90 max-w-2xl mx-auto">
+        <p className="reveal stagger-2 mt-4 text-base text-tt-gray-200 max-w-2xl mx-auto">
           Start with a free Strategic Diagnostic. Continue on terms where our fees are
           tied to the numbers we sign up for. You win, we win.
         </p>
@@ -1668,7 +1590,7 @@ function FinalCTA() {
         <div className="reveal stagger-3 mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <div className="relative">
             <div className="absolute -inset-5 rounded-[50px] z-[-1]" style={{
-              background: 'radial-gradient(ellipse at center, rgba(232, 121, 58, 0.2) 0%, transparent 70%)',
+              background: 'transparent',
               filter: 'blur(15px)',
             }} />
             <Link href="/get-started" className="btn-primary text-lg">
@@ -1704,24 +1626,24 @@ function EnterprisePainSection() {
   const sectionRef = useReveal(0.1);
 
   return (
-    <section data-tint="ink" className="relative bg-atmosphere py-24 sm:py-32 overflow-hidden">
+    <section className="relative surface-paper py-24 sm:py-32 overflow-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-orange/25 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-tt-orange/25" />
         <div className="absolute inset-0 dot-grid opacity-40" />
         <div
           className="absolute top-[0%] right-[-12%] h-[500px] w-[500px] rounded-full animate-float-slower"
-          style={{ background: 'radial-gradient(circle, rgba(232,121,58,0.07) 0%, transparent 60%)', filter: 'blur(90px)' }}
+          style={{ background: 'transparent', filter: 'blur(90px)' }}
         />
       </div>
       <div ref={sectionRef} className="relative z-10 mx-auto max-w-4xl px-6 lg:px-8 text-center">
         <span className="reveal stagger-1 inline-block text-sm font-semibold text-tt-orange uppercase tracking-widest mb-4">
-          For subscription and e-commerce-driven enterprises
+          For subscription businesses
         </span>
         <h2 className="reveal stagger-2 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl" aria-label="Traffic down. Conversion flat. That is exactly what we fix.">
           Traffic down. Conversion flat.<br />
           <span className="gradient-text">That is exactly what we fix.</span>
         </h2>
-        <p className="reveal stagger-3 mt-6 text-lg text-slate-300 leading-relaxed">
+        <p className="reveal stagger-3 mt-6 text-lg text-tt-gray-300 leading-relaxed long-copy">
           The two numbers keeping enterprise growth leaders up at night are declining site
           traffic and a website conversion rate that will not move. Recovering both is the
           core of what Tiger Tracks does: a Strategic Diagnostic that finds where revenue is
@@ -1752,18 +1674,14 @@ function IndustriesStrip() {
     <section className="relative bg-atmosphere overflow-hidden">
       <div className="section-divider" />
       <div ref={sectionRef} className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 py-14 text-center">
-        <span className="reveal stagger-1 inline-block text-xs font-semibold text-tt-teal uppercase tracking-[3px] mb-4">
+        <span className="reveal stagger-1 inline-block text-xs font-semibold text-tt-orange uppercase tracking-[3px] mb-4">
           Industries
         </span>
-        <p className="reveal stagger-2 text-lg sm:text-xl font-semibold text-white tracking-wide">
-          Broadband &amp; Telecom
-          <span className="mx-3 text-tt-gray-600">|</span>
-          Subscription
-          <span className="mx-3 text-tt-gray-600">|</span>
-          Fintech
-          <span className="mx-3 text-tt-gray-600">|</span>
-          DTC &amp; E-commerce
-        </p>
+        <ul className="reveal stagger-2 flex flex-wrap justify-center gap-x-8 gap-y-3 text-lg sm:text-xl font-semibold text-white">
+          {['Broadband & Telecom', 'Subscription', 'Fintech', 'DTC & E-commerce'].map((ind) => (
+            <li key={ind} className="font-display">{ind}</li>
+          ))}
+        </ul>
         <p className="reveal stagger-3 mt-3 text-sm text-tt-gray-500">
           Built for businesses where recurring revenue, LTV, and CAC discipline decide the winner.
         </p>
@@ -1781,21 +1699,21 @@ function TrustBlock() {
   const sectionRef = useReveal(0.15);
 
   return (
-    <section data-tint="ink" className="relative bg-atmosphere py-20 sm:py-24 overflow-hidden">
+    <section className="relative surface-paper py-20 sm:py-24 overflow-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-teal/20 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-tt-teal/20" />
       </div>
       <div ref={sectionRef} className="relative z-10 mx-auto max-w-3xl px-6 lg:px-8 text-center">
         <h2 className="reveal stagger-1 text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Your accounts. Your data. <span className="gradient-text">Your contracts.</span>
         </h2>
-        <p className="reveal stagger-2 mt-5 text-lg text-slate-300 leading-relaxed">
+        <p className="reveal stagger-2 mt-5 text-lg text-tt-gray-300 leading-relaxed long-copy">
           We work inside your ad accounts, your platforms, and your tools. Every account,
           audience, asset, and insight we build stays yours from day one, and if we ever part
           ways, you keep all of it. No hostage accounts, no black boxes, no handover fees.
         </p>
         <p className="reveal stagger-3 mt-6">
-          <Link href="/trust" className="inline-flex items-center gap-2 text-tt-teal font-semibold transition-colors hover:text-white">
+          <Link href="/trust" className="inline-flex items-center gap-2 text-tt-orange font-semibold transition-colors hover:text-white">
             How we handle access and security
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -1883,12 +1801,12 @@ function ServicesOverviewSection() {
   return (
     <section data-tint="ink" className="relative bg-atmosphere py-24 sm:py-32 overflow-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-tt-teal/25 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-tt-teal/25" />
         <div className="absolute inset-0 dot-grid opacity-30" />
       </div>
       <div ref={sectionRef} className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-14">
-          <span className="reveal stagger-1 inline-block text-sm font-semibold text-tt-teal uppercase tracking-widest mb-4">
+          <span className="reveal stagger-1 inline-block text-sm font-semibold text-tt-orange uppercase tracking-widest mb-4">
             Everything we do
           </span>
           <h2 className="reveal stagger-2 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
@@ -1936,13 +1854,12 @@ function ServicesOverviewSection() {
           </div>
         </div>
 
-        <div className="reveal stagger-2 mt-10 rounded-2xl border border-white/[0.05] bg-white/[0.015] p-6 text-center">
-          <p className="text-base text-slate-300 leading-relaxed max-w-4xl mx-auto">
+        <div className="reveal stagger-2 mt-10 rounded-2xl border border-white/[0.05] bg-black/[0.14] p-6 text-center">
+          <p className="text-base text-tt-gray-300 leading-relaxed max-w-4xl mx-auto long-copy">
             <span className="font-bold text-white">{STATS.teamSize} senior specialists. Zero generalists.</span>{' '}
-            Tiger Tracks was founded by operators who built growth at Google for AT&amp;T,
-            Verizon, Under Armour, and Snapchat, and runs from Palm Beach, New York, Chicago,
-            and LA. Small enough that seniors do the work, big enough to move {STATS.adSpendAnnual} in
-            annual ad spend.
+            Tiger Tracks was founded by ex-Google operators who built growth for some of the
+            world&apos;s largest brands, and runs as a fully remote team based in New York. Small
+            enough that seniors do the work, big enough to run enterprise programs end to end.
           </p>
         </div>
       </div>
@@ -1955,7 +1872,7 @@ function ServicesOverviewSection() {
    ================================================================ */
 
 /** Diagonal SVG divider between sections (used sparingly, 2 places max) */
-function DiagonalDivider({ fill = '#0A1119' }: { fill?: string }) {
+function DiagonalDivider({ fill = '#052E3F' }: { fill?: string }) {
   return (
     <div className="relative z-[3]" aria-hidden="true">
       <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: 'block', width: '100%' }}>

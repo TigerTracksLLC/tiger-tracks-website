@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description:
       'Proprietary AI for multi-touch attribution, media mix modeling, and budget reallocation across every channel.',
     url: 'https://tigertracks.ai/wayfinder',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 

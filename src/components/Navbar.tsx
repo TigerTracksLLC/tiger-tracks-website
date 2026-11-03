@@ -100,7 +100,7 @@ const megaMenus: Record<string, MegaMenuConfig> = {
       description:
         'Our proprietary engine that finds and fixes revenue leaks across your entire funnel.',
       href: '/wayfinder',
-      image: '/images/nav-feature.png',
+      image: '/images/nav-feature-brand.png',
     },
   },
 };
@@ -182,7 +182,7 @@ function MobileAccordion({
         </Link>
         <button
           onClick={onToggle}
-          className="p-2 -mr-2 text-[#7B7B8E] hover:text-white transition-colors"
+          className="p-2 -mr-2 text-[#91A2A9] hover:text-white transition-colors"
           aria-label={`Expand ${label} sub-menu`}
         >
           <motion.svg
@@ -218,10 +218,10 @@ function MobileAccordion({
               {items.map((item) => (
                 <div key={item.href} className="rounded-lg px-3 py-2.5 transition-colors duration-200 hover:bg-white/[0.04]">
                   <Link href={item.href} onClick={onNavigate} className="block">
-                    <span className="block text-sm font-medium text-white/80 transition-colors duration-200 hover:text-[#229FA1]">
+                    <span className="block text-sm font-medium text-white/80 transition-colors duration-200 hover:text-[#7FCAD3]">
                       {item.label}
                     </span>
-                    <span className="block text-xs mt-0.5 text-[#5A5A6A]">
+                    <span className="block text-xs mt-0.5 text-[#91A2A9]">
                       {item.description}
                     </span>
                   </Link>
@@ -232,7 +232,7 @@ function MobileAccordion({
                           key={sub.href}
                           href={sub.href}
                           onClick={onNavigate}
-                          className="text-[11px] font-medium text-tt-teal/80 transition-colors duration-200 hover:text-white"
+                          className="text-[11px] font-medium text-tt-orange transition-colors duration-200 hover:text-white"
                         >
                           {sub.label}
                         </Link>
@@ -349,8 +349,8 @@ export function Navbar() {
       aria-label="Main navigation"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-black/50 backdrop-blur-md border-b border-white/[0.06] shadow-lg shadow-black/20'
-          : 'bg-black/50 backdrop-blur-md border-b border-transparent'
+          ? 'bg-tt-ink/95 border-b border-white/[0.08]'
+          : 'bg-tt-ink/95 border-b border-transparent'
       }`}
     >
       {/* Scroll-progress gradient indicator bar */}
@@ -358,7 +358,7 @@ export function Navbar() {
         className="absolute bottom-0 left-0 h-px"
         style={{
           width: `${scrollProgress * 100}%`,
-          background: 'linear-gradient(90deg, #5BA4A4, #E8793A)',
+          background: '#7FCAD3',
           opacity: scrolled ? 1 : 0,
           transition: 'opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
@@ -368,12 +368,13 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="group relative flex items-center z-[60]">
           <Image
-            src="/images/TT.LOGO-02.png"
+            src="/brand/tigertracks-logo-white.svg"
             alt="Tiger Tracks"
-            width={160}
-            height={100}
+            width={293}
+            height={161}
             priority
-            className="h-9 w-auto md:h-11 object-contain transition-all duration-300 brightness-0 invert group-hover:opacity-80 group-hover:drop-shadow-[0_0_12px_rgba(91,164,164,0.4)]"
+            unoptimized
+            className="h-10 w-auto md:h-12 object-contain transition-opacity duration-300 group-hover:opacity-80"
           />
         </Link>
 
@@ -393,7 +394,7 @@ export function Navbar() {
                   href={link.href}
                   className={`relative text-sm transition-colors duration-300 hover:text-white group flex items-center gap-1 pb-1 border-b-2 ${
                     isActive
-                      ? 'border-[#229FA1] text-white'
+                      ? 'border-[#7FCAD3] text-white'
                       : 'border-transparent text-tt-gray-400'
                   }`}
                 >
@@ -424,7 +425,7 @@ export function Navbar() {
           <MagneticButton
             as="a"
             href="/get-started"
-            className="relative overflow-hidden rounded-full bg-gradient-to-r from-tt-orange to-tt-orange-dark px-6 py-2.5 text-sm font-semibold text-white hover:shadow-lg hover:shadow-tt-orange/20 active:translate-y-0 inline-block"
+            className="relative overflow-hidden rounded-full bg-tt-orange px-6 py-2.5 text-sm font-semibold text-white hover:shadow-tt-orange/20 active:translate-y-0 inline-block"
             attractRadius={60}
             strength={0.3}
             textParallax={1.8}
@@ -476,7 +477,7 @@ export function Navbar() {
             <div
               className="mx-auto max-w-7xl px-6 py-8"
               style={{
-                background: 'rgba(10, 17, 25, 0.80)',
+                background: 'rgba(5, 46, 63, 0.80)',
                 backdropFilter: 'blur(24px)',
                 WebkitBackdropFilter: 'blur(24px)',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
@@ -502,10 +503,10 @@ export function Navbar() {
                         }}
                       >
                         <Link href={item.href} onClick={() => setActiveMega(null)} className="block">
-                          <span className="block text-sm font-medium text-white transition-colors duration-200 group-hover:text-[#229FA1]">
+                          <span className="block text-sm font-medium text-white transition-colors duration-200 group-hover:text-[#7FCAD3]">
                             {item.label}
                           </span>
-                          <span className="block text-xs mt-0.5 text-[#7B7B8E] transition-colors duration-200 group-hover:text-[#9E9E9E]">
+                          <span className="block text-xs mt-0.5 text-[#91A2A9] transition-colors duration-200 group-hover:text-[#A9B6BA]">
                             {item.description}
                           </span>
                         </Link>
@@ -516,7 +517,7 @@ export function Navbar() {
                                 key={sub.href}
                                 href={sub.href}
                                 onClick={() => setActiveMega(null)}
-                                className="text-[11px] font-medium text-tt-teal/80 transition-colors duration-200 hover:text-white"
+                                className="text-[11px] font-medium text-tt-teal transition-colors duration-200 hover:text-white"
                               >
                                 {sub.label}
                               </Link>
@@ -536,11 +537,11 @@ export function Navbar() {
                     className="group block rounded-xl p-5 transition-all duration-300 hover:bg-white/[0.04]"
                     style={{
                       border: '1px solid rgba(255, 255, 255, 0.08)',
-                      background: 'rgba(27, 33, 38, 0.6)',
+                      background: 'rgba(5, 46, 63, 0.6)',
                     }}
                   >
                     {/* Image placeholder */}
-                    <div className="relative w-full h-32 rounded-lg overflow-hidden mb-4 bg-[#1B2126]">
+                    <div className="relative w-full h-32 rounded-lg overflow-hidden mb-4 bg-[#052E3F]">
                       <Image
                         src={megaData.feature.image}
                         alt={megaData.feature.title}
@@ -549,15 +550,15 @@ export function Navbar() {
                         sizes="400px"
                       />
                       {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1119]/80 to-transparent" />
+                      <div className="absolute inset-0 bg-tt-ink/40" />
                     </div>
-                    <p className="text-sm font-semibold text-white mb-1 transition-colors duration-200 group-hover:text-[#229FA1]">
+                    <p className="text-sm font-semibold text-white mb-1 transition-colors duration-200 group-hover:text-[#7FCAD3]">
                       {megaData.feature.title}
                     </p>
-                    <p className="text-xs text-[#7B7B8E] leading-relaxed">
+                    <p className="text-xs text-[#91A2A9] leading-relaxed">
                       {megaData.feature.description}
                     </p>
-                    <span className="inline-flex items-center gap-1 mt-3 text-xs font-medium text-[#229FA1] transition-all duration-200 group-hover:gap-2">
+                    <span className="inline-flex items-center gap-1 mt-3 text-xs font-medium text-[#7FCAD3] transition-all duration-200 group-hover:gap-2">
                       Learn more
                       <svg
                         className="w-3 h-3"
@@ -611,7 +612,7 @@ export function Navbar() {
               }}
               className="fixed inset-y-0 right-0 w-full max-w-sm lg:hidden z-[52] overflow-y-auto overscroll-contain"
               style={{
-                background: 'rgba(10, 17, 25, 0.97)',
+                background: 'rgba(5, 46, 63, 0.97)',
                 backdropFilter: 'blur(24px)',
                 WebkitBackdropFilter: 'blur(24px)',
                 borderLeft: '1px solid rgba(255, 255, 255, 0.06)',
@@ -656,7 +657,7 @@ export function Navbar() {
                       onClick={closeMobile}
                       className={`text-lg transition-all duration-300 hover:text-white hover:translate-x-2 py-3 border-b ${
                         isMobileActive
-                          ? 'text-white border-b-2 border-[#229FA1]'
+                          ? 'text-white border-b-2 border-[#7FCAD3]'
                           : 'text-tt-gray-300 border-white/5'
                       }`}
                       style={{
@@ -674,12 +675,11 @@ export function Navbar() {
                 <Link
                   href="/get-started"
                   onClick={closeMobile}
-                  className="mt-8 text-center rounded-full py-3.5 font-semibold text-white text-sm transition-all duration-300"
+                  className="mt-8 text-center rounded-full py-3.5 font-semibold text-tt-ink text-sm transition-all duration-300"
                   style={{
                     background:
-                      'linear-gradient(135deg, #E8793A 0%, #D4662A 100%)',
-                    boxShadow:
-                      '0 0 20px rgba(232, 121, 58, 0.3), 0 4px 12px rgba(0,0,0,0.3)',
+                      '#FE5E16',
+                    boxShadow: 'none',
                   }}
                 >
                   Request a Strategic Diagnostic
@@ -687,14 +687,14 @@ export function Navbar() {
 
                 {/* Contact shortcut */}
                 <div className="mt-8 pt-6 border-t border-white/5">
-                  <p className="text-xs uppercase tracking-wider text-[#5A5A6A] mb-3 font-medium">
+                  <p className="text-xs uppercase tracking-wider text-[#91A2A9] mb-3 font-medium">
                     Get in touch
                   </p>
                   <a
-                    href="mailto:hello@tigertracks.ai"
-                    className="text-sm text-[#229FA1] hover:text-white transition-colors"
+                    href="mailto:info@tigertracks.ai"
+                    className="text-sm text-[#7FCAD3] hover:text-white transition-colors"
                   >
-                    hello@tigertracks.ai
+                    info@tigertracks.ai
                   </a>
                 </div>
               </div>
