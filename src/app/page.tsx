@@ -139,7 +139,7 @@ const HERO_STATS = [
   { value: STATS.revenueGrowth, label: 'Three-year revenue growth' },
   { value: STATS.incRank, label: 'Inc. 5000, 2025' },
   { value: STATS.teamSize, label: 'Specialists, fully remote' },
-  { value: String(STATS.foundingYear), label: 'Founded, New York' },
+  { value: String(STATS.foundingYear), label: 'Founded' },
 ] as const;
 
 function Hero() {
@@ -154,7 +154,7 @@ function Hero() {
         >
           <p className="inline-flex items-center gap-2.5 rounded-full border border-white/15 px-4 py-1.5 font-eyebrow text-xs font-medium text-tt-gray-200">
             <span className="h-1.5 w-1.5 rounded-full bg-tt-orange" aria-hidden="true" />
-            Performance marketing, founded by ex-Google leaders
+            Performance marketing, founded by <span className="whitespace-nowrap">ex-Google</span> leaders
           </p>
           <h1 className="mt-8 font-display text-[2.9rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl xl:text-[4.6rem]">
             Most agencies provide activity. <span className="text-tt-orange">We provide evidence.</span>
@@ -289,7 +289,7 @@ function ResultsBento() {
           </Reveal>
 
           <Reveal delay={0.15} className="md:col-span-2">
-            <Link href="/results/national-broadband-provider" className={`group block h-full ${CARD} p-6 transition-colors hover:border-tt-orange/60 lg:p-7`}>
+            <Link href="/results/national-broadband-provider" className={`group flex h-full flex-col justify-center ${CARD} p-6 transition-colors hover:border-tt-orange/60 lg:p-7`}>
               <span className="flex items-center justify-between gap-4">
                 <span className="font-eyebrow text-xs text-tt-gray-200">National broadband provider, six months</span>
                 <Arrow className="h-4 w-4 text-tt-gray-300 transition-transform group-hover:translate-x-1 group-hover:text-white" />
@@ -357,7 +357,7 @@ function Capabilities() {
                   onClick={() => setActive(i)}
                   className="group flex w-full items-center gap-5 border-t border-white/10 py-5 text-left last:border-b"
                 >
-                  <span className={`font-eyebrow text-xs tabular-nums ${on ? 'text-tt-orange' : 'text-tt-gray-300'}`}>0{i + 1}</span>
+                  <span className={`font-eyebrow text-xs tabular-nums ${on ? 'text-white' : 'text-tt-gray-300'}`}>0{i + 1}</span>
                   <span className={`flex-1 font-display text-2xl font-bold tracking-[-0.02em] transition-colors sm:text-3xl ${on ? 'text-white' : 'text-tt-gray-300 group-hover:text-tt-gray-100'}`}>{c.name}</span>
                   <Arrow className={`h-5 w-5 transition-all duration-300 ${on ? 'translate-x-0 text-tt-orange opacity-100' : '-translate-x-2 text-tt-gray-300 opacity-0'}`} />
                 </button>
@@ -495,7 +495,7 @@ function CaseStudies() {
                   </p>
                   <p className="mt-2 text-sm text-tt-gray-200">{w.metricLabel}</p>
                   <p className="mt-5 text-base font-light leading-relaxed text-tt-gray-200">{w.summary}</p>
-                  <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors group-hover:text-tt-orange">
+                  <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-white underline-offset-4 group-hover:underline">
                     Read the case study <Arrow />
                   </span>
                 </div>
@@ -604,7 +604,7 @@ function LeadershipAndTech() {
             <div className="flex flex-1 flex-col p-8">
               <p className="font-eyebrow text-sm font-medium text-tt-gray-100">Proprietary technology</p>
               <p className="mt-4 flex-1 font-display text-2xl font-bold leading-snug text-white">Other agencies use your tools. We built our own.</p>
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors group-hover:text-tt-orange">See Wayfinder AI <Arrow /></span>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white underline-offset-4 group-hover:underline">See Wayfinder AI <Arrow /></span>
             </div>
           </Link>
         </Reveal>
@@ -617,7 +617,7 @@ function LeadershipAndTech() {
             <div className="flex flex-1 flex-col p-8">
               <p className="font-eyebrow text-sm font-medium text-tt-gray-100">Your accounts, your data</p>
               <p className="mt-4 flex-1 font-display text-2xl font-bold leading-snug text-white">Everything we build stays yours from day one.</p>
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors group-hover:text-tt-orange">How we handle access <Arrow /></span>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white underline-offset-4 group-hover:underline">How we handle access <Arrow /></span>
             </div>
           </Link>
         </Reveal>
@@ -676,7 +676,7 @@ function Research() {
               <p className="mt-6 font-eyebrow text-xs text-tt-teal">
                 {lead.category} <span className="text-tt-gray-200">&middot; {lead.readTime}</span>
               </p>
-              <h3 className="mt-2 font-display text-2xl font-bold leading-snug text-white transition-colors group-hover:text-tt-orange sm:text-3xl">{lead.title}</h3>
+              <h3 className="mt-2 font-display text-2xl font-bold leading-snug text-white underline-offset-4 decoration-tt-orange decoration-2 group-hover:underline sm:text-3xl">{lead.title}</h3>
             </Link>
           </Reveal>
           <div className="flex min-w-0 flex-col gap-8 lg:col-span-5">
@@ -690,7 +690,7 @@ function Research() {
                     <p className="font-eyebrow text-xs text-tt-teal">
                       {a.category} <span className="text-tt-gray-200">&middot; {a.readTime}</span>
                     </p>
-                    <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-white transition-colors group-hover:text-tt-orange">{a.title}</h3>
+                    <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-white underline-offset-4 decoration-tt-orange decoration-2 group-hover:underline">{a.title}</h3>
                   </div>
                 </Link>
               </Reveal>
