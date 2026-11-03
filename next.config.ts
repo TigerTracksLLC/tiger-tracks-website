@@ -111,6 +111,11 @@ const nextConfig: NextConfig = {
         destination: '/intelligence',
         permanent: true,
       },
+      {
+        source: '/free-paid-audit-form',
+        destination: '/get-started',
+        permanent: true,
+      },
       // Placeholder (composite) case studies removed Oct 2026.
       { source: '/results/saas-pipeline-acceleration', destination: '/results', permanent: true },
       { source: '/results/b2b-enterprise-lead-gen', destination: '/results', permanent: true },
