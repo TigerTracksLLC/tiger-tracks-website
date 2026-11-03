@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/blogPosts';
 import { fetchPageBlocks, findPageIdBySlug, fetchPageCover } from '@/lib/notion';
 import { ArticlePageClient } from '@/components/ArticlePageClient';
+import { HELD_SLUGS, publishedPosts } from '@/data/publishedPosts';
+import { cleanBlocks } from '@/lib/articleHygiene';
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -12,12 +14,12 @@ export const dynamicParams = true;
 /* ------------------------------------------------------------------ */
 
 const CATEGORY_OG_IMAGES: Record<string, string> = {
-  'AI & Automation': '/images/ai-automation-abstract.png',
-  'Platform Strategy': '/images/seo-organic-discovery.png',
-  'Measurement & Attribution': '/images/conversion-optimization-abstract.png',
-  'Creative & Content': '/images/creative-ugc-performance.png',
-  'Agency Strategy': '/images/agency-strategy-abstract.png',
-  'PE/VC': '/images/pe-vc-financial-tech.png',
+  'AI & Automation': '/images/ai-automation-abstract-brand.png',
+  'Platform Strategy': '/images/seo-organic-discovery-brand.png',
+  'Measurement & Attribution': '/images/conversion-optimization-abstract-brand.png',
+  'Creative & Content': '/images/creative-ugc-performance-brand.png',
+  'Agency Strategy': '/images/agency-strategy-abstract-brand.png',
+  'PE/VC': '/images/pe-vc-financial-tech-brand.png',
 };
 
 const SITE_URL = 'https://tigertracks.ai';
@@ -32,6 +34,7 @@ const FALLBACK_DESCRIPTION =
 function resolveArticle(slug: string) {
   // Use static blogPosts data only — no Notion API calls needed for metadata.
   // The Notion API is only used to fetch the article BODY (blocks) via fetchPageBlocks.
+  if (HELD_SLUGS.has(slug)) return null;
   return blogPosts.find((p) => p.slug === slug) ?? null;
 }
 
@@ -61,7 +64,7 @@ export async function generateMetadata({
   const ogImage =
     article.coverImage ||
     CATEGORY_OG_IMAGES[article.category] ||
-    '/images/og-default.png';
+    '/images/og-brand.png';
 
   /* Build absolute URL for local images (Notion URLs are already absolute) */
   const ogImageUrl = ogImage.startsWith('http')
@@ -118,7 +121,7 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   // Return only static slugs at build time to avoid Notion API rate limits.
   // All other slugs are fetched on-demand via ISR (dynamicParams = true).
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return publishedPosts.map((post) => ({ slug: post.slug }));
 }
 
 /* ------------------------------------------------------------------ */
@@ -144,7 +147,7 @@ export default async function ArticlePage({
   // Fetch blocks and cover image in parallel (both need pageId)
   const [blocks, coverImage] = pageId
     ? await Promise.all([
-        fetchPageBlocks(pageId),
+        fetchPageBlocks(pageId).then(cleanBlocks),
         article.coverImage ? Promise.resolve(article.coverImage) : fetchPageCover(pageId),
       ])
     : [[], null];
@@ -159,7 +162,7 @@ export default async function ArticlePage({
     coverImage ||
     article.coverImage ||
     CATEGORY_OG_IMAGES[article.category] ||
-    '/images/og-default.png';
+    '/images/og-brand.png';
   const articleImageUrl = articleImage.startsWith('http')
     ? articleImage
     : `${SITE_URL}${articleImage}`;
@@ -181,7 +184,7 @@ export default async function ArticlePage({
       name: 'Tiger Tracks',
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}/images/TT.LOGO-02.png`,
+        url: `${SITE_URL}/brand/tt-avatar.svg`,
       },
     },
     mainEntityOfPage: {

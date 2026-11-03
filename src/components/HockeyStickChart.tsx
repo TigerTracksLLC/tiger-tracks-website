@@ -131,14 +131,14 @@ export function HockeyStickChart({
       >
         <defs>
           <linearGradient id="chart-gradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#5BA4A4" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#5BA4A4" stopOpacity="0" />
+            <stop offset="0%" stopColor="#7FCAD3" stopOpacity="0.1" />
+            <stop offset="100%" stopColor="#7FCAD3" stopOpacity="0.1" />
           </linearGradient>
           <linearGradient id="line-gradient" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#5BA4A4" stopOpacity="0.5" />
-            <stop offset={`${(splitIndex / totalPoints) * 100}%`} stopColor="#5BA4A4" />
-            <stop offset={`${(splitIndex / totalPoints) * 100}%`} stopColor="#E8793A" />
-            <stop offset="100%" stopColor="#E8793A" />
+            <stop offset="0%" stopColor="#7FCAD3" />
+            <stop offset={`${(splitIndex / totalPoints) * 100}%`} stopColor="#7FCAD3" />
+            <stop offset={`${(splitIndex / totalPoints) * 100}%`} stopColor="#FE5E16" />
+            <stop offset="100%" stopColor="#FE5E16" />
           </linearGradient>
           <clipPath id="reveal-clip">
             <rect
@@ -158,14 +158,14 @@ export function HockeyStickChart({
               y1={tick.y}
               x2={W - PAD_R}
               y2={tick.y}
-              stroke="rgba(255,255,255,0.06)"
+              stroke="rgba(255, 255, 255, 0.06)"
               strokeWidth="1"
             />
             <text
               x={PAD_L - 10}
               y={tick.y + 4}
               textAnchor="end"
-              fill="rgba(255,255,255,0.35)"
+              fill="rgba(255, 255, 255, 0.35)"
               fontSize="11"
               fontFamily="Inter, sans-serif"
             >
@@ -184,7 +184,7 @@ export function HockeyStickChart({
               x={toX(i)}
               y={H - 15}
               textAnchor="middle"
-              fill="rgba(255,255,255,0.35)"
+              fill="rgba(255, 255, 255, 0.35)"
               fontSize="10"
               fontFamily="Inter, sans-serif"
             >
@@ -199,7 +199,7 @@ export function HockeyStickChart({
           y1={PAD_T - 10}
           x2={splitX}
           y2={PAD_T + chartH}
-          stroke="rgba(232, 121, 58, 0.4)"
+          stroke="rgba(254, 94, 22, 0.4)"
           strokeWidth="1"
           strokeDasharray="6 4"
         />
@@ -207,7 +207,7 @@ export function HockeyStickChart({
           x={splitX}
           y={PAD_T - 16}
           textAnchor="middle"
-          fill="#E8793A"
+          fill="#FE5E16"
           fontSize="10"
           fontWeight="600"
           fontFamily="Inter, sans-serif"
@@ -218,7 +218,7 @@ export function HockeyStickChart({
         {/* Animated area + line */}
         <g clipPath="url(#reveal-clip)">
           {/* Area fill */}
-          <path d={areaPath} fill="url(#chart-gradient)" />
+          <path d={areaPath} fill="#7FCAD3" fillOpacity={0.1} />
           {/* Line */}
           <path
             d={fullPath}
@@ -241,8 +241,8 @@ export function HockeyStickChart({
               cx={pt.x}
               cy={pt.y}
               r={visible ? 4 : 0}
-              fill={isAfter ? '#E8793A' : '#5BA4A4'}
-              stroke={isAfter ? 'rgba(232,121,58,0.3)' : 'rgba(91,164,164,0.3)'}
+              fill={isAfter ? '#FE5E16' : '#7FCAD3'}
+              stroke={isAfter ? 'rgba(254, 94, 22, 0.3)' : 'rgba(127, 202, 211, 0.3)'}
               strokeWidth="6"
               style={{
                 transition: 'r 0.3s ease-out',
@@ -255,7 +255,7 @@ export function HockeyStickChart({
         <text
           x={PAD_L}
           y={H - 2}
-          fill="rgba(255,255,255,0.25)"
+          fill="rgba(255, 255, 255, 0.25)"
           fontSize="10"
           fontFamily="Inter, sans-serif"
         >
