@@ -41,10 +41,12 @@ function BrandStripe({ className = '' }: { className?: string }) {
   );
 }
 
-function Eyebrow({ index, children }: { index?: string; children: ReactNode }) {
+/** Section label. On the lighter panel (tt-gray-800) orange text fails AA, so the label turns paper and orange moves to a rule. */
+function Eyebrow({ index, panel = false, children }: { index?: string; panel?: boolean; children: ReactNode }) {
   return (
-    <p className="font-eyebrow text-sm font-medium text-tt-orange flex items-baseline gap-3">
-      {index && <span className="text-tt-gray-500 tabular-nums">{index}</span>}
+    <p className={`font-eyebrow text-sm font-medium flex items-center gap-3 ${panel ? 'text-tt-paper' : 'text-tt-orange'}`}>
+      {index && <span className="text-tt-gray-400 tabular-nums">{index}</span>}
+      {panel && <span className="h-px w-6 bg-tt-orange" aria-hidden="true" />}
       <span>{children}</span>
     </p>
   );
@@ -77,7 +79,7 @@ function Hero() {
           <p className="font-eyebrow text-sm text-tt-gray-300">Performance marketing, built by ex-Google leaders</p>
           <p className="font-eyebrow text-sm text-tt-gray-300">
             <span className="text-tt-orange">Inc. 5000 {STATS.incRank}</span>
-            <span className="mx-3 text-tt-gray-700">/</span>
+            <span className="mx-3 text-tt-gray-500" aria-hidden="true">/</span>
             Fully remote, New York based
           </p>
         </motion.div>
@@ -134,7 +136,7 @@ function Hero() {
             </div>
 
             <div className="lg:col-span-5 lg:col-start-8 lg:text-right">
-              <p className="font-eyebrow text-sm text-tt-gray-400">Trusted by growth leaders at</p>
+              <p className="font-eyebrow text-sm text-tt-gray-400">Trusted by brands like</p>
               <p className="mt-3 font-display text-2xl font-semibold leading-snug tracking-[-0.02em] text-white sm:text-3xl">
                 AG1, Monarch Money, Anastasia Beverly Hills
               </p>
@@ -204,7 +206,7 @@ function Evidence() {
           </div>
           <Reveal className="lg:col-span-8">
             <h2 className="font-display font-bold text-white text-[clamp(2.5rem,5.2vw,5rem)] leading-[1] tracking-[-0.035em]">
-              Numbers a CFO can check.
+              The numbers behind the name.
             </h2>
           </Reveal>
         </div>
@@ -248,7 +250,7 @@ function ClientVoice() {
       <div className={WRAP}>
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-3">
-            <Eyebrow index="02">Client voice</Eyebrow>
+            <Eyebrow index="02" panel>Client voice</Eyebrow>
           </div>
           <Reveal className="lg:col-span-9">
             <blockquote>
@@ -417,7 +419,7 @@ function OnStage() {
     <section className="bg-tt-gray-800 py-24 sm:py-32">
       <div className={`${WRAP} grid gap-12 lg:grid-cols-12 lg:items-center`}>
         <div className="lg:col-span-5">
-          <Eyebrow index="05">On stage at SXSW</Eyebrow>
+          <Eyebrow index="05" panel>On stage at SXSW</Eyebrow>
           <Reveal>
             <h2 className="mt-6 font-display font-bold text-white text-[clamp(2.5rem,4.6vw,4.5rem)] leading-[1] tracking-[-0.035em]">
               Under the AI microscope.
@@ -468,8 +470,8 @@ function Leadership() {
               Built at Google. <span className="text-tt-gray-400">Run by operators.</span>
             </h2>
             <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed text-tt-gray-200">
-              The people who plan your growth are the people who run it. Fully remote, New York based,
-              and accountable to the numbers in your board deck.
+              The operators who run your channels, in the room with your leadership. Fully remote and
+              New York based.
             </p>
           </Reveal>
         </div>
@@ -536,7 +538,7 @@ function Doors() {
             <Link
               key={d.href}
               href={d.href}
-              className={`group flex min-h-[22rem] flex-col justify-between py-12 transition-colors duration-500 hover:bg-tt-gray-800 md:px-8 ${i > 0 ? 'border-t border-white/10 md:border-l md:border-t-0' : 'md:pl-0'}`}
+              className={`group flex min-h-[22rem] flex-col justify-between py-12 transition-colors duration-500 hover:bg-white/5 md:px-8 ${i > 0 ? 'border-t border-white/10 md:border-l md:border-t-0' : 'md:pl-0'}`}
             >
               <div>
                 <p className="font-eyebrow text-sm text-tt-orange">{d.label}</p>
@@ -585,7 +587,7 @@ function Research() {
       <div className={WRAP}>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <Eyebrow index="07">Eye of the Tiger</Eyebrow>
+            <Eyebrow index="07" panel>Eye of the Tiger</Eyebrow>
             <h2 className="mt-6 font-display font-bold text-white text-[clamp(2.5rem,5.2vw,5rem)] leading-[1] tracking-[-0.035em]">
               Research from the front line.
             </h2>
