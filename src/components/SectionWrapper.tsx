@@ -26,8 +26,7 @@ export function SectionWrapper({
       } ${inView ? 'revealed' : 'reveal'} ${className}`}
       style={dark ? {
         background: `
-          radial-gradient(ellipse 80% 50% at 50% 30%, rgba(91, 164, 164, 0.04) 0%, transparent 60%),
-          #0A1119
+          #052E3F
         `,
       } : undefined}
     >

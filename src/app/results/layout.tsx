@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description:
       'Real performance marketing results and case studies from Tiger Tracks.',
     url: 'https://tigertracks.ai/results',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description:
       'Meet the team behind Tiger Tracks. Founded by ex-Google leaders, ranked Inc. 5000 #123.',
     url: 'https://tigertracks.ai/company',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
   },
 };
 

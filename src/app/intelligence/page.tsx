@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { blogPosts } from '@/data/blogPosts';
+import { publishedPosts } from '@/data/publishedPosts';
 import { IntelligenceHubClient } from '@/components/IntelligenceHubClient';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/intelligence' },
   title: 'Thought Leadership & Intelligence',
   description:
     'Eye of the Tiger Thought Leadership & Intelligence -- AI strategy briefings for business leaders.',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     description:
       'Eye of the Tiger Thought Leadership & Intelligence -- AI strategy briefings for business leaders.',
     url: 'https://tigertracks.ai/intelligence',
-    images: [{ url: 'https://tigertracks.ai/images/social-share-card-bg.png' }],
+    images: [{ url: 'https://tigertracks.ai/images/og-brand.png' }],
     type: 'website',
   },
   twitter: {
@@ -23,5 +24,5 @@ export const metadata: Metadata = {
 };
 
 export default function IntelligencePage() {
-  return <IntelligenceHubClient posts={blogPosts} />;
+  return <IntelligenceHubClient posts={publishedPosts} />;
 }
