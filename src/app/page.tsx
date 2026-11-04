@@ -7,11 +7,14 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { STATS } from '@/lib/stats';
 
 /* ================================================================
-   HOMEPAGE (Nov 2026 redesign, v3)
+   HOMEPAGE (Nov 2026 redesign, v4: colour blocking)
    Varied rhythm: split hero with video, moving client marquee,
    bento results with one orange tile, interactive capabilities,
    full-bleed quote band, alternating case studies, 100-day plan
    timeline, featured research and a full-bleed close.
+   Colour blocking with the full palette: orange client band and
+   closing, lime and teal result tiles, paper capabilities, teal
+   PE/VC band, lime research. Text on colour is ink for contrast.
    One container (max-w-7xl px-6) aligned with the nav and footer.
    Brand: Work Sans headlines, Inter body, DM Sans labels, Ink
    surfaces, orange for CTAs and key numbers.
@@ -73,7 +76,15 @@ function Arrow({ className = 'h-4 w-4' }: { className?: string }) {
 }
 
 /** Section label. On tinted panels orange small text fails AA, so the label turns paper with an orange rule. */
-function Label({ children, className = '', panel = false }: { children: ReactNode; className?: string; panel?: boolean }) {
+function Label({ children, className = '', panel = false, light = false }: { children: ReactNode; className?: string; panel?: boolean; light?: boolean }) {
+  if (light) {
+    return (
+      <p className={`flex items-center gap-3 font-eyebrow text-sm font-medium text-tt-ink ${className}`}>
+        <span className="h-0.5 w-6 bg-tt-orange" aria-hidden="true" />
+        {children}
+      </p>
+    );
+  }
   if (panel) {
     return (
       <p className={`flex items-center gap-3 font-eyebrow text-sm font-medium text-tt-paper ${className}`}>
@@ -85,13 +96,13 @@ function Label({ children, className = '', panel = false }: { children: ReactNod
   return <p className={`font-eyebrow text-sm font-medium text-tt-orange ${className}`}>{children}</p>;
 }
 
-function H2({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <h2 className={`font-display text-4xl font-bold leading-[1.06] tracking-[-0.03em] text-white sm:text-5xl lg:text-[3.5rem] ${className}`}>{children}</h2>;
+function H2({ children, className = '', light = false }: { children: ReactNode; className?: string; light?: boolean }) {
+  return <h2 className={`font-display text-4xl font-bold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[3.5rem] ${light ? 'text-tt-ink' : 'text-white'} ${className}`}>{children}</h2>;
 }
 
-function TextLink({ href, children }: { href: string; children: ReactNode }) {
+function TextLink({ href, children, light = false }: { href: string; children: ReactNode; light?: boolean }) {
   return (
-    <Link href={href} className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-tt-orange">
+    <Link href={href} className={`group inline-flex shrink-0 items-center gap-2 text-sm font-semibold underline-offset-4 transition-colors ${light ? 'text-tt-ink hover:underline' : 'text-white hover:text-tt-orange'}`}>
       {children}
       <Arrow className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
     </Link>
@@ -154,7 +165,7 @@ function Hero() {
         >
           <p className="inline-flex items-center gap-2.5 rounded-full border border-white/15 px-4 py-1.5 font-eyebrow text-xs font-medium text-tt-gray-200">
             <span className="h-1.5 w-1.5 rounded-full bg-tt-orange" aria-hidden="true" />
-            Performance marketing, founded by <span className="whitespace-nowrap">ex-Google</span> leaders
+            <span>Performance marketing, founded by <span className="whitespace-nowrap">ex-Google</span> leaders</span>
           </p>
           <h1 className="mt-8 font-display text-[2.9rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl xl:text-[4.6rem]">
             Most agencies provide activity. <span className="text-tt-orange">We provide evidence.</span>
@@ -220,12 +231,12 @@ function ClientMarquee() {
   const row = (hidden: boolean) =>
     CLIENTS.map((c) => (
       <li key={`${hidden ? 'b' : 'a'}-${c}`} aria-hidden={hidden || undefined} className="flex shrink-0 items-center gap-12">
-        <span className="whitespace-nowrap font-eyebrow text-base uppercase tracking-[0.22em] text-tt-gray-200 sm:text-lg">{c}</span>
-        <span className="h-1.5 w-1.5 rounded-full bg-tt-orange" aria-hidden="true" />
+        <span className="whitespace-nowrap font-eyebrow text-base font-medium uppercase tracking-[0.22em] text-tt-ink sm:text-lg">{c}</span>
+        <span className="h-1.5 w-1.5 rounded-full bg-tt-ink" aria-hidden="true" />
       </li>
     ));
   return (
-    <section className="border-y border-white/10 bg-tt-gray-800/40 py-7" aria-label="Brands we have grown">
+    <section className="bg-tt-orange py-6" aria-label="Brands we have grown">
       <div className="relative overflow-hidden">
         <ul className="flex w-max animate-logo-scroll items-center gap-12 pr-12 motion-reduce:animate-none" style={{ animationDuration: '50s' }}>
           {row(false)}
@@ -281,18 +292,18 @@ function ResultsBento() {
           </Reveal>
 
           <Reveal delay={0.1} className="md:col-span-1">
-            <Link href="/results/monarch-money" className={`group flex h-full min-h-[13rem] flex-col justify-end ${CARD} p-6 transition-colors hover:border-tt-orange/60`}>
-              <span className="block font-display text-5xl font-bold tracking-[-0.04em] text-white"><CountUp value={STATS.monarch.usersGrowth} /></span>
-              <span className="mt-1 block text-sm text-tt-gray-100">Users</span>
-              <span className="mt-3 block font-eyebrow text-xs text-tt-gray-200">Monarch Money, then a {STATS.monarch.seriesB} Series B</span>
+            <Link href="/results/monarch-money" className="group flex h-full min-h-[13rem] flex-col justify-end rounded-2xl bg-tt-lime p-6 transition-transform duration-300 hover:-translate-y-1">
+              <span className="block font-display text-5xl font-bold tracking-[-0.04em] text-tt-ink"><CountUp value={STATS.monarch.usersGrowth} /></span>
+              <span className="mt-1 block text-sm font-medium text-tt-ink">Users</span>
+              <span className="mt-3 block font-eyebrow text-xs text-tt-ink">Monarch Money, then a {STATS.monarch.seriesB} Series B</span>
             </Link>
           </Reveal>
 
           <Reveal delay={0.15} className="md:col-span-2">
-            <Link href="/results/national-broadband-provider" className={`group flex h-full flex-col justify-center ${CARD} p-6 transition-colors hover:border-tt-orange/60 lg:p-7`}>
+            <Link href="/results/national-broadband-provider" className="group flex h-full flex-col justify-center rounded-2xl bg-tt-teal p-6 transition-transform duration-300 hover:-translate-y-1 lg:p-7">
               <span className="flex items-center justify-between gap-4">
-                <span className="font-eyebrow text-xs text-tt-gray-200">National broadband provider, six months</span>
-                <Arrow className="h-4 w-4 text-tt-gray-300 transition-transform group-hover:translate-x-1 group-hover:text-white" />
+                <span className="font-eyebrow text-xs font-medium text-tt-ink">National broadband provider, six months</span>
+                <Arrow className="h-4 w-4 text-tt-ink transition-transform group-hover:translate-x-1" />
               </span>
               <span className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
                 {[
@@ -302,8 +313,8 @@ function ResultsBento() {
                   { v: STATS.broadband.rankingPositions, l: 'Google rank positions' },
                 ].map((m) => (
                   <span key={m.l} className="block">
-                    <span className="block font-display text-3xl font-bold tracking-[-0.03em] text-white"><CountUp value={m.v} /></span>
-                    <span className="mt-1 block text-xs text-tt-gray-200">{m.l}</span>
+                    <span className="block font-display text-3xl font-bold tracking-[-0.03em] text-tt-ink"><CountUp value={m.v} /></span>
+                    <span className="mt-1 block text-xs font-medium text-tt-ink">{m.l}</span>
                   </span>
                 ))}
               </span>
@@ -332,14 +343,14 @@ function Capabilities() {
   const [active, setActive] = useState(0);
   const cap = CAPABILITIES[active];
   return (
-    <section className={`bg-tt-gray-800/30 ${SECTION}`}>
+    <section className={`bg-tt-paper ${SECTION}`}>
       <div className={WRAP}>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <Label panel>Capabilities</Label>
-            <H2 className="mt-4">One team across every lever that moves revenue.</H2>
+            <Label light>Capabilities</Label>
+            <H2 light className="mt-4">One team across every lever that moves revenue.</H2>
           </div>
-          <TextLink href="/capabilities">All capabilities</TextLink>
+          <TextLink light href="/capabilities">All capabilities</TextLink>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
@@ -355,11 +366,11 @@ function Capabilities() {
                   onMouseEnter={() => setActive(i)}
                   onFocus={() => setActive(i)}
                   onClick={() => setActive(i)}
-                  className="group flex w-full items-center gap-5 border-t border-white/10 py-5 text-left last:border-b"
+                  className="group flex w-full items-center gap-5 border-t border-tt-ink/15 py-5 text-left last:border-b"
                 >
-                  <span className={`font-eyebrow text-xs tabular-nums ${on ? 'text-white' : 'text-tt-gray-300'}`}>0{i + 1}</span>
-                  <span className={`flex-1 font-display text-2xl font-bold tracking-[-0.02em] transition-colors sm:text-3xl ${on ? 'text-white' : 'text-tt-gray-300 group-hover:text-tt-gray-100'}`}>{c.name}</span>
-                  <Arrow className={`h-5 w-5 transition-all duration-300 ${on ? 'translate-x-0 text-tt-orange opacity-100' : '-translate-x-2 text-tt-gray-300 opacity-0'}`} />
+                  <span className={`font-eyebrow text-xs tabular-nums ${on ? 'text-tt-ink' : 'text-tt-gray-700'}`}>0{i + 1}</span>
+                  <span className={`flex-1 font-display text-2xl font-bold tracking-[-0.02em] transition-colors sm:text-3xl ${on ? 'text-tt-ink' : 'text-tt-gray-700 group-hover:text-tt-ink'}`}>{c.name}</span>
+                  <Arrow className={`h-5 w-5 transition-all duration-300 ${on ? 'translate-x-0 text-tt-orange opacity-100' : '-translate-x-2 text-tt-gray-700 opacity-0'}`} />
                 </button>
               );
             })}
@@ -447,6 +458,7 @@ const WORK = [
     metricLabel: 'Customers year over year',
     summary: 'Restructured Meta campaigns to drive compounding acquisition growth across channels.',
     image: '/images/case-study-product-viz-brand.png',
+    accent: 'text-tt-orange',
   },
   {
     slug: 'national-broadband-provider',
@@ -456,6 +468,7 @@ const WORK = [
     metricLabel: 'Website conversion rate',
     summary: `Purchases up ${STATS.broadband.purchases.replace('+', '')} and revenue up ${STATS.broadband.revenue.replace('+', '')}, from two test markets to the national footprint in six months.`,
     image: '/images/conversion-optimization-abstract-brand.png',
+    accent: 'text-tt-teal',
   },
   {
     slug: 'monarch-money',
@@ -465,6 +478,7 @@ const WORK = [
     metricLabel: 'Users',
     summary: `Growth with unit economics that held under investor scrutiny. Monarch went on to raise a ${STATS.monarch.seriesB} Series B.`,
     image: '/images/scatter-plot-data-viz-brand.png',
+    accent: 'text-tt-lime',
   },
 ] as const;
 
@@ -490,7 +504,7 @@ function CaseStudies() {
                 <div className="flex flex-col justify-center p-8 md:col-span-5 lg:p-12">
                   <p className="font-eyebrow text-xs text-tt-gray-200">{w.sector}</p>
                   <h3 className="mt-2 font-display text-2xl font-bold text-white">{w.client}</h3>
-                  <p className="mt-6 font-display text-6xl font-bold leading-none tracking-[-0.04em] text-tt-orange lg:text-7xl">
+                  <p className={`mt-6 font-display text-6xl font-bold leading-none tracking-[-0.04em] lg:text-7xl ${w.accent}`}>
                     <CountUp value={w.metric} />
                   </p>
                   <p className="mt-2 text-sm text-tt-gray-200">{w.metricLabel}</p>
@@ -520,40 +534,36 @@ const PLAN = [
 
 function PortfolioPlan() {
   return (
-    <section className={`bg-tt-ink ${SECTION} pt-0 lg:pt-0`}>
-      <div className={WRAP}>
-        <Reveal className="overflow-hidden rounded-3xl border border-tt-teal/30 bg-tt-gray-800/50">
-          <div className="grid grid-cols-1 gap-12 p-8 sm:p-12 lg:grid-cols-12 lg:gap-16 lg:p-16">
-            <div className="lg:col-span-5">
-              <p className="font-eyebrow text-sm font-medium text-tt-teal">For PE and VC funds</p>
-              <h2 className="mt-4 font-display text-3xl font-bold leading-[1.1] tracking-[-0.025em] text-white sm:text-4xl">
-                Operators for your portfolio, from first call to fund-level reporting.
-              </h2>
-              <p className="mt-5 text-base font-light leading-relaxed text-tt-gray-200">
-                Strategic Diagnostics, proprietary AI tooling and a team built at Google, deployed on your timeline.
-              </p>
-              <div className="mt-8">
-                <Link href="/pe-vc" className="btn-primary">
-                  Fund partnerships
-                </Link>
-              </div>
-            </div>
-            <ol className="relative lg:col-span-7">
-              <span className="absolute bottom-6 left-[11px] top-6 w-px bg-tt-teal/40" aria-hidden="true" />
-              {PLAN.map((p) => (
-                <li key={p.when} className="relative flex gap-6 pb-8 last:pb-0">
-                  <span className="relative z-10 mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-tt-teal bg-tt-ink">
-                    <span className="h-2 w-2 rounded-full bg-tt-teal" />
-                  </span>
-                  <div className="flex-1 rounded-xl border border-white/10 bg-tt-ink p-6">
-                    <p className="font-eyebrow text-sm text-tt-teal">{p.when}</p>
-                    <p className="mt-1 font-display text-xl font-bold text-white">{p.what}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+    <section className={`bg-tt-teal ${SECTION}`}>
+      <div className={`${WRAP} grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16`}>
+        <Reveal className="lg:col-span-5">
+          <p className="flex items-center gap-3 font-eyebrow text-sm font-medium text-tt-ink">
+            <span className="h-0.5 w-6 bg-tt-ink" aria-hidden="true" />
+            For PE and VC funds
+          </p>
+          <h2 className="mt-4 font-display text-4xl font-bold leading-[1.06] tracking-[-0.03em] text-tt-ink sm:text-5xl">
+            Operators for your portfolio, from first call to fund-level reporting.
+          </h2>
+          <p className="mt-6 text-lg leading-relaxed text-tt-ink">
+            Strategic Diagnostics, proprietary AI tooling and a team built at Google, deployed on your timeline.
+          </p>
+          <div className="mt-9">
+            <Link href="/pe-vc" className="inline-flex items-center gap-2 rounded-full bg-tt-ink px-8 py-4 text-base font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5">
+              Fund partnerships <Arrow />
+            </Link>
           </div>
         </Reveal>
+        <ol className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:col-span-7 lg:self-center">
+          {PLAN.map((p, i) => (
+            <Reveal key={p.when} delay={i * 0.08}>
+              <li className="flex h-full flex-col rounded-2xl bg-tt-ink p-6 lg:p-7">
+                <span className="font-display text-5xl font-bold leading-none text-tt-teal">0{i + 1}</span>
+                <span className="mt-8 font-eyebrow text-sm text-tt-gray-200">{p.when}</span>
+                <span className="mt-2 font-display text-xl font-bold leading-snug text-white">{p.what}</span>
+              </li>
+            </Reveal>
+          ))}
+        </ol>
       </div>
     </section>
   );
@@ -570,7 +580,7 @@ const LEADERS = [
 
 function LeadershipAndTech() {
   return (
-    <section className={`bg-tt-ink ${SECTION} pt-0 lg:pt-0`}>
+    <section className={`bg-tt-ink ${SECTION}`}>
       <div className={`${WRAP} grid grid-cols-1 gap-5 lg:grid-cols-3`}>
         <Reveal>
           <div className={`flex h-full flex-col ${CARD} p-8`}>
@@ -657,40 +667,40 @@ const ARTICLES = [
 function Research() {
   const [lead, ...rest] = ARTICLES;
   return (
-    <section className={`bg-tt-gray-800/30 ${SECTION}`}>
+    <section className={`bg-tt-lime ${SECTION}`}>
       <div className={WRAP}>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <Label panel>Eye of the Tiger</Label>
-            <H2 className="mt-4">Research from our team.</H2>
+            <Label light>Eye of the Tiger</Label>
+            <H2 light className="mt-4">Research from our team.</H2>
           </div>
-          <TextLink href="/intelligence">All research</TextLink>
+          <TextLink light href="/intelligence">All research</TextLink>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-12">
           <Reveal className="min-w-0 lg:col-span-7">
             <Link href={`/intelligence/${lead.slug}`} className="group block">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-white/10">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
                 <Image src={lead.image} alt="" fill sizes="(min-width: 1024px) 700px, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
               </div>
-              <p className="mt-6 font-eyebrow text-xs text-tt-teal">
-                {lead.category} <span className="text-tt-gray-200">&middot; {lead.readTime}</span>
+              <p className="mt-6 font-eyebrow text-xs font-medium text-tt-ink">
+                {lead.category} <span className="text-tt-gray-800">&middot; {lead.readTime}</span>
               </p>
-              <h3 className="mt-2 font-display text-2xl font-bold leading-snug text-white underline-offset-4 decoration-tt-orange decoration-2 group-hover:underline sm:text-3xl">{lead.title}</h3>
+              <h3 className="mt-2 font-display text-2xl font-bold leading-snug text-tt-ink underline-offset-4 decoration-tt-ink decoration-2 group-hover:underline sm:text-3xl">{lead.title}</h3>
             </Link>
           </Reveal>
           <div className="flex min-w-0 flex-col gap-8 lg:col-span-5">
             {rest.map((a, i) => (
               <Reveal key={a.slug} delay={0.05 * (i + 1)}>
                 <Link href={`/intelligence/${a.slug}`} className="group grid grid-cols-5 items-center gap-5">
-                  <div className="relative col-span-2 aspect-[4/3] overflow-hidden rounded-xl border border-white/10">
+                  <div className="relative col-span-2 aspect-[4/3] overflow-hidden rounded-xl">
                     <Image src={a.image} alt="" fill sizes="200px" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
                   </div>
                   <div className="col-span-3">
-                    <p className="font-eyebrow text-xs text-tt-teal">
-                      {a.category} <span className="text-tt-gray-200">&middot; {a.readTime}</span>
+                    <p className="font-eyebrow text-xs font-medium text-tt-ink">
+                      {a.category} <span className="text-tt-gray-800">&middot; {a.readTime}</span>
                     </p>
-                    <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-white underline-offset-4 decoration-tt-orange decoration-2 group-hover:underline">{a.title}</h3>
+                    <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-tt-ink underline-offset-4 decoration-tt-ink decoration-2 group-hover:underline">{a.title}</h3>
                   </div>
                 </Link>
               </Reveal>
@@ -708,19 +718,19 @@ function Research() {
 
 function Closing() {
   return (
-    <section className="relative overflow-hidden bg-tt-ink">
-      <div className={`${WRAP} py-24 text-center lg:py-36`}>
+    <section className="relative overflow-hidden bg-[var(--color-tt-orange)]">
+      <div className={`${WRAP} py-24 text-center lg:py-32`}>
         <Reveal>
-          <h2 className="mx-auto max-w-4xl font-display text-5xl font-bold leading-[1.02] tracking-[-0.04em] text-white sm:text-6xl lg:text-[5.5rem]">
-            Your revenue is leaking. <span className="text-tt-orange">We&rsquo;ll find where.</span>
+          <h2 className="mx-auto max-w-4xl font-display text-5xl font-bold leading-[1.02] tracking-[-0.04em] text-tt-ink sm:text-6xl lg:text-[5.5rem]">
+            Your revenue is leaking. <span className="text-white">We&rsquo;ll find where.</span>
           </h2>
-          <p className="mx-auto mt-7 max-w-2xl text-lg font-light leading-relaxed text-tt-gray-200 sm:text-xl">
+          <p className="mx-auto mt-7 max-w-2xl text-lg font-medium leading-relaxed text-tt-ink sm:text-xl">
             Start with a free Strategic Diagnostic: a 90-day roadmap built around your actual numbers across paid,
             organic, creative and attribution.
           </p>
           <div className="mt-10 flex justify-center">
-            <Link href="/get-started" className="btn-primary text-lg">
-              Request a Strategic Diagnostic
+            <Link href="/get-started" className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-tt-ink px-7 py-4 text-base font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5 sm:px-9 sm:text-lg">
+              Request a Strategic Diagnostic <Arrow />
             </Link>
           </div>
         </Reveal>
