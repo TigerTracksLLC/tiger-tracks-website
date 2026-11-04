@@ -7,14 +7,14 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { STATS } from '@/lib/stats';
 
 /* ================================================================
-   HOMEPAGE (Nov 2026 redesign, v4: colour blocking)
+   HOMEPAGE (Nov 2026 redesign, v5: calm rhythm)
    Varied rhythm: split hero with video, moving client marquee,
    bento results with one orange tile, interactive capabilities,
    full-bleed quote band, alternating case studies, 100-day plan
    timeline, featured research and a full-bleed close.
-   Colour blocking with the full palette: orange client band and
-   closing, lime and teal result tiles, paper capabilities, teal
-   PE/VC band, lime research. Text on colour is ink for contrast.
+   Calm colour rhythm: Ink throughout, two Paper sections
+   (capabilities, research) for light/dark contrast, and orange used
+   for two moments only (the results tile and the closing band).
    One container (max-w-7xl px-6) aligned with the nav and footer.
    Brand: Work Sans headlines, Inter body, DM Sans labels, Ink
    surfaces, orange for CTAs and key numbers.
@@ -135,7 +135,6 @@ function SxswVideo({ priority = false }: { priority?: boolean }) {
       <Image src="/cliff-sxsw-ag1-poster.jpg" alt="" fill priority={priority} sizes="(min-width: 1024px) 640px, 100vw" className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]" />
       <span className="absolute inset-0 bg-tt-ink/25 transition-colors group-hover:bg-tt-ink/10" aria-hidden="true" />
       <span className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-tt-orange transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
-        <span className="absolute inset-0 animate-ping rounded-full bg-tt-orange/40 motion-reduce:animate-none" />
         <svg className="relative ml-1 h-7 w-7 text-tt-ink" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
       </span>
     </button>
@@ -231,14 +230,14 @@ function ClientMarquee() {
   const row = (hidden: boolean) =>
     CLIENTS.map((c) => (
       <li key={`${hidden ? 'b' : 'a'}-${c}`} aria-hidden={hidden || undefined} className="flex shrink-0 items-center gap-12">
-        <span className="whitespace-nowrap font-eyebrow text-base font-medium uppercase tracking-[0.22em] text-tt-ink sm:text-lg">{c}</span>
-        <span className="h-1.5 w-1.5 rounded-full bg-tt-ink" aria-hidden="true" />
+        <span className="whitespace-nowrap font-eyebrow text-sm uppercase tracking-[0.22em] text-tt-gray-300">{c}</span>
+        <span className="h-1 w-1 rounded-full bg-tt-orange" aria-hidden="true" />
       </li>
     ));
   return (
-    <section className="bg-tt-orange py-6" aria-label="Brands we have grown">
+    <section className="border-y border-white/10 bg-tt-ink py-6" aria-label="Brands we have grown">
       <div className="relative overflow-hidden">
-        <ul className="flex w-max animate-logo-scroll items-center gap-12 pr-12 motion-reduce:animate-none" style={{ animationDuration: '50s' }}>
+        <ul className="flex w-max animate-logo-scroll items-center gap-12 pr-12 motion-reduce:animate-none" style={{ animationDuration: '70s' }}>
           {row(false)}
           {row(true)}
         </ul>
@@ -292,18 +291,18 @@ function ResultsBento() {
           </Reveal>
 
           <Reveal delay={0.1} className="md:col-span-1">
-            <Link href="/results/monarch-money" className="group flex h-full min-h-[13rem] flex-col justify-end rounded-2xl bg-tt-lime p-6 transition-transform duration-300 hover:-translate-y-1">
-              <span className="block font-display text-5xl font-bold tracking-[-0.04em] text-tt-ink"><CountUp value={STATS.monarch.usersGrowth} /></span>
-              <span className="mt-1 block text-sm font-medium text-tt-ink">Users</span>
-              <span className="mt-3 block font-eyebrow text-xs text-tt-ink">Monarch Money, then a {STATS.monarch.seriesB} Series B</span>
+            <Link href="/results/monarch-money" className={`group flex h-full min-h-[13rem] flex-col justify-end ${CARD} p-6 transition-colors hover:border-white/25`}>
+              <span className="block font-display text-5xl font-bold tracking-[-0.04em] text-white"><CountUp value={STATS.monarch.usersGrowth} /></span>
+              <span className="mt-1 block text-sm text-tt-gray-100">Users</span>
+              <span className="mt-3 block font-eyebrow text-xs text-tt-gray-200">Monarch Money, then a {STATS.monarch.seriesB} Series B</span>
             </Link>
           </Reveal>
 
           <Reveal delay={0.15} className="md:col-span-2">
-            <Link href="/results/national-broadband-provider" className="group flex h-full flex-col justify-center rounded-2xl bg-tt-teal p-6 transition-transform duration-300 hover:-translate-y-1 lg:p-7">
+            <Link href="/results/national-broadband-provider" className={`group flex h-full flex-col justify-center ${CARD} p-6 transition-colors hover:border-white/25 lg:p-7`}>
               <span className="flex items-center justify-between gap-4">
-                <span className="font-eyebrow text-xs font-medium text-tt-ink">National broadband provider, six months</span>
-                <Arrow className="h-4 w-4 text-tt-ink transition-transform group-hover:translate-x-1" />
+                <span className="font-eyebrow text-xs text-tt-gray-200">National broadband provider, six months</span>
+                <Arrow className="h-4 w-4 text-tt-gray-300 transition-transform group-hover:translate-x-1" />
               </span>
               <span className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
                 {[
@@ -313,8 +312,8 @@ function ResultsBento() {
                   { v: STATS.broadband.rankingPositions, l: 'Google rank positions' },
                 ].map((m) => (
                   <span key={m.l} className="block">
-                    <span className="block font-display text-3xl font-bold tracking-[-0.03em] text-tt-ink"><CountUp value={m.v} /></span>
-                    <span className="mt-1 block text-xs font-medium text-tt-ink">{m.l}</span>
+                    <span className="block font-display text-3xl font-bold tracking-[-0.03em] text-white"><CountUp value={m.v} /></span>
+                    <span className="mt-1 block text-xs text-tt-gray-200">{m.l}</span>
                   </span>
                 ))}
               </span>
@@ -468,7 +467,7 @@ const WORK = [
     metricLabel: 'Website conversion rate',
     summary: `Purchases up ${STATS.broadband.purchases.replace('+', '')} and revenue up ${STATS.broadband.revenue.replace('+', '')}, from two test markets to the national footprint in six months.`,
     image: '/images/conversion-optimization-abstract-brand.png',
-    accent: 'text-tt-teal',
+    accent: 'text-tt-orange',
   },
   {
     slug: 'monarch-money',
@@ -478,7 +477,7 @@ const WORK = [
     metricLabel: 'Users',
     summary: `Growth with unit economics that held under investor scrutiny. Monarch went on to raise a ${STATS.monarch.seriesB} Series B.`,
     image: '/images/scatter-plot-data-viz-brand.png',
-    accent: 'text-tt-lime',
+    accent: 'text-tt-orange',
   },
 ] as const;
 
@@ -534,36 +533,33 @@ const PLAN = [
 
 function PortfolioPlan() {
   return (
-    <section className={`bg-tt-teal ${SECTION}`}>
-      <div className={`${WRAP} grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16`}>
-        <Reveal className="lg:col-span-5">
-          <p className="flex items-center gap-3 font-eyebrow text-sm font-medium text-tt-ink">
-            <span className="h-0.5 w-6 bg-tt-ink" aria-hidden="true" />
-            For PE and VC funds
-          </p>
-          <h2 className="mt-4 font-display text-4xl font-bold leading-[1.06] tracking-[-0.03em] text-tt-ink sm:text-5xl">
-            Operators for your portfolio, from first call to fund-level reporting.
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-tt-ink">
-            Strategic Diagnostics, proprietary AI tooling and a team built at Google, deployed on your timeline.
-          </p>
-          <div className="mt-9">
-            <Link href="/pe-vc" className="inline-flex items-center gap-2 rounded-full bg-tt-ink px-8 py-4 text-base font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5">
-              Fund partnerships <Arrow />
-            </Link>
+    <section className={`bg-tt-ink ${SECTION}`}>
+      <div className={WRAP}>
+        <Reveal className="overflow-hidden rounded-3xl border border-tt-teal/40 bg-tt-gray-800/40">
+          <div className="grid grid-cols-1 gap-12 p-8 sm:p-12 lg:grid-cols-12 lg:gap-16 lg:p-14">
+            <div className="lg:col-span-5">
+              <p className="font-eyebrow text-sm font-medium text-tt-teal">For PE and VC funds</p>
+              <h2 className="mt-4 font-display text-3xl font-bold leading-[1.1] tracking-[-0.025em] text-white sm:text-4xl">
+                Operators for your portfolio, from first call to fund-level reporting.
+              </h2>
+              <p className="mt-5 text-base font-light leading-relaxed text-tt-gray-200">
+                Strategic Diagnostics, proprietary AI tooling and a team built at Google, deployed on your timeline.
+              </p>
+              <div className="mt-8">
+                <TextLink href="/pe-vc">Fund partnerships</TextLink>
+              </div>
+            </div>
+            <ol className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:col-span-7 lg:self-center">
+              {PLAN.map((p, i) => (
+                <li key={p.when} className="flex h-full flex-col rounded-2xl border border-white/10 bg-tt-ink p-6">
+                  <span className="font-display text-4xl font-bold leading-none text-tt-teal">0{i + 1}</span>
+                  <span className="mt-6 font-eyebrow text-sm text-tt-gray-200">{p.when}</span>
+                  <span className="mt-2 font-display text-lg font-bold leading-snug text-white">{p.what}</span>
+                </li>
+              ))}
+            </ol>
           </div>
         </Reveal>
-        <ol className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:col-span-7 lg:self-center">
-          {PLAN.map((p, i) => (
-            <Reveal key={p.when} delay={i * 0.08}>
-              <li className="flex h-full flex-col rounded-2xl bg-tt-ink p-6 lg:p-7">
-                <span className="font-display text-5xl font-bold leading-none text-tt-teal">0{i + 1}</span>
-                <span className="mt-8 font-eyebrow text-sm text-tt-gray-200">{p.when}</span>
-                <span className="mt-2 font-display text-xl font-bold leading-snug text-white">{p.what}</span>
-              </li>
-            </Reveal>
-          ))}
-        </ol>
       </div>
     </section>
   );
@@ -580,7 +576,7 @@ const LEADERS = [
 
 function LeadershipAndTech() {
   return (
-    <section className={`bg-tt-ink ${SECTION}`}>
+    <section className={`bg-tt-ink ${SECTION} pt-0 lg:pt-0`}>
       <div className={`${WRAP} grid grid-cols-1 gap-5 lg:grid-cols-3`}>
         <Reveal>
           <div className={`flex h-full flex-col ${CARD} p-8`}>
@@ -667,7 +663,7 @@ const ARTICLES = [
 function Research() {
   const [lead, ...rest] = ARTICLES;
   return (
-    <section className={`bg-tt-lime ${SECTION}`}>
+    <section className={`bg-tt-paper ${SECTION}`}>
       <div className={WRAP}>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
@@ -684,7 +680,7 @@ function Research() {
                 <Image src={lead.image} alt="" fill sizes="(min-width: 1024px) 700px, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
               </div>
               <p className="mt-6 font-eyebrow text-xs font-medium text-tt-ink">
-                {lead.category} <span className="text-tt-gray-800">&middot; {lead.readTime}</span>
+                {lead.category} <span className="text-tt-gray-700">&middot; {lead.readTime}</span>
               </p>
               <h3 className="mt-2 font-display text-2xl font-bold leading-snug text-tt-ink underline-offset-4 decoration-tt-ink decoration-2 group-hover:underline sm:text-3xl">{lead.title}</h3>
             </Link>
@@ -698,7 +694,7 @@ function Research() {
                   </div>
                   <div className="col-span-3">
                     <p className="font-eyebrow text-xs font-medium text-tt-ink">
-                      {a.category} <span className="text-tt-gray-800">&middot; {a.readTime}</span>
+                      {a.category} <span className="text-tt-gray-700">&middot; {a.readTime}</span>
                     </p>
                     <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-tt-ink underline-offset-4 decoration-tt-ink decoration-2 group-hover:underline">{a.title}</h3>
                   </div>
