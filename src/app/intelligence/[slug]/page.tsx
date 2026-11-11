@@ -5,7 +5,7 @@ import { fetchPageBlocks, findPageIdBySlug, fetchPageCover } from '@/lib/notion'
 import { ArticlePageClient } from '@/components/ArticlePageClient';
 import { HELD_SLUGS, publishedPosts } from '@/data/publishedPosts';
 import { cleanBlocks } from '@/lib/articleHygiene';
-import { resolveArticleImage, usableCover } from '@/lib/articleImages';
+import { resolveArticleImage } from '@/lib/articleImages';
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -133,9 +133,7 @@ export default async function ArticlePage({
   const [blocks, coverImage] = pageId
     ? await Promise.all([
         fetchPageBlocks(pageId).then(cleanBlocks),
-        usableCover(article.coverImage)
-          ? Promise.resolve(article.coverImage)
-          : fetchPageCover(pageId),
+        article.coverImage ? Promise.resolve(article.coverImage) : fetchPageCover(pageId),
       ])
     : [[], null];
 
