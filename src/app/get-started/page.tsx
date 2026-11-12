@@ -274,14 +274,25 @@ export default function GetStartedPage() {
       {/* ============================================================ */}
       <section id="calendly" className="max-w-7xl mx-auto px-6 mt-32">
         <h2 className="text-3xl font-bold text-center mb-4">
-          Or schedule directly
+          {process.env.NEXT_PUBLIC_CALENDLY_URL
+            ? 'Or schedule directly'
+            : 'Prefer to talk first?'}
         </h2>
         <p
           className="text-center mb-10 max-w-2xl mx-auto"
           style={{ color: '#A9B6BA' }}
         >
-          Pick a time that works for you and we&rsquo;ll walk you through
-          everything on a quick call.
+          {process.env.NEXT_PUBLIC_CALENDLY_URL ? (
+            <>
+              Pick a time that works for you and we&rsquo;ll walk you through
+              everything on a quick call.
+            </>
+          ) : (
+            <>
+              Send us a note and we&rsquo;ll set up a quick call to walk you
+              through everything.
+            </>
+          )}
         </p>
         {process.env.NEXT_PUBLIC_CALENDLY_URL ? (
           <div
@@ -292,7 +303,6 @@ export default function GetStartedPage() {
           />
         ) : (
           <div className="mx-auto max-w-2xl text-center py-16 px-8 rounded-xl" style={{ background: 'rgba(0, 0, 0, 0.14)', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
-            <p className="text-lg font-medium text-white mb-3">Ready to talk?</p>
             <p className="mb-6" style={{ color: '#A9B6BA' }}>
               Email us at{' '}
               <a href="mailto:info@tigertracks.ai" className="text-[#FE5E16] hover:underline">
