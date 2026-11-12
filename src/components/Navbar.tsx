@@ -302,7 +302,7 @@ export function Navbar() {
   /* Close mobile menu on resize to desktop */
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1140) {
         setMobileOpen(false);
         setMobileAccordion(null);
       }
@@ -379,7 +379,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-8 lg:flex">
+        <div className="hidden items-center gap-5 whitespace-nowrap min-[1140px]:flex xl:gap-8">
           {navLinks.map((link) => {
             const hasMega = link.label in megaMenus;
             const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
@@ -436,7 +436,7 @@ export function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="relative flex flex-col gap-1.5 lg:hidden p-2 -m-2 z-[60]"
+          className="relative flex flex-col gap-1.5 min-[1140px]:hidden p-2 -m-2 z-[60]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
@@ -595,7 +595,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm lg:hidden z-[51]"
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm min-[1140px]:hidden z-[51]"
               onClick={closeMobile}
             />
 
@@ -610,7 +610,7 @@ export function Navbar() {
                 damping: 30,
                 stiffness: 300,
               }}
-              className="fixed inset-y-0 right-0 w-full max-w-sm lg:hidden z-[52] overflow-y-auto overscroll-contain"
+              className="fixed inset-y-0 right-0 w-full max-w-sm min-[1140px]:hidden z-[52] overflow-y-auto overscroll-contain"
               style={{
                 background: 'rgba(5, 46, 63, 0.97)',
                 backdropFilter: 'blur(24px)',

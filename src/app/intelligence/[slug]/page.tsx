@@ -5,22 +5,10 @@ import { fetchPageBlocks, findPageIdBySlug, fetchPageCover } from '@/lib/notion'
 import { ArticlePageClient } from '@/components/ArticlePageClient';
 import { HELD_SLUGS, publishedPosts } from '@/data/publishedPosts';
 import { cleanBlocks } from '@/lib/articleHygiene';
+import { resolveArticleImage } from '@/lib/articleImages';
 
 export const revalidate = 3600;
 export const dynamicParams = true;
-
-/* ------------------------------------------------------------------ */
-/*  OG Image Fallbacks (keyed by category)                             */
-/* ------------------------------------------------------------------ */
-
-const CATEGORY_OG_IMAGES: Record<string, string> = {
-  'AI & Automation': '/images/ai-automation-abstract-brand.png',
-  'Platform Strategy': '/images/seo-organic-discovery-brand.png',
-  'Measurement & Attribution': '/images/conversion-optimization-abstract-brand.png',
-  'Creative & Content': '/images/creative-ugc-performance-brand.png',
-  'Agency Strategy': '/images/agency-strategy-abstract-brand.png',
-  'PE/VC': '/images/pe-vc-financial-tech-brand.png',
-};
 
 const SITE_URL = 'https://tigertracks.ai';
 const FALLBACK_DESCRIPTION =
@@ -60,11 +48,8 @@ export async function generateMetadata({
   const title = `${article.title} | Tiger Tracks Intelligence`;
   const description = article.excerpt?.trim() || FALLBACK_DESCRIPTION;
 
-  /* Image priority: Notion cover > category fallback > site default */
-  const ogImage =
-    article.coverImage ||
-    CATEGORY_OG_IMAGES[article.category] ||
-    '/images/og-brand.png';
+  /* Image priority: working Notion cover > category fallback > site default */
+  const ogImage = resolveArticleImage(article.category, article.coverImage);
 
   /* Build absolute URL for local images (Notion URLs are already absolute) */
   const ogImageUrl = ogImage.startsWith('http')
@@ -152,17 +137,18 @@ export default async function ArticlePage({
       ])
     : [[], null];
 
+  // Covers on dead hosts are dropped; the brand category image stands in.
+  const articleImage = resolveArticleImage(
+    article.category,
+    coverImage,
+    article.coverImage,
+  );
+
   const enrichedArticle = {
     ...article,
     ...(pageId && { pageId }),
-    ...(coverImage && { coverImage }),
+    coverImage: articleImage,
   };
-
-  const articleImage =
-    coverImage ||
-    article.coverImage ||
-    CATEGORY_OG_IMAGES[article.category] ||
-    '/images/og-brand.png';
   const articleImageUrl = articleImage.startsWith('http')
     ? articleImage
     : `${SITE_URL}${articleImage}`;
